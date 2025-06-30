@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Urban Footprint Analysis - Prince Osei Boateng Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>Prince Osei Boateng Portfolio</h1>
+						<p>Geoinformatics & Remote Sensing Specialist | Spatial Data Enthusiast | Driving Sustainable, Data-Driven Solutions| Emergy Enthusiast <a href="https://www.linkedin.com/in/oseiprince/"></a><a href="https://html5up.net"></a><br />
+						 <a href="https://html5up.net/license"></a></p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Back to Projects</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Prince Portfolio</a></li>
+							<li><a href="generic.html">Profile</a></li>
+							<li><a href="elements.html">Elements Reference</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Full Story -->
+						<article class="post">
+							<header class="major">
+								<h2>Urban Footprint Analysis of Beitigheim-Bissingen</h2>
+								<p>This is a spatial analysis project mapping the urban footprint of the Beitigheim-Bissingen municipality (Baden-Württemberg, Germany) using QGIS and ESRI Land Cover data. The primary objective was to assess patterns of urbanization within a 10 km buffer zone, offering insights into built-up intensity and suburban expansion around the municipality.</p>
+							</header>
+
+							<h3>Spatial Visualization: Urban Footprint Map</h3>
+							<p>The binary classification map distinguishes:</p>
+							<ul>
+								<li>Urban areas (red) – high-density built-up zones.</li>
+								<li>Suburban areas (cyan) – lower-density fringe development.</li>
+							</ul>
+							<p>These classes are overlaid with the municipality boundary to contextualize spatial growth. Key observations:</p>
+							<ul>
+								<li>A concentrated urban core lies within the municipal boundary, likely aligned with the historical center.</li>
+								<li>Suburban sprawl radiates into the buffer zone, especially toward the northeast and southeast, hinting at urban growth along transport corridors.</li>
+								<li>Southwest and northwest zones remain relatively diffuse, possibly due to rural land use, topography, or zoning constraints.</li>
+							</ul>
+							<a href="#" class="image main"><img src="images/Beitighem-Bissingen UFP.jpg" alt="Urban Footprint Map" /></a>
+
+							<h3>Density Insights: Built-up Area Heatmap</h3>
+							<p>The second map visualizes the intensity of built-up structures using a heatmap gradient:</p>
+							<ul>
+								<li>Blue represents low-density (~1).</li>
+								<li>Red marks the highest density (~9,845).</li>
+							</ul>
+							<p>The urban core emerges as a dense hotspot, while transitional suburban densities form rings around it. Notable:</p>
+							<ul>
+								<li>High-density pockets extend toward the northeast and southeast, supporting the idea of corridor-driven development.</li>
+								<li>Lower densities prevail in other directions, reinforcing the footprint map’s pattern.</li>
+							</ul>
+							<p>This visual helped distinguish compact urban development from scattered suburbanization.</p>
+							<a href="#" class="image main"><img src="images/Density of Builtup.jpg" alt="Built-up Area Heatmap" /></a>
+
+							<h3>Histogram Analysis</h3>
+							<p>The raster histogram presents a positively skewed distribution:</p>
+							<ul>
+								<li>A sharp peak at low pixel values signifies prevalence of low-density or non-built-up pixels.</li>
+								<li>A long tail stretches to the maximum (~9,845), indicating fewer but intense urban cores.</li>
+							</ul>
+							<p>By applying a minimum threshold of 950, I isolated meaningful built-up areas while filtering background noise. This ~10% of the max value serves as a functional threshold:</p>
+							<ul>
+								<li>Helps identify low-density areas that still qualify as urban/suburban.</li>
+								<li>Suggests that around 10–15% of built-up pixels may fall into a transitional suburban category, while the rest represents more consolidated urban development.</li>
+							</ul>
+							<p>This informed my reclassification and visual rendering of urban density.</p>
+							<a href="#" class="image main"><img src="images/Rasterhistogram.jpg" alt="Histogram of Built-up Areas" style="width: 50%; display: block; margin: 0 auto;" /></a>
+
+							<h3>Reflections & Takeaways</h3>
+							<p>This project reveals key aspects of urban growth in Beitigheim-Bissingen:</p>
+							<ul>
+								<li>The dense urban core reflects historical development patterns likely anchored by rail connectivity, consistent with other cities in the Stuttgart metro region.</li>
+								<li>Suburban expansion is evident, particularly to the northeast and southeast, likely shaped by infrastructure and accessibility.</li>
+								<li>Sparser development in the southwest and northwest may relate to land-use restrictions, protected zones, or agricultural land.</li>
+								<li>Future urbanization is expected to be incremental, constrained by environmental protections in Baden-Württemberg and steered by transport infrastructure.</li>
+							</ul>
+							<p>Methodological Strengths:</p>
+							<ul>
+								<li>Integration of vector and raster data (municipal boundaries + land cover).</li>
+								<li>Use of kernel density estimation and threshold-based classification for precise urban/suburban delineation.</li>
+								<li>Application of visualization techniques to communicate spatial patterns effectively.</li>
+							</ul>
+							<p>This project showcases my skills in geospatial analysis, data visualization, and urban planning applications, offering a foundation for further studies on sustainable urban growth. I’d welcome feedback or collaboration on refining density thresholds or expanding this analysis!</p>
+						</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>In der Au 16, Untertükheim, Stuttgart<br />
+								70327</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(+49) 1633-9124-01</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">oseiboateng93@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>© Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Cesium 3D Energy Dashboard and Web AR Scene - Prince Osei Boateng Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>Prince Osei Boateng Portfolio</h1>
+						<p>Geoinformatics & Remote Sensing Specialist | Spatial Data Enthusiast | Driving Sustainable, Data-Driven Solutions| Emergy Enthusiast <a href="https://www.linkedin.com/in/oseiprince/"></a><a href="https://html5up.net"></a><br />
+						 <a href="https://html5up.net/license"></a></p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Back to Projects</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Prince Portfolio</a></li>
+							<li><a href="generic.html">Profile</a></li>
+							<li><a href="elements.html">Elements Reference</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Full Story -->
+						<article class="post">
+							<header class="major">
+								<h2>Cesium 3D Energy Dashboard and Web AR Scene</h2>
+								<p>This project, developed in collaboration with a friend as part of the Master Photogrammetry and Geoinformatics module CIV at Hochschule für Technik Stuttgart, focuses on creating a 3D energy dashboard for Stöckach using Cesium and a Web AR scene with Three.js. It showcases advanced geospatial visualization and augmented reality techniques.</p>
+							</header>
+
+							<h3>Cesium 3D Energy Dashboard of Stöckach</h3>
+							<p>The CityGML data for this exercise was transformed into 3DTiles using FME Workbench. The CSV and CityGML data were joined using the Feature Joiner of the FME. The following figure illustrates the joining and conversion process:</p>
+							<a href="#" class="image main"><img src="images/joincon.jpg" alt="Joining and Conversion Process" width="600" height="300" /></a>
+
+							<p>The specific heating demand and the number of buildings were extracted for chart analysis in the dashboard using Chart.js and Cesium. Buildings were styled based on their energy efficiency levels in the following ranges: Below 60, 60-120, 120-170, 170-230, and Above 230 kWh/m². The charts in the dashboard were configured to be responsive to the zoom level, adjusting to include only buildings within the current zoom extent. The dashboard is shown below:</p>
+							<a href="#" class="image main"><img src="images/Stokach Dashboard.png" alt="3D Dashboard" width="800" height="400" /></a>
+
+							<p>Website: <a href="https://abdulwfuseini.github.io/3d_dashboard_stoeckah/">https://abdulwfuseini.github.io/3d_dashboard_stoeckah/</a></p>
+
+							<h3>Web AR Scene</h3>
+							<h4>1. Initialization and Scene Setup</h4>
+							<p>We started by initializing the WebXR session and setting up the Three.js scene. This includes creating a canvas element, initializing a WebGL context, and creating the scene object. The following figure illustrates the code for scene setup:</p>
+							<a href="#" class="image main"><img src="images/Canvas1.png" alt="Scene Setup Code" /></a>
+
+							<h4>2. Cube Creation</h4>
+							<p>The second key part involves creating a cube with different colored materials on each side and adding it to the scene. The materials array consisted of six different colored materials with a cube geometry of dimensions 0.5x0.5x0.5m assigned to the materials. The cube is positioned at coordinates (0, 0, -1) relative to the camera. The cube color setup is shown below:</p>
+							<a href="#" class="image main"><img src="images/Cube2.png" alt="Cube Color Setup" /></a>
+
+							<h4>3. Rendering Loop and Frame Handling</h4>
+							<p>The final step is the rendering loop, which continuously updates and renders the scene within the AR session. “session.requestAnimationFrame(onXRFrame)” initiates the rendering loop, ensuring continuous updates. “gl.bindFramebuffer(gl.FRAMEBUFFER, session.renderState.baseLayer.framebuffer)” binds the WebGL framebuffer, and “renderer.render(scene, camera)” renders the scene. This loop maintains a smooth AR experience by leveraging WebGL and adjusting the viewport dynamically. The render loop and frame handling code is illustrated below:</p>
+							<a href="#" class="image main"><img src="images/rendering.png" alt="Render Loop and Frame Handling" /></a>
+
+							<p>The interface of the Web Augmented Reality and the Web AR Scene of the Cube Feature are shown below:</p>
+							<a href="#" class="image main"><img src="images/ar.jpg" alt="Web AR Interface" /></a>
+							<a href="#" class="image main"><img src="images/cube feature.png" alt="Web AR Cube Scene" /></a>
+
+							<p>Please follow this link for Web AR Cube Scene verification: <a href="https://oseiprince4567.github.io/artask/">https://oseiprince4567.github.io/artask/</a></p>
+
+						</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>In der Au 16 Untertukheim, Stuttgart<br />
+								70327</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(+49) 1633-9124-01</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">oseiboateng93@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>© Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
