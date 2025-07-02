@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Buildings Segmentation Project - Prince Osei Boateng Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper" class="fade-in">
+
+			<!-- Intro -->
+				<div id="intro">
+					<h1>Buildings Segmentation Analysis</h1>
+					<p>Deep Learning with Deepness Plugin in QGIS</p>
+					<ul class="actions">
+						<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+					</ul>
+				</div>
+
+			<!-- Header -->
+				<header id="header">
+					<a href="index.html" class="logo">Back to Projects</a>
+				</header>
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li><a href="index.html">Prince Portfolio</a></li>
+						<li><a href="generic.html">Profile</a></li>
+						<li><a href="elements.html">Elements Reference</a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					</ul>
+				</nav>
+
+			<!-- Main -->
+				<div id="main">
+
+					<!-- Full Story -->
+					<article class="post">
+						<header class="major">
+							<h2>Buildings Segmentation with Deep Learning in QGIS - Deepness Plugin</h2>
+							<p>This project utilized the Deepness Plugin in QGIS to perform building segmentation using a pretrained model from the ramp Building Footprint Dataset - Paris, France, tested on Feuersee and Konradin-Kreutzer Weg at 40cm and 50cm resolutions.</p>
+						</header>
+
+						<h3>Project Overview</h3>
+						<p>The ramp Building Footprint Dataset - Paris, France (C2781412367-MLHUBVersion 1) was used, comprising 1,027 tiles and 3,468 buildings with 30cm high-resolution imagery and 256x256 pixel tile/label pairs. The model type was set to "Segmentor" with input channels mapped based on 4 image bands and 3 model channels. Processing was conducted at both 40cm and 50cm resolutions, using a consistent tile size of 256x256 pixels to evaluate performance across different scales.</p>
+
+						<h3>Results</h3>
+						<ul>
+							<li><strong>Feuersee (Urban Area):</strong>
+								<ul>
+									<li>40cm Resolution: Background Area: 293,453.28 m² (79.18%), Building Area: 77,159.2 m² (20.82%)</li>
+									<li>50cm Resolution: Background Area: ~276,650.50 m² (78.50%), Building Area: ~92,118.50 m² (21.50%)</li>
+								</ul>
+								<a href="#" class="image main"><img src="images/feuerseebuldgs.jpg" alt="Pre-Segmentaion Feuersee" style="max-width: 80%; height: auto; display: block; margin: 0 auto;" /></a>
+								<a href="#" class="image main"><img src="images/40cm reso.jpg" alt="Segmented Buildings at 40cm Resolution" style="max-width: 80%; height: auto; display: block; margin: 0 auto;" /></a>
+                                <a href="#" class="image main"><img src="images/50cmcompletefuersee.jpg" alt="Segmented Buildings at 50cm Resolution" style="max-width: 80%; height: auto; display: block; margin: 0 auto;" /></a>
+                                The model effectively segmented the dense urban landscape. At 50cm, the detection of building footprints improved slightly, capturing more structures compared to 40cm, though some smaller or obscured buildings remained challenging.
+							</li>
+							<li><strong>Konradin-Kreutzer Weg (Rural Area):</strong>
+								<ul>
+									<li>40cm Resolution:
+										<ul>
+											<li>Segment 1: Background Area: 351,259.36 m² (95.08%), Building Area: 18,588 m² (4.92%)</li>
+										</ul>
+									</li>
+									<li>50cm Resolution:
+										<ul>
+											<li>Segment 2: Background Area: ~344,749.50 m² (93.20%), Building Area: ~24,766.50 m² (6.80%)</li>
+										</ul>
+								</ul>
+							</li>
+						</ul>
+						<a href="#" class="image main"><img src="images/fewer buidlings.jpg" alt="Pre-Segmentation Konradin-Kreutzer" style="max-width: 80%; height: auto; display: block; margin: 0 auto;" /></a>
+                        <a href="#" class="image main"><img src="images/40cmbuildfewer.jpg" alt="Segmented Buildings at 40cm Resolution" style="max-width: 80%; height: auto; display: block; margin: 0 auto;" /></a>
+						<a href="#" class="image main"><img src="images/50cmfewerbldgs.jpg" alt="Segmented Buildings at 40cm Resolution" style="max-width: 80%; height: auto; display: block; margin: 0 auto;" /></a>
+
+						<h3>Video Demonstration</h3>
+						<video autoplay muted loop style="max-width: 80%; height: auto; display: block; margin: 0 auto;">
+							<source src="images/50cmfeuersee.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+						<p style="text-align: center;">Feuersee 50cm Resolution - Before and After Swipe Effect</p>
+						<video autoplay muted loop style="max-width: 80%; height: auto; display: block; margin: 0 auto;">
+							<source src="images/50cmfewer.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+						<p style="text-align: center;">Konradin-Kreutzer Weg 50cm Resolution - Before and After Swipe Effect</p>
+
+						<h3>Analysis</h3>
+						<ul>
+							<li>The pretrained model performed robustly across varying densities and resolutions.</li>
+							<li>The 50cm resolution aligned well with the dataset, offering a foundation for further development.</li>
+							<li>The 40cm resolution provided detailed results but struggled slightly with dense urban areas.</li>
+						</ul>
+						<p>Future work could involve fine-tuning the model with local data at 50cm resolution to enhance accuracy in urban settings.</p>
+
+						<h3>Reflections & Insights</h3>
+						<p>This project highlights the potential of deep learning for building footprint extraction using the Deepness Plugin in QGIS. The ramp dataset provided a solid base, and the 50cm resolution with 256x256 pixel tiles emerged as optimal, offering better headway for future refinements. Future work could involve fine-tuning the model with local data at this resolution to enhance accuracy in dense urban settings.</p>
+					</article>
+
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<section>
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field">
+									<label for="name">Name</label>
+									<input type="text" name="name" id="name" />
+								</div>
+								<div class="field">
+									<label for="email">Email</label>
+									<input type="text" name="email" id="email" />
+								</div>
+								<div class="field">
+									<label for="message">Message</label>
+									<textarea name="message" id="message" rows="3"></textarea>
+								</div>
+							</div>
+							<ul class="actions">
+								<li><input type="submit" value="Send Message" /></li>
+							</ul>
+						</form>
+					</section>
+					<section class="split contact">
+						<section class="alt">
+							<h3>Address</h3>
+							<p>In der Au 16, Untertükheim, Stuttgart<br />70327</p>
+						</section>
+						<section>
+							<h3>Phone</h3>
+							<p><a href="#">(+49) 1633-9124-01</a></p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="#">oseiboateng93@gmail.com</a></p>
+						</section>
+						<section>
+							<h3>Social</h3>
+							<ul class="icons alt">
+								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li
