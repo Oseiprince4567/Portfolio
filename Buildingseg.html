@@ -45,12 +45,12 @@
 					<!-- Full Story -->
 					<article class="post">
 						<header class="major">
-							<h2>Buildings Segmentation with Deep Learning in QGIS - Deepness Plugin</h2>
-							<p>This project utilized the Deepness Plugin in QGIS to perform building segmentation using a pretrained model from the ramp Building Footprint Dataset - Paris, France, tested on Feuersee and Konradin-Kreutzer Weg at 40cm and 50cm resolutions.</p>
+							<h2>Buildings Segmentation with Deep Learning in QGIS utilizing Deepness Plugin</h2>
+							<p>This project utilized the Deepness Plugin in QGIS to perform building segmentation using a pretrained model from the ramp Building Footprint, tested on Feuersee and Konradin-Kreutzer Weg at 40cm and 50cm resolutions.This post summarizes the workflow, key results, and insights gained.</p>
 						</header>
 
-						<h3>Project Overview</h3>
-						<p>The ramp Building Footprint Dataset - Paris, France (C2781412367-MLHUBVersion 1) was used, comprising 1,027 tiles and 3,468 buildings with 30cm high-resolution imagery and 256x256 pixel tile/label pairs. The model type was set to "Segmentor" with input channels mapped based on 4 image bands and 3 model channels. Processing was conducted at both 40cm and 50cm resolutions, using a consistent tile size of 256x256 pixels to evaluate performance across different scales.</p>
+						<h3>Method</h3>
+						<p>Using the Deepness Plugin in QGIS, I loaded the pretrained model and applied it to satellite imagery of Feuersee and Konradin-Kreutzer Weg. The model type was set to "Segmentor," with input channels mapped based on the image bands (4) and model channels (3). Processing was conducted at both 40cm and 50cm resolutions, using a consistent tile size of 256x256 pixels to evaluate performance across different scales..</p>
 
 						<h3>Results</h3>
 						<ul>
@@ -67,6 +67,7 @@
                                 <p style="text-align: center;">Segmented Buildings at 50cm Resolution </p>
                                 The model effectively segmented the dense urban landscape. At 50cm, the detection of building footprints improved slightly, capturing more structures compared to 40cm, though some smaller or obscured buildings remained challenging.
 							</li>
+
 							<li><strong>Konradin-Kreutzer Weg (Rural Area):</strong>
 								<ul>
 									<li>40cm Resolution:
@@ -88,7 +89,7 @@
 						<a href="#" class="image main"><img src="images/50cmfewerbldgs.jpg" alt="Segmented Buildings at 40cm Resolution" style="max-width: 60%; height: auto; display: block; margin: 0 auto;" /></a>
                         <p style="text-align: center;">Segmented Buildings at 50cm Resolution </p>
 
-						<h3>Video Demonstration</h3>
+						<h3>Visualization</h3>
 						<video autoplay muted loop style="max-width: 80%; height: auto; display: block; margin: 0 auto;">
 							<source src="images/50cmfeuersee.mp4" type="video/mp4">
 							Your browser does not support the video tag.
