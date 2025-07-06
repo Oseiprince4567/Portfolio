@@ -51,11 +51,11 @@
             <p>This project models a 3D flood scenario in Mannheim’s city center using QGIS. Digital elevation models (DEM), building footprints, and OpenStreetMap data were used to simulate inundation and visualize flood-prone areas under low elevation flood conditions.</p>
 
             <figure>
-                <img src="images/aoi2.jpg" alt="Area of interest(Mannheim City Center)" width="80%" height="auto">
+                <img src="images/aoi2.jpg" alt="Area of interest(Mannheim City Center)" width="60%" height="auto">
                 <figcaption style="text-align:center; font-style:italic;">Figure: Area of interest(Mannheim City Center) utilized in the study.</figcaption>
             </figure>
 
-            <h3>🛠️ Tools & Technologies</h3>
+            <h3>Tools & Technologies</h3>
             <ul>
                 <li>QGIS 3.44</li>
                 <li>QuickOSM & QGIS2ThreeJS plugins</li>
@@ -64,56 +64,57 @@
                 <li>OpenStreetMap buildings (GeoPackage)</li>
             </ul>
 
-            <h3>🗺️ Workflow Breakdown</h3>
+            <h3>Workflow Breakdown</h3>
             <ol>
                 <li><strong>Base Map & Data Collection:</strong> Extracted building footprints and base maps via QuickOSM.</li>
                 <li><strong>Elevation Data:</strong> Processed DTM & DSM, filled NoData gaps for continuous elevation surface.</li>
-                <li><strong>Flood Simulation:</strong> Used Raster Calculator to simulate flood at ≤ 1m elevation: <code>("dtm_voidfilled@1" <= 1)</code></li>
+                <li><strong>Flood Simulation:</strong> Used Raster Calculator to simulate flood at ≤ 5m elevation: <code>("dtm_voidfilled@1" <= 5)</code></li>
                 <li><strong>Terrain Analysis:</strong> Slope raster created to detect barriers like dykes or hills.</li>
                 <li><strong>Building Heights:</strong> Applied Zonal Statistics on DSM to get average height per building footprint.</li>
                 <li><strong>3D Visualization:</strong> Extruded buildings and flood polygons using QGIS2ThreeJS.</li>
             </ol>
 
-            <h3>🌊 Flood Impact Statistics</h3>
+            <h3>Flood Impact Statistics</h3>
             <ul>
                 <li><strong>Total buildings (GeoPackage):</strong> 11,720</li>
                 <li><strong>Flooded buildings (≤ 1m):</strong> 7,935</li>
                 <li><strong>Flood risk exposure:</strong> ~67.7% of buildings affected</li>
             </ul>
-            <p>This demonstrates that over two-thirds of urban structures are at risk under shallow flooding conditions, emphasizing the importance of adaptive planning.</p>
+            <a href="#" class="image main"><img src="images/floodedareas.jpg" alt="2D Visualization of Flooded Buildings" style="max-width: 60%; height: auto; display: block; margin: 0 auto;" /></a>
+            <p>This demonstrates that over two-thirds of urban structures are at risk under significant low-elevation flood scenarios, underscoring the urgent need for adaptive and resilient urban planning.</p>
 
-            <h3>🧠 Scientific Interpretation</h3>
+            <h3>Scientific Interpretation</h3>
             <ul>
                 <li>Mannheim’s low elevation near the Rhine/Neckar rivers contributes to its vulnerability.</li>
                 <li>Central areas are less affected due to elevation planning and man-made dykes.</li>
                 <li>Raising flood thresholds would affect more structures and possibly critical infrastructure.</li>
             </ul>
 
-            <h3>🏙️ 3D Visualization Using QGIS2ThreeJS</h3>
+            <h3>3D Visualization Scenes Using QGIS2ThreeJS</h3>
 
             <figure>
-                <img src="images/3dscene1.jpg" alt="3D City Scene 1" width="100%" height="auto">
+                <img src="images/floodedscene.png" alt="3D City Scene 1" width="60%" height="auto">
                 <figcaption style="text-align:center; font-style:italic;">Figure: Overview of 3D urban terrain and flood zones.</figcaption>
             </figure>
 
             <figure>
-                <img src="images/3dscene2.jpg" alt="3D City Scene 2" width="100%" height="auto">
-                <figcaption style="text-align:center; font-style:italic;">Figure: Closer look at building inundation under 1m flood scenario.</figcaption>
+                <img src="images/scene3.png" alt="3D City Scene 2" width="60%" height="auto">
+                <figcaption style="text-align:center; font-style:italic;">Figure: Closer look at building inundation under 5m flood scenario.</figcaption>
             </figure>
 
             <figure>
-                <img src="images/3dscene3.jpg" alt="3D City Scene 3" width="100%" height="auto">
-                <figcaption style="text-align:center; font-style:italic;">Figure: Elevation-based rendering of critical city blocks.</figcaption>
+                <img src="images/morescene.png" alt="3D City Scene 3" width="60%" height="auto">
+                <figcaption style="text-align:center; font-style:italic;">Figure: Elevation-based rendering on google satellite basemap.</figcaption>
             </figure>
 
             <figure>
-                <img src="images/3dscene4.jpg" alt="3D City Scene 4" width="100%" height="auto">
+                <img src="images/visiblebldgs.png" alt="3D City Scene 4" width="60%" height="auto">
                 <figcaption style="text-align:center; font-style:italic;">Figure: Water depth simulation showing vulnerable infrastructure.</figcaption>
             </figure>
 
-            <h3>🎥 3D Flood Simulation Video</h3>
-            <video width="100%" height="auto" controls>
-                <source src="videos/mannheim_flood_demo.mp4" type="video/mp4">
+            <h3>3D Flood Simulation Visualization</h3>
+            <video width="80%" height="auto" controls>
+                <source src="images/2025-07-05 13-17-05.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <p style="text-align:center; font-style:italic;">Video: Interactive flood simulation of Mannheim showing affected buildings and terrain.</p>
