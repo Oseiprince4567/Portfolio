@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>3D Flood Mapping - Prince Osei Boateng Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+<div id="wrapper" class="fade-in">
+
+    <!-- Intro -->
+    <div id="intro">
+        <h1>3D Flood Mapping & Visualization Of</h1>
+        <p>Mannheim City Center Flood Risk Simulation Using QGIS</p>
+        <ul class="actions">
+            <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+        </ul>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <a href="index.html" class="logo">Back to Projects</a>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="links">
+            <li><a href="index.html">Prince Portfolio</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="elements.html">Elements Reference</a></li>
+        </ul>
+        <ul class="icons">
+            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+        <article class="post">
+            <header class="major">
+                <h2>3D Flood Simulation of Mannheim</h2>
+                <p>Visualizing urban flood risk using QGIS, elevation models, and 3D rendering tools.</p>
+            </header>
+
+            <h3>Project Overview</h3>
+            <p>This project models a 3D flood scenario in Mannheim’s city center using QGIS. Digital elevation models (DEM), building footprints, and OpenStreetMap data were used to simulate inundation and visualize flood-prone areas under low elevation flood conditions.</p>
+
+            <figure>
+                <img src="images/aoi2.jpg" alt="Area of interest(Mannheim City Center)" width="80%" height="auto">
+                <figcaption style="text-align:center; font-style:italic;">Figure: Area of interest(Mannheim City Center) utilized in the study.</figcaption>
+            </figure>
+
+            <h3>🛠️ Tools & Technologies</h3>
+            <ul>
+                <li>QGIS 3.44</li>
+                <li>QuickOSM & QGIS2ThreeJS plugins</li>
+                <li>DTM & DSM (Digital Terrain/Surface Models)</li>
+                <li>Raster Calculator, Zonal Statistics, Hillshade tools</li>
+                <li>OpenStreetMap buildings (GeoPackage)</li>
+            </ul>
+
+            <h3>🗺️ Workflow Breakdown</h3>
+            <ol>
+                <li><strong>Base Map & Data Collection:</strong> Extracted building footprints and base maps via QuickOSM.</li>
+                <li><strong>Elevation Data:</strong> Processed DTM & DSM, filled NoData gaps for continuous elevation surface.</li>
+                <li><strong>Flood Simulation:</strong> Used Raster Calculator to simulate flood at ≤ 1m elevation: <code>("dtm_voidfilled@1" <= 1)</code></li>
+                <li><strong>Terrain Analysis:</strong> Slope raster created to detect barriers like dykes or hills.</li>
+                <li><strong>Building Heights:</strong> Applied Zonal Statistics on DSM to get average height per building footprint.</li>
+                <li><strong>3D Visualization:</strong> Extruded buildings and flood polygons using QGIS2ThreeJS.</li>
+            </ol>
+
+            <h3>🌊 Flood Impact Statistics</h3>
+            <ul>
+                <li><strong>Total buildings (GeoPackage):</strong> 11,720</li>
+                <li><strong>Flooded buildings (≤ 1m):</strong> 7,935</li>
+                <li><strong>Flood risk exposure:</strong> ~67.7% of buildings affected</li>
+            </ul>
+            <p>This demonstrates that over two-thirds of urban structures are at risk under shallow flooding conditions, emphasizing the importance of adaptive planning.</p>
+
+            <h3>🧠 Scientific Interpretation</h3>
+            <ul>
+                <li>Mannheim’s low elevation near the Rhine/Neckar rivers contributes to its vulnerability.</li>
+                <li>Central areas are less affected due to elevation planning and man-made dykes.</li>
+                <li>Raising flood thresholds would affect more structures and possibly critical infrastructure.</li>
+            </ul>
+
+            <h3>🏙️ 3D Visualization Using QGIS2ThreeJS</h3>
+
+            <figure>
+                <img src="images/3dscene1.jpg" alt="3D City Scene 1" width="100%" height="auto">
+                <figcaption style="text-align:center; font-style:italic;">Figure: Overview of 3D urban terrain and flood zones.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="images/3dscene2.jpg" alt="3D City Scene 2" width="100%" height="auto">
+                <figcaption style="text-align:center; font-style:italic;">Figure: Closer look at building inundation under 1m flood scenario.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="images/3dscene3.jpg" alt="3D City Scene 3" width="100%" height="auto">
+                <figcaption style="text-align:center; font-style:italic;">Figure: Elevation-based rendering of critical city blocks.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="images/3dscene4.jpg" alt="3D City Scene 4" width="100%" height="auto">
+                <figcaption style="text-align:center; font-style:italic;">Figure: Water depth simulation showing vulnerable infrastructure.</figcaption>
+            </figure>
+
+            <h3>🎥 3D Flood Simulation Video</h3>
+            <video width="100%" height="auto" controls>
+                <source src="videos/mannheim_flood_demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p style="text-align:center; font-style:italic;">Video: Interactive flood simulation of Mannheim showing affected buildings and terrain.</p>
+
+            <h3>💡 What I Learned</h3>
+            <ul>
+                <li>DEM and DSM preprocessing for hydrological modeling</li>
+                <li>Raster Calculator, slope analysis, and terrain interpretation</li>
+                <li>Reliable 3D modeling from DSM using Zonal Statistics</li>
+                <li>Interactive flood visualization in urban environments</li>
+            </ul>
+
+            <h3>📌 Next Steps</h3>
+            <ul>
+                <li>Test with multiple flood thresholds: 1.5m, 3m, 5m</li>
+                <li>Incorporate population and land use for risk prioritization</li>
+                <li>Replicate study in other Baden-Württemberg cities</li>
+            </ul>
+
+            <h3>🧭 Final Thoughts</h3>
+            <p>This project highlights the importance of geospatial tools in climate resilience planning. The workflow serves as a replicable model for urban flood risk assessment using open-source tools.</p>
+        </article>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <section>
+            <form method="post" action="#">
+                <div class="fields">
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" />
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" />
+                    </div>
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" rows="3"></textarea>
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Send Message" /></li>
+                </ul>
+            </form>
+        </section>
+        <section class="split contact">
+            <section class="alt">
+                <h3>Address</h3>
+                <p>In der Au 16, Untertükheim, Stuttgart<br />70327</p>
+            </section>
+            <section>
+                <h3>Phone</h3>
+                <p><a href="#">(+49) 1633-9124-01</a></p>
+            </section>
+            <section>
+                <h3>Email</h3>
+                <p><a href="#">oseiboateng93@gmail.com</a></p>
+            </section>
+            <section>
+                <h3>Social</h3>
+                <ul class="icons alt">
+                    <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                </ul>
+            </section>
+        </section>
+    </footer>
+
+    <div id="copyright">
+        <ul><li>© Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
