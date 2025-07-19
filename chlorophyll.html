@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Chlorophyll Estimation - Prince Osei Boateng Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper" class="fade-in">
+
+			<!-- Intro -->
+				<div id="intro">
+					<h1>Chlorophyll Estimation</h1>
+					<p>Water Quality Analysis Using Google Earth Engine</p>
+					<ul class="actions">
+						<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+					</ul>
+				</div>
+
+			<!-- Header -->
+				<header id="header">
+					<a href="index.html" class="logo">Back to Projects</a>
+				</header>
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li><a href="index.html">Prince Portfolio</a></li>
+						<li><a href="profile.html">Profile</a></li>
+						<li><a href="elements.html">Elements Reference</a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					</ul>
+				</nav>
+
+			<!-- Main -->
+				<div id="main">
+
+					<!-- Full Story -->
+					<article class="post">
+						<header class="major">
+							<h2>Chlorophyll Estimation App for Selected Lakes in Baden-Württemberg</h2>
+							<p>This is an interactive Google Earth Engine (GEE) application designed to estimate and visualize chlorophyll levels in five key lakes of Baden-Württemberg, Germany; Titisee, Bodensee, Illmensee, Federsee, and Schluchsee. This interactive tool leverages Sentinel-2 satellite data to compute the Normalized Difference Chlorophyll Index (NDCI), offering insights into water quality and ecological health from 2018 to 2024.</p>
+						</header>
+
+						<h3>Features</h3>
+						<ul>
+							<li><strong>Select Year (2018–2024)</strong>: For annual chlorophyll analysis</li>
+							<li><strong>Select from Five Major Lakes</strong>:
+								<ul>
+									<li>Lake Constance (Bodensee): One of the most studied lakes globally, with a focus on eutrophication, climate change, and long-term ecological monitoring</li>
+									<li>Federsee: Known for its prehistoric wetlands and unique ecosystem; focus on conservation and historical research</li>
+									<li>Schluchsee: Largest Black Forest lake, monitored for water quality and hydropower reservoir impact</li>
+									<li>Titisee: Prominent tourist lake in the Black Forest, under regional water quality monitoring programs</li>
+									<li>Illmensee: Example of small lakes included in ecological research networks</li>
+								</ul>
+							</li>
+							<li><strong>Visualize Chlorophyll Distribution with NDCI</strong>:
+								<ul>
+									<li>Color scale based on relative percentile stretch</li>
+									<li>Chlorophyll Classes:
+										<ul>
+											<li>-1 to 0.1: No chlorophyll (clear water)</li>
+											<li>-0.1 to 0.1: Low chlorophyll (relatively clear water)</li>
+											<li>0.1 to 0.3: Moderate chlorophyll</li>
+											<li>0.3 to 0.6: High chlorophyll</li>
+											<li>0.6 to 1.0: Very high chlorophyll</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><strong>Time-Series Chart</strong>: Of Annual Mean NDCI for trend analysis</li>
+							<li><strong>Export Capability</strong>: Save chlorophyll maps to Google Drive for further study</li>
+						</ul>
+
+						<h3>Data & Methodology</h3>
+						<p>I utilized Sentinel-2 data processed through GEE. Key processes included:</p>
+						<ul>
+							<li>Defining lake boundaries as FeatureCollections with precise coordinates</li>
+							<li>Computing NDCI using normalized difference of bands B5 and B4, masked by NDWI</li>
+							<li>Applying a 5th to 95th percentile stretch for dynamic visualization</li>
+							<li>Generating annual NDCI trends and interactive UI with dropdowns and charts</li>
+							<li>Enabling export functionality for further analysis</li>
+						</ul>
+                        <a href="#" class="image main"><img src="images/bodensee_chlorophyll.jpg" alt="NDCI Visualization for Bodensee" /></a>
+						<a href="#" class="image main"><img src="images/illmensee_chlorophyll.jpg" alt="NDCI Visualization for Illmensee" /></a>
+                        
+                        <h3>Ideal Use Cases</h3>
+						<ul>
+							<li>Environmental monitoring</li>
+							<li>Limnological research</li>
+							<li>Water quality assessment</li>
+							<li>Educational purposes in remote sensing and aquatic systems</li>
+						</ul>
+						<p>Try it Live: <a href="https://oseiprince93nrw.projects.earthengine.app/view/chlorophyll-estimation-for-selected-lakes-in-baden-wrttemberg">https://oseiprince93nrw.projects.earthengine.app/view/chlorophyll-estimation-for-selected-lakes-in-baden-wrttemberg</a></p>
+
+						<h3>Reflections</h3>
+						<ul>
+							<li>Earth Engine’s cloud processing efficiently handled large datasets</li>
+							<li>Dynamic color stretch enhances visualization flexibility</li>
+							<li>Future improvements could include validation with ground truth data</li>
+						</ul>
+						<p>Building this app was a rewarding challenge. The use of Earth Engine’s cloud-based processing handled large datasets efficiently, though managing cloud cover and data gaps required careful filtering. The UI’s responsiveness is a highlight, though performance could improve for larger lakes like Bodensee.</p>
+
+						<h3>Future Directions</h3>
+						<p>I’m open to collaboration! Ideas include adding real-time alerts for high chlorophyll levels, integrating additional water quality indices, or scaling to other lake systems globally. Feedback on code optimization or UI enhancements would be welcome. Let’s build something impactful together!</p>
+						<a href="#" class="image main"><img src="images/titisee_chlorophyll.jpg" alt="NDCI Visualization for Titisee" /></a>
+                        <a href="#" class="image main"><img src="images/north_america_overview.jpg" alt="Chlorophyll Estimation App Overview" /></a>
+					</article>
+
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<section>
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field">
+									<label for="name">Name</label>
+									<input type="text" name="name" id="name" />
+								</div>
+								<div class="field">
+									<label for="email">Email</label>
+									<input type="text" name="email" id="email" />
+								</div>
+								<div class="field">
+									<label for="message">Message</label>
+									<textarea name="message" id="message" rows="3"></textarea>
+								</div>
+							</div>
+							<ul class="actions">
+								<li><input type="submit" value="Send Message" /></li>
+							</ul>
+						</form>
+					</section>
+					<section class="split contact">
+						<section class="alt">
+							<h3>Address</h3>
+							<p>In der Au 16, Untertükheim, Stuttgart<br />70327</p>
+						</section>
+						<section>
+							<h3>Phone</h3>
+							<p><a href="#">(+49) 1633-9124-01</a></p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="#">oseiboateng93@gmail.com</a></p>
+						</section>
+						<section>
+							<h3>Social</h3>
+							<ul class="icons alt">
+								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+							</ul>
+						</section>
+					</section>
+				</footer>
+
+			<!-- Copyright -->
+				<div id="copyright">
+					<ul><li>© Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
