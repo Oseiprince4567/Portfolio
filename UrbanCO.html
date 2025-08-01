@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Urban CO Monitoring and Nighttime Light Energy Analysis</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<header id="header">
+				<div class="inner">
+					<h1><strong>Urban CO Monitoring and Nighttime Light Energy Analysis</strong><br />
+					Using Google Earth Engine</h1>
+					<nav>
+						<ul>
+							<li><a href="#footer" class="button scrolly">Continue</a></li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+			<nav id="nav">
+				<div class="inner">
+					<ul>
+						<li><a href="index.html">Back to Projects</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div id="main">
+				<div class="inner">
+					<section>
+						<h2>Prince Portfolio</h2>
+						<ul class="actions">
+							<li><a href="profile.html" class="button">Profile</a></li>
+							<li><a href="elements.html" class="button">Elements Reference</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Urban CO Monitoring and Nighttime Light Energy Analysis in German States (2019–2023)</h2>
+						<p>This project utilizes Sentinel-5P (for carbon monoxide, CO, concentration) and VIIRS (for nighttime lights as an energy proxy) to monitor urban air quality and urbanization patterns across all states of Germany between 2019 and 2023. This work leverages advanced satellite data to explore air pollution and energy consumption patterns, offering insights into urban environmental health and human activity.</p>
+						<p>Explore my interactive GEE app showcasing urban carbon monoxide (CO) patterns alongside nighttime light intensity as a proxy for energy use: <a href="https://oseiprince93nrw.projects.earthengine.app/view/urban-co-monitoring--nighttime-light-analysisenergy-use" target="_blank">Launch the APP</a></p>
+
+						<h3>Project Overview and Dataset</h3>
+						<p>The project utilizes two key datasets: Sentinel-5P Level 2 Carbon Monoxide (NRTI) and VIIRS Nighttime Lights Average Radiance. Sentinel-5P, provided by the Copernicus programme, measures the total column number density of CO (mol/m²), reflecting pollution from combustion sources like traffic and industry. VIIRS Nighttime Lights capture the intensity of artificial lighting at night, serving as a robust proxy for urban activity, electrification, and population density.</p>
+						<p><strong>Why These Datasets?</strong><br />
+						- CO measurements highlight direct urban air quality issues.<br />
+						- Nighttime light data serves as an indirect indicator of urban development and energy consumption.<br />
+						- Together, they allow exploration of the intersection of human activity, economic development, and environmental impact at subnational scales.</p>
+
+						<h3>Aims of the Project</h3>
+						<p>The primary goal was to map and analyze CO pollution levels and nighttime light intensity to identify hotspots of industrial activity, traffic congestion, and urban development. This project aims to raise awareness of air quality issues, assess the environmental impact of human activity, and provide data-driven insights for policymakers and urban planners.</p>
+
+						<h3>Methodology/Workflow</h3>
+						<ul>
+							<li><strong>Region Extraction:</strong> Utilized GADM Level 1 boundaries filtered to Germany, enabling precise state-scale (e.g., Baden-Württemberg, Bayern) analysis for targeted regional insights.</li>
+							<li><strong>Satellite Data Integration:</strong>
+								<ul>
+									<li>Incorporated Sentinel-5P (S5P) Level 2 Carbon Monoxide (NRTI) data, filtered for 2019–2023, extracting CO column number density (mol/m²) to quantify atmospheric pollution.</li>
+									<li>Integrated VIIRS Nighttime Lights Average Radiance data, filtered for the same period, excluding June and July to mitigate interference from wildfires and residual sunlight, enhancing data reliability.</li>
+								</ul>
+							</li>
+							<li><strong>Temporal Aggregation:</strong>
+								<ul>
+									<li>Computed monthly averages for both CO and nighttime lights time series to capture seasonal variability and trends.</li>
+									<li>Derived multi-year means (2019–2023) for spatial visualization, providing a robust baseline for assessing long-term pollution and energy use patterns.</li>
+									<li>Employed statistical aggregation to reduce noise and highlight significant environmental signals.</li>
+								</ul>
+							</li>
+							<li><strong>Visualization and Export:</strong>
+								<ul>
+									<li>Developed custom legends with scientifically grounded categories (e.g., Low, Moderate, High CO; Low to Very High lights) for intuitive interpretation of pollution and urbanization metrics.</li>
+									<li>Implemented an interactive dropdown interface for state selection, facilitating user-driven exploration and dynamic map updates.</li>
+									<li>Enabled GeoTIFF export functions with georeferenced layers, supporting downstream GIS analysis and reproducibility.</li>
+								</ul>
+							</li>
+							<li><strong>Quantile-based Stretching:</strong>
+								<ul>
+									<li>Applied 5th and 95th percentile thresholds as dynamic visualization bounds per state, enhancing contrast and revealing relative CO and light intensity differences.</li>
+									<li>Suppressed outliers to focus on representative spatial patterns, improving the interpretability of urban-rural gradients.</li>
+									<li>Adjusted scaling dynamically to reflect regional variability, ensuring scientific accuracy in visual representation.</li>
+								</ul>
+							</li>
+							<li><strong>Reflective Charting:</strong>
+								<ul>
+									<li>Generated time series charts with monthly resolution for each state, enabling detailed temporal trend analysis of CO concentrations and nighttime radiance.</li>
+									<li>Incorporated statistical smoothing to identify long-term trends and seasonal anomalies, supporting hypothesis testing on pollution-energy linkages.</li>
+									<li>Provided visual tools for stakeholders to assess environmental changes over time, enhancing decision-making potential.</li>
+								</ul>
+							</li>
+						</ul>
+
+						<h3>Findings and Discussions</h3>
+						<table>
+							<thead>
+								<tr>
+									<th>State</th>
+									<th>CO Concentration Findings</th>
+									<th>Nighttime Lights Findings</th>
+									<th>Key Observations</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Baden-Württemberg</td>
+									<td>Central High CO (red) - Moderate CO (orange) outward - Rural Low CO (white)</td>
+									<td>Central Very High lights (white) - Suburban Moderate lights (blue) - Rural Low lights (black)</td>
+									<td>High CO correlates with Very High lights - Industrial activity dominant - Rural areas exhibit minimal pollution</td>
+								</tr>
+								<tr>
+									<td>Bayern</td>
+									<td>Central High CO (red) - Moderate CO (orange) surrounding - Peripheral Low CO (white)</td>
+									<td>Urban High (yellow) and Very High lights (white) - Suburban Moderate lights (blue) - Rural Low lights (black)</td>
+									<td>CO hotspots align with urban centers - Very High lights indicate dense infrastructure - Rural east shows low impact</td>
+								</tr>
+								<tr>
+									<td>Berlin</td>
+									<td>Central High CO (red) - Surrounding Moderate CO (orange) - Outskirts Low CO (white)</td>
+									<td>Central Very High lights (white) - Suburban High lights (yellow) - Beyond Low lights (black)</td>
+									<td>High CO coincides with Very High lights - Urban-industrial synergy evident - Clear rural-urban gradient</td>
+								</tr>
+								<tr>
+									<td>Nordrhein-Westfalen (NRW)</td>
+									<td>Western High CO (red) - Central Moderate CO (orange) - Eastern Low CO (white)</td>
+									<td>Western Very High (white) and High lights (yellow) - Central Moderate lights (blue) - Eastern Low lights (black)</td>
+									<td>High CO linked to Very High lights - Industrial pollution prominent - Eastern rural zones cleaner</td>
+								</tr>
+								<tr>
+									<td>Hamburg</td>
+									<td>Central High CO (red) - Outward Moderate CO (orange) - Northern Low CO (white)</td>
+									<td>Central Very High (white) and High lights (yellow) - Suburban Moderate lights (blue) - Northern Low lights (black)</td>
+									<td>High CO aligns with Very High lights - Urban combustion sources significant - Northern rural decline evident</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h3>Detailed Analysis and Reflections</h3>
+						<ul>
+							<li><strong>CO Concentration:</strong> The maps reveal that urban centers (e.g., Stuttgart, Munich, Berlin, Ruhr area, Hamburg) consistently exhibit High CO levels, indicating elevated pollution from traffic, industry, and biomass burning. This aligns with the dataset’s interpretation, where red zones pose potential health risks due to poor air quality. Rural and peripheral areas, shown in white, reflect cleaner air, consistent with minimal combustion activity.</li>
+							<li><strong>Nighttime Lights:</strong> Very High and High light intensities are concentrated in urban and industrial hubs, correlating with dense population and infrastructure. The transition to Moderate and Low lights in suburban and rural areas mirrors reduced human activity and energy use, as expected from VIIRS data.</li>
+							<li><strong>Correlation:</strong> A clear pattern emerges where High CO coincides with Very High or High lights, reinforcing the link between urban energy consumption and pollution. For instance, NRW’s industrial west and Berlin’s city center stand out as dual hotspots, while rural areas in Bayern and Baden-Württemberg show lower values across both metrics.</li>
+							<li><strong>Reflections:</strong> The findings underscore the environmental cost of urbanization and industrialization. The stark rural-urban divide suggests that targeted interventions could mitigate pollution in high-impact zones. The consistency across states highlights the scalability of this approach for broader regional analysis.</li>
+						</ul>
+
+						<h3>Potential Applications</h3>
+						<p>These insights can inform urban planning by prioritizing green spaces or emission controls in High CO areas like the Ruhr or Berlin. Public health initiatives could focus on monitoring air quality in these regions, while energy policies might target efficiency improvements in Very High light zones to reduce overall environmental strain. This project offers a foundation for actionable, science-based strategies to enhance sustainability.</p>
+					</section>
+				</div>
+			</div>
+			<section id="footer">
+				<div class="inner">
+					<h2 class="major">Get in touch</h2>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field">
+								<label for="name">Name</label>
+								<input type="text" name="name" id="name" />
+							</div>
+							<div class="field">
+								<label for="email">Email</label>
+								<input type="email" name="email" id="email" />
+							</div>
+							<div class="field">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" rows="4"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send Message" /></li>
+						</ul>
+					</form>
+					<ul class="contact">
+						<li class="icon solid fa-home">
+							Address<br />
+							In der Au 16, Untertükheim, Stuttgart<br />
+							70327
+						</li>
+						<li class="icon solid fa-phone">
+							Phone<br />
+							(+49) 1633-9124-01
+						</li>
+						<li class="icon solid fa-envelope">
+							Email<br />
+							oseiboateng93@gmail.com
+						</li>
+						<li class="icon brands fa-twitter"><a href="#">Twitter</a></li>
+						<li class="icon brands fa-facebook-f"><a href="#">Facebook</a></li>
+						<li class="icon brands fa-instagram"><a href="#">Instagram</a></li>
+						<li class="icon brands fa-github"><a href="#">GitHub</a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</section>
+		</div>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>
