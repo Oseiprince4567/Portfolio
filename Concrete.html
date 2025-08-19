@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concrete Crack Detection</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+    <div id="wrapper">
+        <header id="header">
+            <h1><a href="index.html">Prince Portfolio</a></h1>
+            <nav class="links">
+                <ul>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="elements.html">Elements Reference</a></li>
+                </ul>
+            </nav>
+            <nav class="main">
+                <ul>
+                    <li><a href="https://twitter.com" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="https://facebook.com" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="https://instagram.com" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="https://github.com" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="main">
+            <article class="post">
+                <header>
+                    <div class="title">
+                        <h2>Concrete Crack Detection</h2>
+                        <p>Using Streamlit and TensorFlow/Keras</p>
+                    </div>
+                    <div class="meta">
+                        <a href="index.html" class="button">Back to Projects</a>
+                    </div>
+                </header>
+                <section>
+                    <h3>Concrete Crack Detection Web App</h3>
+                    <p>This is an interactive web application designed to allow users to upload images of concrete surfaces and receive immediate, AI-driven crack detection and visualization through a user-friendly interface powered by Streamlit. The app leverages a deep learning model trained on a balanced dataset to identify and highlight cracks in concrete surfaces.</p>
+                    
+                    <h4>Features</h4>
+                    <ul>
+                        <li><strong>Upload Interface:</strong> Drag-and-drop upload for one or more JPG/JPEG/PNG images.</li>
+                        <li><strong>Preprocessing:</strong> Automatically resizes images to 120×120 pixels for model compatibility.</li>
+                        <li><strong>Inference:</strong> Instantly predicts the presence or absence of cracks using a trained deep learning model.</li>
+                        <li><strong>Visualization:</strong> Highlights cracked regions in red using OpenCV for clear visualization.</li>
+                        <li><strong>Batch Processing:</strong> Processes and displays results for multiple images in a single session.</li>
+                    </ul>
+
+                    <h4>Data & Methodology</h4>
+                    <p>The model was developed using a balanced dataset of concrete surface images processed through TensorFlow/Keras. A subset of the dataset was sampled for training to optimize computational efficiency while maintaining class balance. Key methodological steps, grounded in standard deep learning practices for image classification, included:</p>
+                    <ul>
+                        <li><strong>Dataset Preparation:</strong> Images were sourced from directories containing 20,000 positive (cracked) and 20,000 negative (non-cracked) examples, each 227×227 pixels in RGB format. A balanced subset of 6,000 images was randomly sampled, then split into training (70%) and testing (30%) sets using stratified sampling to preserve class distribution.</li>
+                        <li><strong>Data Loading and Preprocessing:</strong> TensorFlow's ImageDataGenerator was employed for pixel value rescaling to the [0, 1] range via division by 255. No data augmentation techniques (e.g., rotations, flips) were applied to evaluate baseline model performance on original data. Images were resized to 120×120 pixels during loading, with a 20% validation split from the training set. Data was batched (size 32) and flowed from Pandas dataframes for efficient iterator-based training.</li>
+                        <li><strong>Model Architecture:</strong> A lightweight convolutional neural network (CNN) was constructed for binary classification: Input layer (120×120×3), followed by Conv2D (16 filters, 3×3 kernel, ReLU activation), MaxPooling2D (2×2), Conv2D (32 filters, 3×3 kernel, ReLU), MaxPooling2D (2×2), GlobalAveragePooling2D to reduce spatial dimensions, and a Dense output layer (1 unit, sigmoid activation) for probability output.</li>
+                        <li><strong>Training Procedure:</strong> The model was compiled with Adam optimizer, binary cross-entropy loss, and accuracy metric. Training ran for up to 100 epochs on the training data, with validation monitoring. Early stopping was implemented (patience=3 on validation loss) to prevent overfitting and restore best weights. Training history was visualized to track loss convergence.</li>
+                        <li><strong>Evaluation:</strong> Post-training, the model was assessed on the held-out test set using loss, accuracy, confusion matrix, and classification report metrics to quantify performance in terms of precision, recall, and F1-score for each class.</li>
+                        <li><strong>Deployment and Inference:</strong> The trained model was saved in HDF5 format (.h5). In the Streamlit application, user-uploaded images undergo identical preprocessing (resizing to 120×120 via Pillow/NumPy), followed by model prediction. For positive detections, OpenCV applies edge detection to overlay crack regions in red. Resource efficiency is ensured by caching the model load with Streamlit's @st.cache_resource decorator.</li>
+                    </ul>
+
+                    <h4>Technical Stack</h4>
+                    <table>
+                        <tr>
+                            <th>Component</th>
+                            <th>Technology/Method</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Dataset</td>
+                            <td>Custom concrete dataset</td>
+                            <td>20,000 positive + 20,000 negative, 227×227 RGB, no augmentation</td>
+                        </tr>
+                        <tr>
+                            <td>Preprocessing</td>
+                            <td>Pillow/NumPy/Streamlit</td>
+                            <td>Resizing every image to 120×120 RGB for model input</td>
+                        </tr>
+                        <tr>
+                            <td>Model Training</td>
+                            <td>TensorFlow/Keras</td>
+                            <td>Deep CNN/binary classifier, input 120×120×3, saved as .h5</td>
+                        </tr>
+                        <tr>
+                            <td>Inference & UI</td>
+                            <td>TensorFlow, Streamlit</td>
+                            <td>Loads model, preprocesses input, displays results in browser</td>
+                        </tr>
+                        <tr>
+                            <td>Overlay</td>
+                            <td>OpenCV</td>
+                            <td>Edge detection, overlays crack regions in red</td>
+                        </tr>
+                    </table>
+
+                    <h4>Visualizations</h4>
+                    <div style="text-align: center;">
+                        <img src="https://via.placeholder.com/800x600?text=Crack+Image+1" style="width: 80%; height: auto;" alt="Crack Image 1">
+                        <p>Total crack area: 103270 px², Fraction of image covered: 7.17%</p>
+                        
+                        <img src="https://via.placeholder.com/800x600?text=Crack+Image+2" style="width: 80%; height: auto;" alt="Crack Image 2">
+                        <p>Total crack area: 196273 px², Fraction of image covered: 37.86%</p>
+                        
+                        <img src="https://via.placeholder.com/800x600?text=Crack+Image+3" style="width: 80%; height: auto;" alt="Crack Image 3">
+                        <p>Total crack area: 103270 px², Fraction of image covered: 7.17%</p>
+                        
+                        <img src="https://via.placeholder.com/800x600?text=Crack+Image+4" style="width: 80%; height: auto;" alt="Crack Image 4">
+                        <p>Total crack area: 28418 px², Fraction of image covered: 25.98%</p>
+                        
+                        <img src="https://via.placeholder.com/800x600?text=Crack+Image+5" style="width: 80%; height: auto;" alt="Crack Image 5">
+                        <p>Total crack area: 58707 px², Fraction of image covered: 24.46%</p>
+                    </div>
+
+                    <h4>Ideal Use Cases</h4>
+                    <ul>
+                        <li>Structural engineering inspections</li>
+                        <li>Construction quality control</li>
+                        <li>Infrastructure maintenance monitoring</li>
+                        <li>Educational purposes in machine learning and computer vision</li>
+                    </ul>
+
+                    <h4>Try it Live</h4>
+                    <p><a href="https://crackdetect-pro.streamlit.app/" class="button">Launch App</a></p>
+
+                    <h4>Reflections</h4>
+                    <p>Building this app was a rewarding challenge. Streamlit’s rapid deployment capabilities made the UI intuitive, while TensorFlow/Keras provided a robust framework for model development. Managing large datasets and ensuring real-time inference efficiency were key hurdles, addressed through careful preprocessing and caching. Future improvements could include integrating additional crack severity metrics or enhancing visualization with interactive overlays.</p>
+
+                    <h4>Future Directions</h4>
+                    <p>I’m open to collaboration! Ideas include adding crack severity classification, integrating real-time video analysis, or scaling to other materials like asphalt. Feedback on model optimization or UI enhancements would be welcome. Let’s build something impactful together!</p>
+                </section>
+            </article>
+        </div>
+
+        <section id="sidebar">
+            <section>
+                <h3>Contact</h3>
+                <form method="post" action="#">
+                    <div class="fields">
+                        <div class="field half">
+                            <input type="text" name="name" id="name" placeholder="Name" />
+                        </div>
+                        <div class="field half">
+                            <input type="email" name="email" id="email" placeholder="Email" />
+                        </div>
+                        <div class="field">
+                            <textarea name="message" id="message" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><input type="submit" value="Send Message" class="primary" /></li>
+                    </ul>
+                </form>
+            </section>
+            <section>
+                <h3>Address</h3>
+                <p>In der Au 16, Untertükheim, Stuttgart<br />70327</p>
+                <h3>Phone</h3>
+                <p>(+49) 1633-9124-01</p>
+                <h3>Email</h3>
+                <p><a href="mailto:oseiboateng93@gmail.com">oseiboateng93@gmail.com</a></p>
+                <h3>Social</h3>
+                <ul class="icons">
+                    <li><a href="https://twitter.com" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="https://facebook.com" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="https://instagram.com" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="https://github.com" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                </ul>
+            </section>
+        </section>
+    </div>
+
+    <footer id="footer">
+        <p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
