@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Concrete Crack Detection Web App - Prince Osei Boateng Portfolio</title>
+		<title>EV Charging Stations Activity Dashboard - Prince Osei Boateng Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -12,8 +12,8 @@
 
 			<!-- Intro -->
 				<div id="intro">
-					<h1>Concrete Crack Detection Web App</h1>
-					<p>An interactive web app that detects and visualizes cracks in concrete surfaces using AI. Built with Streamlit and download reports with crack area measurements.</p>
+					<h1>EV Charging Stations Activity Dashboard</h1>
+					<p>A real-time, data-driven dashboard that visualizes the spatial and temporal dynamics of electric vehicle (EV) charging stations across Hamburg using SensorThingsAPI.</p>
 					<ul class="actions">
 						<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 					</ul>
@@ -43,97 +43,75 @@
             <article class="post">
                 </header>
                 <section>
-                    <h3>Concrete Crack Detection Web App</h3>
-                    <p>This is an interactive web application designed to allow users to upload images of concrete surfaces and receive immediate, AI-driven crack detection and visualization through a user-friendly interface powered by Streamlit. The app leverages a deep learning model trained on a balanced dataset to identify and highlight cracks in concrete surfaces.</p>
+                    <h3>EV Charging Stations Activity Dashboard</h3>
+                    <p>The EV Charging Stations Activity Dashboard is a real-time, data-driven dashboard application that visualizes the spatial and temporal dynamics of electric vehicle (EV) charging stations across Hamburg using SensorThingsAPI. It integrates open IoT data from the Hamburg SensorThings API with automated data ingestion, cloud database synchronization, and interactive analytics built in Streamlit.</p>
                     
-                    <h4>Features</h4>
+                    <h4>Rationale</h4>
                     <ul>
-                        <li><strong>Upload Interface:</strong> Drag-and-drop upload for one or more JPG/JPEG/PNG images.</li>
-                        <li><strong>Preprocessing:</strong> Automatically resizes images to 120×120 pixels for model compatibility.</li>
-                        <li><strong>Inference:</strong> Instantly predicts the presence or absence of cracks using a trained deep learning model.</li>
-                        <li><strong>Visualization:</strong> Highlights cracked regions in red using OpenCV for clear visualization.</li>
-                        <li><strong>Batch Processing:</strong> Processes and displays results for multiple images in a single session.</li>
+                        <li>Demonstrate real-time data integration using open urban IoT streams.</li>
+                        <li>Provide decision-support tools for EV infrastructure planning and energy management.</li>
+                        <li>Showcase a serverless automation pipeline (GitHub Actions → Neon PostgreSQL → Streamlit Cloud).</li>
+                        <li>Support research on urban sustainability, smart mobility, and renewable-energy transitions.</li>
                     </ul>
 
-                    <h4>Data & Methodology</h4>
-                    <p>The model was developed using a balanced dataset of concrete surface images processed through TensorFlow/Keras. A subset of the dataset was sampled for training to optimize computational efficiency while maintaining class balance. Key methodological steps, grounded in standard deep learning practices for image classification, included:</p>
-                    <ul>
-                        <li><strong>Dataset Preparation:</strong> Images were sourced from directories containing 20,000 positive (cracked) and 20,000 negative (non-cracked) examples, each 227×227 pixels in RGB format. A balanced subset of 6,000 images was randomly sampled, then split into training (70%) and testing (30%) sets using stratified sampling to preserve class distribution.</li>
-                        <li><strong>Data Loading and Preprocessing:</strong> TensorFlow's ImageDataGenerator was employed for pixel value rescaling to the [0, 1] range via division by 255. No data augmentation techniques (e.g., rotations, flips) were applied to evaluate baseline model performance on original data. Images were resized to 120×120 pixels during loading, with a 20% validation split from the training set. Data was batched (size 32) and flowed from Pandas dataframes for efficient iterator-based training.</li>
-                        <li><strong>Model Architecture:</strong> A lightweight convolutional neural network (CNN) was constructed for binary classification: Input layer (120×120×3), followed by Conv2D (16 filters, 3×3 kernel, ReLU activation), MaxPooling2D (2×2), Conv2D (32 filters, 3×3 kernel, ReLU), MaxPooling2D (2×2), GlobalAveragePooling2D to reduce spatial dimensions, and a Dense output layer (1 unit, sigmoid activation) for probability output.</li>
-                        <li><strong>Training Procedure:</strong> The model was compiled with Adam optimizer, binary cross-entropy loss, and accuracy metric. Training ran for up to 100 epochs on the training data, with validation monitoring. Early stopping was implemented (patience=3 on validation loss) to prevent overfitting and restore best weights. Training history was visualized to track loss convergence.</li>
-                        <li><strong>Evaluation:</strong> Post-training, the model was assessed on the held-out test set using loss, accuracy, confusion matrix, and classification report metrics to quantify performance in terms of precision, recall, and F1-score for each class.</li>
-                        <li><strong>Deployment and Inference:</strong> The trained model was saved in HDF5 format (.h5). In the Streamlit application, user-uploaded images undergo identical preprocessing (resizing to 120×120 via Pillow/NumPy), followed by model prediction. For positive detections, OpenCV applies edge detection to overlay crack regions in red. Resource efficiency is ensured by caching the model load with Streamlit's @st.cache_resource decorator.</li>
-                    </ul>
-
-                    <h4>Technical Stack</h4>
+                    <h4>Key Features</h4>
                     <table>
-                        <tr>
-                            <th>Component</th>
-                            <th>Technology/Method</th>
-                            <th>Description</th>
-                        </tr>
-                        <tr>
-                            <td>Dataset</td>
-                            <td>Custom concrete dataset</td>
-                            <td>20,000 positive + 20,000 negative, 227×227 RGB, no augmentation</td>
-                        </tr>
-                        <tr>
-                            <td>Preprocessing</td>
-                            <td>Pillow/NumPy/Streamlit</td>
-                            <td>Resizing every image to 120×120 RGB for model input</td>
-                        </tr>
-                        <tr>
-                            <td>Model Training</td>
-                            <td>TensorFlow/Keras</td>
-                            <td>Deep CNN/binary classifier, input 120×120×3, saved as .h5</td>
-                        </tr>
-                        <tr>
-                            <td>Inference & UI</td>
-                            <td>TensorFlow, Streamlit</td>
-                            <td>Loads model, preprocesses input, displays results in browser</td>
-                        </tr>
-                        <tr>
-                            <td>Overlay</td>
-                            <td>OpenCV</td>
-                            <td>Edge detection, overlays crack regions in red</td>
-                        </tr>
+                        <tr><th>Feature</th><th>Description</th></tr>
+                        <tr><td>🔄 Automated Data Pipeline</td><td>Fetches EV-charging observations every 6 hours through GitHub Actions and stores them in Neon PostgreSQL.</td></tr>
+                        <tr><td>🌐 Live IoT Integration</td><td>Interfaces directly with Hamburg’s SensorThings API for near-real-time city-wide data.</td></tr>
+                        <tr><td>🗺️ Interactive Spatial Analytics</td><td>Uses Folium and Streamlit-Folium to visualize heatmaps, markers, and dynamic spatial trends.</td></tr>
+                        <tr><td>📊 Temporal Performance Analysis</td><td>Provides radar and time-series charts (Plotly + Pandas) for session duration and utilization analysis.</td></tr>
+                        <tr><td>🧩 Modular Codebase</td><td>Separate modules for ingestion (<code>fillin.py</code>), analytics (<code>hamburghelpers.py</code>), and UI (<code>evhamapp.py</code>).</td></tr>
                     </table>
 
-                    <h4>Results/Visualizations</h4>
-                    <div style="text-align: center;">
-                        <img src="images/3.jpg" style="width: 80%; height: auto;" alt="Crack Image 1">
-                        <p style="text-align: center;">Total crack area: 103270 px², Fraction of image covered: 7.17%</p>
-                        
-                        <img src="images/4.jpg" style="width: 80%; height: auto;" alt="Crack Image 2">
-                        <p style="text-align: center;">Total crack area: 196273 px², Fraction of image covered: 37.86%</p>
-                        
-                        <img src="images/5.jpg" style="width: 80%; height: auto;" alt="Crack Image 3">
-                        <p style="text-align: center;">Total crack area: 103270 px², Fraction of image covered: 7.17%</p>
-                        
-                        <img src="images/6.jpg" style="width: 80%; height: auto;" alt="Crack Image 4">
-                        <p style="text-align: center;">Total crack area: 28418 px², Fraction of image covered: 25.98%</p>
-                        
-                        <img src="images/outlier.jpg" style="width: 80%; height: auto;" alt="Crack Image 5">
-                        <p style="text-align: center;">The model sometimes struggles with cracks near architectural features like windows and doors. Shadows and edges may be highlighted, while faint cracks away from boundaries can be missed.</p>
-                    </div>
-
-                    <h4>Ideal Use Cases</h4>
+                    <h4>Technical Stack</h4>
                     <ul>
-                        <li>Structural engineering inspections</li>
-                        <li>Construction quality control</li>
-                        <li>Infrastructure maintenance monitoring</li>
-                        <li>Educational purposes in machine learning and computer vision</li>
+                        <li><strong>Frontend & Visualization:</strong> Streamlit, Plotly, Folium</li>
+                        <li><strong>Data Handling:</strong> Pandas, NumPy</li>
+                        <li><strong>Database:</strong> Neon PostgreSQL (cloud-hosted)</li>
+                        <li><strong>Backend Automation:</strong> GitHub Actions (cron job every 6 hours)</li>
+                        <li><strong>APIs:</strong> Hamburg SensorThings API (IoT)</li>
                     </ul>
 
+                    <h4>Deployment Workflow</h4>
+                    <ol>
+                        <li><strong>Streamlit Cloud</strong> hosts the dashboard (<code>evhamapp.py</code>).</li>
+                        <li><strong>GitHub Actions</strong> runs <code>fillin.py</code> every 6 hours to fetch new IoT data and update the Neon Database.</li>
+                        <li><strong>Neon Database</strong> serves as persistent storage for analytics and visualizations.</li>
+                    </ol>
+
+                    <h4>Dashboard View & Visualization</h4>
+                    <div style="text-align: center;">
+                        <img src="images/db1.jpg" style="width: 80%; height: auto;" alt="Crack Image 1">
+                        <p style="text-align: center;">Displays live EV-charging Stations availability, connector counts, and utilization from the Hamburg SensorThings API.</p>
+                        
+                        <img src="images/db2.jpg" style="width: 80%; height: auto;" alt="Crack Image 2">
+                        <p style="text-align: center;">Provides location-aware search and color-coded map visualization of station status (free, busy, reserved, etc.).</p>
+                        
+                        <img src="images/db3.jpg" style="width: 80%; height: auto;" alt="Crack Image 3">
+                        <p style="text-align: center;">Summarizes top 10 active stations, total charging hours, and daily utilization trends through dynamic analytics.</p>
+                        
+                        <img src="images/db4.jpg" style="width: 80%; height: auto;" alt="Crack Image 4">
+                        <p style="text-align: center;">Spatial Intensity of Top Stations</p>
+                        
+                        <img src="images/dfrt.jpg" style="width: 80%; height: auto;" alt="Crack Image 5">
+                        <p style="text-align: center;">Radar Chart: Comparative Station Performance</p>
+                    </div>
+
                     <h4>Try it Live</h4>
-                    <p><a href="https://crackdetect-pro.streamlit.app/" class="button">Launch App</a></p>
+                    <p><a href="https://evchargingdashboard-awshgcunappptgetdpckcfc.streamlit.app/" class="button">Launch App</a></p>
+
+                    <h4>Opportunities & Future Directions</h4>
+                    <ul>
+                        <li>Extend coverage to other German states or EU cities for large-scale EV monitoring.</li>
+                        <li>Integrate weather, traffic, or grid data for predictive modeling of charging demand.</li>
+                        <li>Compute sustainability metrics like renewable-energy share and CO₂ savings.</li>
+                        <li>Identify spatial/temporal gaps to support smart-mobility planning.</li>
+                        <li>Collaborate with urban data scientists and planners to expand research impact.</li>
+                    </ul>
 
                     <h4>Reflections</h4>
-                    <p>Building this app was a rewarding challenge. Streamlit’s rapid deployment capabilities made the UI intuitive, while TensorFlow/Keras provided a robust framework for model development. Managing large datasets and ensuring real-time inference efficiency were key hurdles, addressed through careful preprocessing and caching. Future improvements could include integrating additional crack severity metrics or enhancing visualization with interactive overlays. While the app performs well in detecting cracks, it sometimes misclassifies or struggles to detect cracks near architectural features such as windows and doors. As shown in the last image above, certain edges and shadows can be mistaken for cracks, while faint cracks away from boundaries may be missed. This highlights an area for further improvement in the training data and model refinement.</p>
-
-                    <h4>Future Directions</h4>
-                    <p>I am open to collaboration! Ideas include adding crack severity classification, integrating real-time video analysis, or scaling to other materials like asphalt. Feedback on model optimization or UI enhancements would be welcome. Let’s build something impactful together!</p>
+                    <p>This project reflects my ability to build end-to-end geospatial data solutions from API integration and cloud automation, spatial analytics and intuitive visualization. I am always open to connecting and collaborating with professionals in geospatial analytics, renewable energy, and smart urban development.</p>
                 </section>
             </article>
         </div>
