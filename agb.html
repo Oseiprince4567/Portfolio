@@ -1,0 +1,1144 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Spatio-Temporal AGB Modelling - Prince Osei Boateng Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+		<style>
+			/* ─── RESET & SCOPE ─────────────────────────────────────── */
+			#thesis-wrap * { box-sizing: border-box; }
+			#thesis-wrap { font-family: 'DM Sans', sans-serif; background: #060e07; }
+
+			/* Override HTML5UP white article background for this page */
+			#main > article.post,
+			#main > article.post > header,
+			#main > article.post > section,
+			#main > .post,
+			#main { background: #060e07 !important; }
+			body.is-preload #main { background: #060e07 !important; }
+
+			/* ─── HERO ──────────────────────────────────────────────── */
+			.th-hero {
+				position: relative;
+				min-height: 92vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				padding: 0 0 64px 0;
+				overflow: hidden;
+				background: #060e07;
+			}
+
+			/* animated canopy SVG background */
+			.th-hero-bg {
+				position: absolute;
+				inset: 0;
+				z-index: 0;
+			}
+			.th-hero-bg svg {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			/* topographic grid overlay */
+			.th-hero-grid {
+				position: absolute;
+				inset: 0;
+				z-index: 1;
+				background-image:
+					radial-gradient(ellipse 120% 60% at 70% 40%, rgba(58,110,46,0.22) 0%, transparent 65%),
+					linear-gradient(rgba(88,160,64,0.04) 1px, transparent 1px),
+					linear-gradient(90deg, rgba(88,160,64,0.04) 1px, transparent 1px);
+				background-size: auto, 48px 48px, 48px 48px;
+			}
+			/* vignette */
+			.th-hero-vignette {
+				position: absolute;
+				inset: 0;
+				z-index: 2;
+				background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 30%, #060e07 90%);
+			}
+
+			.th-hero-content {
+				position: relative;
+				z-index: 3;
+				padding: 0 60px;
+				max-width: 1100px;
+			}
+
+			.th-kicker {
+				display: inline-flex;
+				align-items: center;
+				gap: 10px;
+				font-family: 'DM Mono', monospace;
+				font-size: 0.68rem;
+				letter-spacing: 0.22em;
+				text-transform: uppercase;
+				color: #7ec86a;
+				margin-bottom: 24px;
+				animation: fadeUp 0.7s ease both;
+			}
+			.th-kicker-dot {
+				width: 6px; height: 6px;
+				background: #7ec86a;
+				border-radius: 50%;
+				animation: blink 2s ease infinite;
+			}
+
+			.th-hero h1 {
+				font-family: 'Syne', sans-serif;
+				font-size: clamp(2.4rem, 5.5vw, 5rem);
+				font-weight: 800;
+				line-height: 1.06;
+				color: #e8f5e4;
+				margin: 0 0 28px;
+				animation: fadeUp 0.7s ease 0.1s both;
+			}
+			.th-hero h1 .accent { color: #7ec86a; font-style: italic; }
+			.th-hero h1 .dim { color: #4a6643; }
+
+			.th-hero-sub {
+				font-size: 1.05rem;
+				color: #8fa887;
+				max-width: 580px;
+				line-height: 1.75;
+				margin-bottom: 44px;
+				font-weight: 300;
+				animation: fadeUp 0.7s ease 0.2s both;
+			}
+
+			.th-hero-pills {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+				margin-bottom: 44px;
+				animation: fadeUp 0.7s ease 0.25s both;
+			}
+			.th-pill {
+				font-family: 'DM Mono', monospace;
+				font-size: 0.65rem;
+				letter-spacing: 0.12em;
+				padding: 6px 14px;
+				border: 1px solid rgba(88,160,64,0.35);
+				color: #7ec86a;
+				border-radius: 2px;
+				background: rgba(88,160,64,0.06);
+			}
+
+			.th-hero-cta {
+				display: flex;
+				gap: 14px;
+				flex-wrap: wrap;
+				animation: fadeUp 0.7s ease 0.3s both;
+			}
+			.th-btn {
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				padding: 13px 26px;
+				font-family: 'DM Sans', sans-serif;
+				font-size: 0.88rem;
+				font-weight: 500;
+				text-decoration: none;
+				transition: all 0.25s ease;
+				cursor: pointer;
+				border: none;
+			}
+			.th-btn-primary {
+				background: #3d7a30;
+				color: #fff;
+				clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+			}
+			.th-btn-primary:hover { background: #52a340; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(61,122,48,0.4); color: #fff; }
+			.th-btn-outline {
+				background: transparent;
+				color: #8fa887;
+				border: 1px solid rgba(88,160,64,0.3);
+			}
+			.th-btn-outline:hover { border-color: #7ec86a; color: #7ec86a; background: rgba(88,160,64,0.06); }
+
+			/* scroll indicator */
+			.th-scroll {
+				position: absolute;
+				bottom: 32px;
+				right: 60px;
+				z-index: 3;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 8px;
+				font-family: 'DM Mono', monospace;
+				font-size: 0.6rem;
+				letter-spacing: 0.2em;
+				color: #3a5c34;
+				text-transform: uppercase;
+				animation: fadeUp 1s ease 0.5s both;
+			}
+			.th-scroll-line {
+				width: 1px;
+				height: 48px;
+				background: linear-gradient(180deg, #3d7a30, transparent);
+				animation: scrollPulse 2s ease infinite;
+			}
+
+			/* ─── STAT STRIP ────────────────────────────────────────── */
+			.th-stats {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				background: #0a160b;
+				border-top: 1px solid rgba(88,160,64,0.15);
+				border-bottom: 1px solid rgba(88,160,64,0.15);
+			}
+			.th-stat {
+				padding: 36px 28px;
+				border-right: 1px solid rgba(88,160,64,0.1);
+				position: relative;
+				overflow: hidden;
+				transition: background 0.3s;
+			}
+			.th-stat:last-child { border-right: none; }
+			.th-stat:hover { background: rgba(88,160,64,0.05); }
+			.th-stat::after {
+				content: '';
+				position: absolute;
+				bottom: 0; left: 0; right: 0;
+				height: 2px;
+				background: linear-gradient(90deg, transparent, #3d7a30, transparent);
+				transform: scaleX(0);
+				transition: transform 0.4s ease;
+			}
+			.th-stat:hover::after { transform: scaleX(1); }
+			.th-stat-val {
+				font-family: 'Syne', sans-serif;
+				font-size: 2.4rem;
+				font-weight: 800;
+				color: #7ec86a;
+				line-height: 1;
+				margin-bottom: 6px;
+			}
+			.th-stat-val sup {
+				font-size: 1rem;
+				font-weight: 700;
+				vertical-align: super;
+				color: #52a340;
+			}
+			.th-stat-label {
+				font-size: 0.78rem;
+				color: #7aa870;
+				line-height: 1.5;
+			}
+
+			/* ─── SECTION WRAPPER ───────────────────────────────────── */
+			.th-section {
+				background: #060e07;
+				padding: 88px 60px;
+				max-width: 1100px;
+				margin: 0 auto;
+			}
+			.th-eyebrow {
+				font-family: 'DM Mono', monospace;
+				font-size: 0.62rem;
+				letter-spacing: 0.28em;
+				text-transform: uppercase;
+				color: #1e6610;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				margin-bottom: 18px;
+			}
+			.th-eyebrow::after {
+				content: '';
+				display: block;
+				width: 48px;
+				height: 1px;
+				background: rgba(88,160,64,0.35);
+			}
+			.th-section-title {
+				font-family: 'Syne', sans-serif;
+				font-size: clamp(1.7rem, 3vw, 2.6rem);
+				font-weight: 800;
+				color: #102010;
+				line-height: 1.15;
+				margin-bottom: 14px;
+			}
+			.th-section-title .accent { color: #2d7a1a; font-style: italic; }
+			.th-section-lead {
+				font-size: 0.98rem;
+				color: #2e4430;
+				max-width: 560px;
+				line-height: 1.8;
+				margin-bottom: 52px;
+				font-weight: 400;
+			}
+
+			/* ─── STORY STRIP ───────────────────────────────────────── */
+			.th-story {
+				background: linear-gradient(135deg, #0a160b 0%, #060e07 100%);
+				border-top: 1px solid rgba(88,160,64,0.1);
+				border-bottom: 1px solid rgba(88,160,64,0.1);
+			}
+			.th-story-inner {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				max-width: 1100px;
+				margin: 0 auto;
+			}
+			.th-story-block {
+				padding: 52px 40px;
+				border-right: 1px solid rgba(88,160,64,0.1);
+				position: relative;
+			}
+			.th-story-block:last-child { border-right: none; }
+			.th-story-num {
+				font-family: 'Syne', sans-serif;
+				font-size: 4.5rem;
+				font-weight: 800;
+				color: rgba(88,160,64,0.08);
+				line-height: 1;
+				position: absolute;
+				top: 28px; right: 28px;
+			}
+			.th-story-icon { font-size: 1.8rem; margin-bottom: 16px; }
+			.th-story-title {
+				font-family: 'Syne', sans-serif;
+				font-size: 1.05rem;
+				font-weight: 700;
+				color: #d4e8ce;
+				margin-bottom: 10px;
+			}
+			.th-story-text {
+				font-size: 0.83rem;
+				color: #7a9e72;
+				line-height: 1.75;
+			}
+			.th-story-text strong { color: #7ec86a; font-weight: 500; }
+
+			/* ─── METHOD CARDS ──────────────────────────────────────── */
+			.th-method-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 2px;
+				background: rgba(88,160,64,0.08);
+			}
+			.th-method-card {
+				background: #060e07;
+				padding: 36px 28px;
+				position: relative;
+				overflow: hidden;
+				transition: all 0.3s ease;
+			}
+			.th-method-card:hover {
+				background: #0d1e0e;
+				transform: translateY(-3px);
+				z-index: 1;
+				box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+			}
+			.th-method-step {
+				font-family: 'DM Mono', monospace;
+				font-size: 0.6rem;
+				color: #3a5c34;
+				letter-spacing: 0.2em;
+				margin-bottom: 12px;
+			}
+			.th-method-card h4 {
+				font-family: 'Syne', sans-serif;
+				font-size: 0.95rem;
+				font-weight: 700;
+				color: #c8dfc2;
+				margin-bottom: 10px;
+			}
+			.th-method-card p {
+				font-size: 0.8rem;
+				color: #7a9e72;
+				line-height: 1.7;
+			}
+			.th-method-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 5px;
+				margin-top: 14px;
+			}
+			.th-tag {
+				font-family: 'DM Mono', monospace;
+				font-size: 0.58rem;
+				padding: 3px 8px;
+				border: 1px solid rgba(88,160,64,0.2);
+				color: #3a5c34;
+			}
+			.th-tag.hl {
+				border-color: rgba(88,160,64,0.5);
+				color: #7ec86a;
+				background: rgba(88,160,64,0.07);
+			}
+
+			/* ─── DISTURBANCE CARDS ─────────────────────────────────── */
+			.th-dist-grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 14px;
+			}
+			.th-dist-card {
+				padding: 28px 22px;
+				border: 1px solid transparent;
+				position: relative;
+				transition: all 0.3s ease;
+				cursor: default;
+			}
+			.th-dist-card:hover { transform: translateY(-5px); }
+
+			.th-dist-card.drought {
+				background: linear-gradient(145deg, rgba(212,168,67,0.07), #060e07);
+				border-color: rgba(212,168,67,0.2);
+			}
+			.th-dist-card.drought:hover { border-color: #d4a843; box-shadow: 0 16px 40px rgba(212,168,67,0.1); }
+
+			.th-dist-card.fire {
+				background: linear-gradient(145deg, rgba(224,100,40,0.07), #060e07);
+				border-color: rgba(224,100,40,0.2);
+			}
+			.th-dist-card.fire:hover { border-color: #e06428; box-shadow: 0 16px 40px rgba(224,100,40,0.1); }
+
+			.th-dist-card.pest {
+				background: linear-gradient(145deg, rgba(109,184,92,0.07), #060e07);
+				border-color: rgba(109,184,92,0.2);
+			}
+			.th-dist-card.pest:hover { border-color: #7ec86a; box-shadow: 0 16px 40px rgba(109,184,92,0.1); }
+
+			.th-dist-card.logging {
+				background: linear-gradient(145deg, rgba(143,207,122,0.05), #060e07);
+				border-color: rgba(143,207,122,0.15);
+			}
+			.th-dist-card.logging:hover { border-color: #8fcf7a; box-shadow: 0 16px 40px rgba(143,207,122,0.08); }
+
+			.th-dist-emoji { font-size: 2rem; margin-bottom: 14px; display: block; }
+			.th-dist-type {
+				font-family: 'DM Mono', monospace;
+				font-size: 0.6rem;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				margin-bottom: 8px;
+			}
+			.drought .th-dist-type { color: #d4a843; }
+			.fire    .th-dist-type { color: #e06428; }
+			.pest    .th-dist-type { color: #7ec86a; }
+			.logging .th-dist-type { color: #8fcf7a; }
+
+			.th-dist-area {
+				font-family: 'Syne', sans-serif;
+				font-size: 1.65rem;
+				font-weight: 800;
+				line-height: 1;
+				margin-bottom: 6px;
+			}
+			.drought .th-dist-area { color: #d4a843; }
+			.fire    .th-dist-area { color: #e06428; }
+			.pest    .th-dist-area { color: #7ec86a; }
+			.logging .th-dist-area { color: #8fcf7a; }
+
+			.th-dist-detail {
+				font-size: 0.76rem;
+				color: #6a8e62;
+				line-height: 1.65;
+				margin-top: 10px;
+			}
+
+			/* ─── RESULT CARDS ──────────────────────────────────────── */
+			.th-results-grid {
+				display: grid;
+				grid-template-columns: 1.2fr 1fr;
+				gap: 16px;
+			}
+			.th-result-card {
+				background: #0a160b;
+				border: 1px solid rgba(88,160,64,0.12);
+				padding: 36px 32px;
+				position: relative;
+				overflow: hidden;
+				transition: border-color 0.3s;
+			}
+			.th-result-card:hover { border-color: rgba(88,160,64,0.35); }
+			.th-result-card.wide { grid-column: 1 / -1; }
+			.th-result-card::before {
+				content: '';
+				position: absolute;
+				top: 0; left: 0;
+				width: 0; height: 3px;
+				background: linear-gradient(90deg, #3d7a30, #7ec86a);
+				transition: width 0.5s ease;
+			}
+			.th-result-card:hover::before { width: 100%; }
+			.th-result-label {
+				font-family: 'DM Mono', monospace;
+				font-size: 0.6rem;
+				letter-spacing: 0.22em;
+				color: #6aaa5a;
+				text-transform: uppercase;
+				margin-bottom: 12px;
+			}
+			.th-result-card h4 {
+				font-family: 'Syne', sans-serif;
+				font-size: 1.1rem;
+				font-weight: 700;
+				color: #d4e8ce;
+				margin-bottom: 10px;
+				line-height: 1.3;
+			}
+			.th-result-card p {
+				font-size: 0.82rem;
+				color: #7a9e72;
+				line-height: 1.75;
+			}
+			.th-metrics {
+				display: flex;
+				gap: 24px;
+				margin-top: 20px;
+				flex-wrap: wrap;
+			}
+			.th-metric-val {
+				font-family: 'Syne', sans-serif;
+				font-size: 1.5rem;
+				font-weight: 800;
+				color: #7ec86a;
+				line-height: 1;
+			}
+			.th-metric-lab {
+				font-size: 0.7rem;
+				color: #6a9460;
+				margin-top: 3px;
+			}
+
+			/* ─── FINDING TIMELINE ──────────────────────────────────── */
+			.th-timeline {
+				position: relative;
+				padding-left: 32px;
+				border-left: 1px solid rgba(88,160,64,0.2);
+			}
+			.th-timeline-item {
+				position: relative;
+				margin-bottom: 36px;
+			}
+			.th-timeline-item::before {
+				content: '';
+				position: absolute;
+				left: -37px; top: 7px;
+				width: 9px; height: 9px;
+				background: #3d7a30;
+				border-radius: 50%;
+				box-shadow: 0 0 10px #3d7a30;
+			}
+			.th-timeline-item h4 {
+				font-family: 'Syne', sans-serif;
+				font-size: 0.98rem;
+				font-weight: 700;
+				color: #c8dfc2;
+				margin-bottom: 6px;
+			}
+			.th-timeline-item p {
+				font-size: 0.82rem;
+				color: #7a9e72;
+				line-height: 1.75;
+			}
+
+			/* ─── GEE EMBED ─────────────────────────────────────────── */
+			.th-gee-wrap {
+				background: #060e07;
+				border-top: 1px solid rgba(88,160,64,0.12);
+				border-bottom: 1px solid rgba(88,160,64,0.12);
+			}
+			.th-gee-inner {
+				display: grid;
+				grid-template-columns: 360px 1fr;
+				max-width: 1100px;
+				margin: 0 auto;
+				min-height: 540px;
+			}
+			.th-gee-info {
+				padding: 52px 40px;
+				border-right: 1px solid rgba(88,160,64,0.12);
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			.th-gee-info h3 {
+				font-family: 'Syne', sans-serif;
+				font-size: 1.5rem;
+				font-weight: 800;
+				color: #e8f4e4;
+				line-height: 1.2;
+				margin-bottom: 14px;
+			}
+			.th-gee-info h3 em { color: #7ec86a; font-style: italic; }
+			.th-gee-info p {
+				font-size: 0.82rem;
+				color: #7a9e72;
+				line-height: 1.8;
+				margin-bottom: 20px;
+			}
+			.th-gee-features {
+				list-style: none;
+				padding: 0;
+				margin: 0 0 28px;
+			}
+			.th-gee-features li {
+				font-size: 0.8rem;
+				color: #7a9e72;
+				padding: 5px 0;
+				display: flex;
+				gap: 8px;
+				align-items: flex-start;
+			}
+			.th-gee-features li::before { content: '▸'; color: #52a340; flex-shrink: 0; margin-top: 1px; }
+			.th-gee-embed {
+				position: relative;
+			}
+			.th-gee-embed iframe {
+				width: 100%;
+				height: 100%;
+				border: none;
+				display: block;
+				min-height: 540px;
+			}
+			.th-gee-badge {
+				position: absolute;
+				top: 14px; left: 14px;
+				background: rgba(6,14,7,0.88);
+				border: 1px solid rgba(88,160,64,0.3);
+				padding: 5px 12px;
+				font-family: 'DM Mono', monospace;
+				font-size: 0.58rem;
+				color: #7ec86a;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				backdrop-filter: blur(6px);
+				z-index: 5;
+				display: flex;
+				align-items: center;
+				gap: 6px;
+			}
+
+			/* ─── TECH STRIP ────────────────────────────────────────── */
+			.th-tech-grid {
+				display: grid;
+				grid-template-columns: repeat(6, 1fr);
+				gap: 10px;
+			}
+			.th-tech-item {
+				background: #0a160b;
+				border: 1px solid rgba(88,160,64,0.1);
+				padding: 18px 12px;
+				text-align: center;
+				transition: all 0.25s ease;
+			}
+			.th-tech-item:hover {
+				background: rgba(88,160,64,0.07);
+				border-color: rgba(88,160,64,0.35);
+				transform: translateY(-2px);
+			}
+			.th-tech-icon { font-size: 1.4rem; margin-bottom: 7px; }
+			.th-tech-name {
+				font-family: 'DM Mono', monospace;
+				font-size: 0.58rem;
+				color: #3a5c34;
+				letter-spacing: 0.05em;
+			}
+
+			/* ─── ANIMATIONS ─────────────────────────────────────────── */
+			@keyframes fadeUp {
+				from { opacity: 0; transform: translateY(22px); }
+				to   { opacity: 1; transform: translateY(0); }
+			}
+			@keyframes blink {
+				0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
+			}
+			@keyframes scrollPulse {
+				0%, 100% { opacity: 0.4; transform: scaleY(1); }
+				50%       { opacity: 1;   transform: scaleY(1.3); }
+			}
+
+			/* ─── RESPONSIVE ─────────────────────────────────────────── */
+			@media (max-width: 1024px) {
+				.th-hero-content, .th-section { padding-left: 32px; padding-right: 32px; }
+				.th-stats { grid-template-columns: repeat(2, 1fr); }
+				.th-story-inner { grid-template-columns: 1fr; }
+				.th-story-block { border-right: none; border-bottom: 1px solid rgba(88,160,64,0.1); }
+				.th-method-grid { grid-template-columns: 1fr 1fr; }
+				.th-dist-grid { grid-template-columns: 1fr 1fr; }
+				.th-results-grid { grid-template-columns: 1fr; }
+				.th-tech-grid { grid-template-columns: repeat(4, 1fr); }
+				.th-gee-inner { grid-template-columns: 1fr; }
+				.th-gee-embed iframe { min-height: 420px; }
+				.th-scroll { display: none; }
+			}
+			@media (max-width: 640px) {
+				.th-hero { min-height: 100svh; }
+				.th-hero-content { padding-left: 20px; padding-right: 20px; }
+				.th-section { padding: 56px 20px; }
+				.th-stats { grid-template-columns: 1fr 1fr; }
+				.th-method-grid { grid-template-columns: 1fr; }
+				.th-tech-grid { grid-template-columns: repeat(3, 1fr); }
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper" class="fade-in">
+
+			<!-- Intro (HTML5UP standard) -->
+			<div id="intro">
+				<h1>Spatio-Temporal AGB Modelling<br>& Forest Disturbances</h1>
+				<p>GEDI · Sentinel-1/2 · Random Forest · LMEM · Google Earth Engine<br>
+				North Rhine-Westphalia, Germany · 2019–2022</p>
+				<ul class="actions">
+					<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+				</ul>
+			</div>
+
+			<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="logo">Back to Projects</a>
+			</header>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="index.html">Prince Portfolio</a></li>
+					<li><a href="profile.html">Profile</a></li>
+					<li><a href="elements.html">Elements Reference</a></li>
+				</ul>
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
+			</nav>
+
+			<!-- MAIN -->
+			<div id="main">
+				<article class="post">
+					<div id="thesis-wrap">
+
+					<!-- ══ HERO ══════════════════════════════════════════════ -->
+					<div class="th-hero">
+						<div class="th-hero-bg">
+							<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+								<defs>
+									<radialGradient id="glow1" cx="60%" cy="35%" r="55%">
+										<stop offset="0%" stop-color="#2a5c22" stop-opacity="0.35"/>
+										<stop offset="100%" stop-color="#060e07" stop-opacity="0"/>
+									</radialGradient>
+									<radialGradient id="glow2" cx="15%" cy="70%" r="40%">
+										<stop offset="0%" stop-color="#1a3a14" stop-opacity="0.25"/>
+										<stop offset="100%" stop-color="#060e07" stop-opacity="0"/>
+									</radialGradient>
+									<filter id="blur1"><feGaussianBlur stdDeviation="3"/></filter>
+								</defs>
+								<rect width="1440" height="900" fill="#060e07"/>
+								<ellipse cx="860" cy="320" rx="680" ry="420" fill="url(#glow1)"/>
+								<ellipse cx="220" cy="620" rx="480" ry="320" fill="url(#glow2)"/>
+								<!-- topographic contour lines -->
+								<g opacity="0.06" stroke="#5aa840" stroke-width="1" fill="none" filter="url(#blur1)">
+									<ellipse cx="720" cy="450" rx="620" ry="280"/>
+									<ellipse cx="720" cy="450" rx="520" ry="220"/>
+									<ellipse cx="720" cy="450" rx="420" ry="160"/>
+									<ellipse cx="720" cy="450" rx="320" ry="110"/>
+									<ellipse cx="720" cy="450" rx="200" ry="70"/>
+									<ellipse cx="1100" cy="200" rx="300" ry="140"/>
+									<ellipse cx="1100" cy="200" rx="220" ry="100"/>
+									<ellipse cx="200" cy="700" rx="260" ry="120"/>
+									<ellipse cx="200" cy="700" rx="180" ry="80"/>
+								</g>
+								<!-- scattered data points -->
+								<g opacity="0.18" fill="#7ec86a">
+									<circle cx="340" cy="280" r="1.5"/>
+									<circle cx="520" cy="190" r="1"/>
+									<circle cx="680" cy="310" r="2"/>
+									<circle cx="820" cy="240" r="1.5"/>
+									<circle cx="960" cy="180" r="1"/>
+									<circle cx="1080" cy="290" r="2"/>
+									<circle cx="1200" cy="220" r="1.5"/>
+									<circle cx="440" cy="420" r="1"/>
+									<circle cx="600" cy="380" r="2"/>
+									<circle cx="760" cy="440" r="1.5"/>
+									<circle cx="900" cy="390" r="1"/>
+									<circle cx="1050" cy="420" r="2"/>
+									<circle cx="280" cy="550" r="1.5"/>
+									<circle cx="460" cy="510" r="1"/>
+									<circle cx="640" cy="580" r="2"/>
+									<circle cx="800" cy="540" r="1.5"/>
+								</g>
+							</svg>
+						</div>
+						<div class="th-hero-grid"></div>
+						<div class="th-hero-vignette"></div>
+
+						<div class="th-hero-content">
+							<div class="th-kicker">
+								<span class="th-kicker-dot"></span>
+								Master Thesis · HFT Stuttgart · Winter 2025/26
+							</div>
+
+							<h1>
+								When forests<br>
+								<span class="accent">lose biomass,</span><br>
+								<span class="dim">we map the causes.</span>
+							</h1>
+
+							<p class="th-hero-sub">
+								A spatio-temporal remote sensing framework modelling annual above-ground biomass across North Rhine-Westphalia fusing satellites, LiDAR, and machine learning to track drought, fire, pests, and logging as drivers of forest carbon loss.
+							</p>
+
+							<div class="th-hero-pills">
+								<span class="th-pill">GEDI LiDAR</span>
+								<span class="th-pill">Sentinel-1 SAR</span>
+								<span class="th-pill">Sentinel-2 MSI</span>
+								<span class="th-pill">Random Forest · R²=0.959</span>
+								<span class="th-pill">LMEM Attribution</span>
+								<span class="th-pill">Google Earth Engine</span>
+								<span class="th-pill">NRW · 100m · 2019–2022</span>
+							</div>
+
+							<div class="th-hero-cta">
+								<a href="https://oseiprince93nrw.projects.earthengine.app/view/disturbance-driven-agb-change"
+								   target="_blank" class="th-btn th-btn-primary">
+									<span style="width:7px;height:7px;background:#7ec86a;border-radius:50%;display:inline-block;animation:blink 2s ease infinite;"></span>
+									Explore Live Dashboard
+								</a>
+								<a href="#th-results" class="th-btn th-btn-outline">↓ View Results</a>
+							</div>
+						</div>
+
+						<div class="th-scroll">
+							<div class="th-scroll-line"></div>
+							scroll
+						</div>
+					</div><!-- /hero -->
+
+					<!-- ══ STAT STRIP ════════════════════════════════════════ -->
+					<div class="th-stats">
+						<div class="th-stat">
+							<div class="th-stat-val">0.959<sup>R²</sup></div>
+							<div class="th-stat-label">Random Forest perfomed best among kNN, and CNN algorithms</div>
+						</div>
+						<div class="th-stat">
+							<div class="th-stat-val">15.39</div>
+							<div class="th-stat-label">RMSE in Mg ha⁻¹ · MAE = 11.76 · Bias = 0.23</div>
+						</div>
+						<div class="th-stat">
+							<div class="th-stat-val">−5.88<sup>β</sup></div>
+							<div class="th-stat-label">Drought LMEM coefficient as dominant driver of biomass loss</div>
+						</div>
+						<div class="th-stat">
+							<div class="th-stat-val">4 yrs</div>
+							<div class="th-stat-label">Annual AGB maps · 100 m wall-to-wall · NRW 2019–2022</div>
+						</div>
+					</div>
+
+					<!-- ══ THE STORY ══════════════════════════════════════════ -->
+					<div class="th-story">
+						<div class="th-story-inner">
+							<div class="th-story-block">
+								<div class="th-story-num">01</div>
+								<div class="th-story-icon">🌡️</div>
+								<div class="th-story-title">The Problem</div>
+								<p class="th-story-text">Between 2018 and 2022, <strong>over 490 km² of German forests</strong> were damaged by drought, bark beetle, and logging cascades. Yet, disturbance impacts and biomass dynamics are often analysed separately, which limits understanding of how disturbance types, severities, and frequencies drive biomass loss over time and space. Using North Rhine-Westphalia (NRW) as case study, this thesis develops a spatio-temporal remote-sensing framework to (i) predict annual above-ground biomass (AGB) for 2019-2022, (ii) map and characterise drought, fire, logging and pest disturbances, and (iii) quantify disturbance-driven above-ground biomass change. </p>
+							</div>
+							<div class="th-story-block">
+								<div class="th-story-num">02</div>
+								<div class="th-story-icon">🛰️</div>
+								<div class="th-story-title">The Approach</div>
+								<p class="th-story-text">Fuse <strong>GEDI LiDAR + Sentinel-1 SAR + Sentinel-2 optical + terrain + climate data </strong> into a 100 m annual grid. Model and predict Above-ground biomass with RF, kNN and CNN algorithms. Map four disturbance types. Then run a Linear Mixed Effects Model to attribute <em>which disturbance type is actually driving biomass loss.</em></p>
+							</div>
+							<div class="th-story-block">
+								<div class="th-story-num">03</div>
+								<div class="th-story-icon">💡</div>
+								<div class="th-story-title">The Insight</div>
+								<p class="th-story-text"><strong>ΔAGB is a lagging indicator of cumulative stress rather than an immediate response to a disturbance type.</strong> Biomass loss doesn't peak in the year of disturbance occurence. It accumulates over subsequent years. Same-year disturbance correlations systematically underestimate what forests are actually losing.</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- ══ DISTURBANCES ══════════════════════════════════════ -->
+					<div class="th-section">
+						<div class="th-eyebrow">Disturbance Mapping</div>
+						<h2 class="th-section-title">Four disturbance types. One <span class="accent">cascade.</span></h2>
+						<p class="th-section-lead">Annual Δ-rasters computed across all forested pixels in NRW. Each disturbance type thresholded to its ecological signal extent.</p>
+
+						<div class="th-dist-grid">
+							<div class="th-dist-card drought">
+								<span class="th-dist-emoji">🌵</span>
+								<div class="th-dist-type">Drought · Primary Driver</div>
+								<div class="th-dist-area">~838.53 km²</div>
+								<p class="th-dist-detail">per year · SWIR moisture stress · q=0.90 · β=−5.875 in LMEM · The cascade begins here — weakening trees, opening the door to beetle invasion.</p>
+							</div>
+							<div class="th-dist-card pest">
+								<span class="th-dist-emoji">🪲</span>
+								<div class="th-dist-type">Bark Beetle · Secondary</div>
+								<div class="th-dist-area">~330.91 km²</div>
+								<p class="th-dist-detail">per year · Ips typographus · Red-edge anomaly · Hotspot-adapted threshold q=0.269 · Explodes in drought-weakened spruce stands.</p>
+							</div>
+							<div class="th-dist-card logging">
+								<span class="th-dist-emoji">🪵</span>
+								<div class="th-dist-type">Logging · Response</div>
+								<div class="th-dist-area">~655.7 km²</div>
+								<p class="th-dist-detail">per year · Red-edge drNBR · q=0.90 · Often salvage logging — a management response to drought and beetle damage that removes remaining biomass.</p>
+							</div>
+							<div class="th-dist-card fire">
+								<span class="th-dist-emoji">🔥</span>
+								<div class="th-dist-type">Fire · Localised</div>
+								<div class="th-dist-area">~563 km²</div>
+								<p class="th-dist-detail">per year · ΔNBR · ultra-conservative q=0.980 · Rare but intensifying — NRW's burned area tripled post-2020 from drought-fuelled fuel accumulation.</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- ══ METHODOLOGY ════════════════════════════════════════ -->
+					<div style="background:#06100708; border-top:1px solid rgba(88,160,64,0.08); border-bottom:1px solid rgba(88,160,64,0.08);">
+						<div class="th-section">
+							<div class="th-eyebrow">Methodology</div>
+							<h2 class="th-section-title">A <span class="accent">six-step</span> pipeline</h2>
+							<p class="th-section-lead">From raw satellite archives to an interactive public dashboard — every step reproducible in Google Earth Engine.</p>
+
+							<div class="th-method-grid">
+								<div class="th-method-card">
+									<div class="th-method-step">STEP 01</div>
+									<h4>🛰️ Multi-Sensor Fusion</h4>
+									<p>GEDI footprints co-registered with annual Sentinel-1/2 composites, GLCM textures, canopy height, SRTM terrain, and ERA5 climate — all at 100 m.</p>
+									<div class="th-method-tags">
+										<span class="th-tag hl">GEDI</span><span class="th-tag hl">Sentinel-1/2</span><span class="th-tag">GLCM</span><span class="th-tag">ERA5</span>
+									</div>
+								</div>
+								<div class="th-method-card">
+									<div class="th-method-step">STEP 02</div>
+									<h4>🤖 ML AGB Modelling</h4>
+									<p>RF, kNN, CNN benchmarked under cross-validation. RF selected — R²=0.959. SHAP used to rank which satellite bands actually explain biomass variance.</p>
+									<div class="th-method-tags">
+										<span class="th-tag hl">Random Forest</span><span class="th-tag">kNN</span><span class="th-tag">CNN</span><span class="th-tag hl">SHAP</span>
+									</div>
+								</div>
+								<div class="th-method-card">
+									<div class="th-method-step">STEP 03</div>
+									<h4>🗺️ Annual AGB Maps</h4>
+									<p>RF applied wall-to-wall across NRW for 2019, 2020, 2021, 2022 — producing four consecutive annual biomass rasters validated against ESA-CCI and DLR products.</p>
+									<div class="th-method-tags">
+										<span class="th-tag hl">Wall-to-wall</span><span class="th-tag">ESA-CCI</span><span class="th-tag">DLR</span>
+									</div>
+								</div>
+								<div class="th-method-card">
+									<div class="th-method-step">STEP 04</div>
+									<h4>🔥 Disturbance Δ-Rasters</h4>
+									<p>Annual change rasters for drought, fire, pest, and logging computed from spectral indices. Agent-specific quantile thresholds suppress noise while preserving true signals.</p>
+									<div class="th-method-tags">
+										<span class="th-tag hl">NBR</span><span class="th-tag hl">drNBR</span><span class="th-tag">NDWI</span><span class="th-tag">Red-Edge</span>
+									</div>
+								</div>
+								<div class="th-method-card">
+									<div class="th-method-step">STEP 05</div>
+									<h4>📐 LMEM Attribution</h4>
+									<p>Panel dataset of ΔAGB and disturbance proxies fitted with a Linear Mixed Effects Model. Fixed effects = disturbance type. Random effect = year. Drought β=−5.875.</p>
+									<div class="th-method-tags">
+										<span class="th-tag hl">LMEM</span><span class="th-tag">ΔAGB</span><span class="th-tag">Panel Data</span><span class="th-tag">Bootstrap CI</span>
+									</div>
+								</div>
+								<div class="th-method-card">
+									<div class="th-method-step">STEP 06</div>
+									<h4>🌐 GEE Web App</h4>
+									<p>Interactive dashboard deployed publicly for foresters and researchers to explore disturbance footprints, biomass trajectories, and hotspots — bridging research and practice.</p>
+									<div class="th-method-tags">
+										<span class="th-tag hl">GEE App</span><span class="th-tag">JavaScript API</span><span class="th-tag">Open Access</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- ══ RESULTS ════════════════════════════════════════════ -->
+					<div id="th-results" class="th-section">
+						<div class="th-eyebrow">Key Results</div>
+						<h2 class="th-section-title">What the data <span class="accent">revealed</span></h2>
+						<p class="th-section-lead">Five findings that change how we should think about carbon accounting in managed temperate forests.</p>
+
+						<div class="th-results-grid">
+							<div class="th-result-card">
+								<div class="th-result-label">AGB Model Performance</div>
+								<h4>Random Forest Dominated — Accuracy, Stability, Interpretability</h4>
+								<p>RF outperformed kNN and CNN across all metrics, handling non-linear SAR–optical–biomass relationships without overfitting under limited GEDI label density in European temperate forest.</p>
+								<div class="th-metrics">
+									<div><div class="th-metric-val">0.959</div><div class="th-metric-lab">R²</div></div>
+									<div><div class="th-metric-val">15.39</div><div class="th-metric-lab">RMSE Mg/ha</div></div>
+									<div><div class="th-metric-val">11.76</div><div class="th-metric-lab">MAE Mg/ha</div></div>
+									<div><div class="th-metric-val">0.23</div><div class="th-metric-lab">Bias Mg/ha</div></div>
+								</div>
+							</div>
+							<div class="th-result-card">
+								<div class="th-result-label">Feature Importance · SHAP</div>
+								<h4>Texture Metrics Outranked Most Spectral Indices</h4>
+								<p>GLCM red-edge and red-band texture features ranked #3 overall — only after canopy height and VH backscatter. High texture = structured canopy = high AGB. Low texture = disturbed or fragmented stand.</p>
+								<div class="th-metrics">
+									<div><div class="th-metric-val">#1</div><div class="th-metric-lab">Canopy Height</div></div>
+									<div><div class="th-metric-val">#2</div><div class="th-metric-lab">VH SAR</div></div>
+									<div><div class="th-metric-val">#3</div><div class="th-metric-lab">GLCM Texture</div></div>
+								</div>
+							</div>
+							<div class="th-result-card wide">
+								<div class="th-result-label">Core Finding · LMEM Attribution</div>
+								<h4>ΔAGB Is a Lagging Indicator — Drought Starts the Cascade</h4>
+								<p>The LMEM confirmed drought as the dominant negative driver of biomass change (β=−5.875). But the deeper finding is temporal: AGB loss doesn't spike in the drought year — it accumulates silently in subsequent years as bark beetle mortality progresses and salvage logging follows. Single-year carbon inventories miss this entirely. This has direct implications for LULUCF carbon reporting under EU climate policy.</p>
+								<div class="th-metrics" style="margin-top:20px;">
+									<div><div class="th-metric-val">−5.875</div><div class="th-metric-lab">Drought β</div></div>
+									<div><div class="th-metric-val">Lagging</div><div class="th-metric-lab">ΔAGB signal type</div></div>
+									<div><div class="th-metric-val">Cascade</div><div class="th-metric-lab">Drought → Pest → Logging</div></div>
+									<div><div class="th-metric-val">Clustered</div><div class="th-metric-lab">Spruce-stand hotspots</div></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Timeline -->
+						<div style="margin-top:72px;">
+							<div class="th-eyebrow">Scientific Contributions</div>
+							<h2 class="th-section-title" style="margin-bottom:36px; color:#102010;">What this work <span style="color:#2d7a1a;font-style:italic;">advances</span></h2>
+							<div class="th-timeline">
+								<div class="th-timeline-item">
+									<h4>First integrated AGB–disturbance framework for NRW at 100 m annual scale</h4>
+									<p>Combines GEDI-derived biomass prediction with four concurrent disturbance proxies in a single pipeline — enabling attribution of which agent drives local carbon loss each year.</p>
+								</div>
+								<div class="th-timeline-item">
+									<h4>SAR-optical fusion stabilises prediction across cloud-affected years</h4>
+									<p>Sentinel-1 VV/VH reduces canopy saturation effects and cloud-gap errors that compromise optical-only models in Germany's frequently overcast temperate climate.</p>
+								</div>
+								<div class="th-timeline-item">
+									<h4>Evidence of drought → pest → logging disturbance cascades</h4>
+									<p>Spatial co-occurrence analysis reveals that NRW's biomass-loss hotspots concentrate along drought-preconditioned spruce corridors where beetle outbreaks then triggered salvage operations.</p>
+								</div>
+								<div class="th-timeline-item">
+									<h4>Open GEE dashboard for evidence-based forest management</h4>
+									<p>Publicly accessible tool allowing foresters and researchers to query disturbance footprints, visualise biomass trajectories, and identify hotspot zones — no GIS software required.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- ══ GEE DASHBOARD ══════════════════════════════════════ -->
+					<div class="th-gee-wrap">
+						<div class="th-gee-inner">
+							<div class="th-gee-info">
+								<div class="th-eyebrow" style="margin-bottom:12px; color:#52c23a;">Live Dashboard</div>
+								<h3><em>Disturbance-Driven</em><br>AGB Change Explorer</h3>
+								<p>A Google Earth Engine application built to make every result from this thesis explorable — no software needed, runs in any browser.</p>
+								<ul class="th-gee-features">
+									<li>Annual predicted AGB maps at 100 m (2019–2022)</li>
+									<li>Drought, fire, pest, and logging disturbance overlays</li>
+									<li>Biomass-loss hotspot identification by disturbance type</li>
+									<li>Point query any forest location in NRW</li>
+									<li>Interannual ΔAGB trajectory visualisation</li>
+								</ul>
+								<a href="https://oseiprince93nrw.projects.earthengine.app/view/disturbance-driven-agb-change"
+								   target="_blank" class="th-btn th-btn-primary" style="align-self:flex-start;">
+									<span style="width:7px;height:7px;background:#7ec86a;border-radius:50%;display:inline-block;animation:blink 2s ease infinite;"></span>
+									Open Full Dashboard
+								</a>
+							</div>
+							<div class="th-gee-embed">
+								<div class="th-gee-badge">
+									<span style="width:5px;height:5px;background:#7ec86a;border-radius:50%;display:inline-block;animation:blink 2s ease infinite;"></span>
+									Live · GEE App
+								</div>
+								<iframe
+									src="https://oseiprince93nrw.projects.earthengine.app/view/disturbance-driven-agb-change"
+									title="Disturbance-Driven AGB Change Dashboard"
+									loading="lazy"
+									allow="fullscreen">
+								</iframe>
+							</div>
+						</div>
+					</div>
+
+					<!-- ══ TECH STACK ═════════════════════════════════════════ -->
+					<div class="th-section">
+						<div class="th-eyebrow">Tools & Technologies</div>
+						<h2 class="th-section-title" style="margin-bottom:36px;">Built with</h2>
+						<div class="th-tech-grid">
+							<div class="th-tech-item"><div class="th-tech-icon">🌍</div><div class="th-tech-name">Google Earth Engine</div></div>
+							<div class="th-tech-item"><div class="th-tech-icon">🛰️</div><div class="th-tech-name">Sentinel-1 SAR</div></div>
+							<div class="th-tech-item"><div class="th-tech-icon">📡</div><div class="th-tech-name">Sentinel-2 MSI</div></div>
+							<div class="th-tech-item"><div class="th-tech-icon">🔦</div><div class="th-tech-name">NASA GEDI</div></div>
+							<div class="th-tech-item"><div class="th-tech-icon">🐍</div><div class="th-tech-name">Python</div></div>
+							<div class="th-tech-item"><div class="th-tech-icon">🌲</div><div class="th-tech-name">Random Forest</div></div>
+							<div class="th-tech-item"><div class="th-tech-icon">🧠</div><div class="th-tech-name">CNN / Deep Learning</div></div>
+							<div class="th-tech-item"><div class="th-tech-icon">📊</div><div class="th-tech-name">SHAP Analysis</div></div>
+							<div class="th-tech-item"><div class="th-tech-icon">📐</div><div class="th-tech-name">LMEM</div></div>
+							<div class="th-tech-item"><div class="th-tech-icon">🗺️</div><div class="th-tech-name">QGIS</div></div>
+							<div class="th-tech-item"><div class="th-tech-icon">🧮</div><div class="th-tech-name">R Statistics</div></div>
+							<div class="th-tech-item"><div class="th-tech-icon">⚡</div><div class="th-tech-name">GEE JS API</div></div>
+						</div>
+					</div>
+
+					</div><!-- /thesis-wrap -->
+				</article>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<section>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field">
+								<label for="name">Name</label>
+								<input type="text" name="name" id="name" />
+							</div>
+							<div class="field">
+								<label for="email">Email</label>
+								<input type="text" name="email" id="email" />
+							</div>
+							<div class="field">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" rows="3"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send Message" /></li>
+						</ul>
+					</form>
+				</section>
+				<section class="split contact">
+					<section class="alt">
+						<h3>Address</h3>
+						<p>In der Au 16, Untertükheim, Stuttgart<br />70327</p>
+					</section>
+					<section>
+						<h3>Phone</h3>
+						<p><a href="#">(+49) 1633-9124-01</a></p>
+					</section>
+					<section>
+						<h3>Email</h3>
+						<p><a href="#"><span class="__cf_email__" data-cfemail="1f706c7a767d707e6b7a7178262c5f78727e7673317c7072">[email&#160;protected]</span></a></p>
+					</section>
+					<section>
+						<h3>Social</h3>
+						<ul class="icons alt">
+							<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</section>
+				</section>
+			</footer>
+
+			<!-- Copyright -->
+			<div id="copyright">
+				<ul><li>© Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<scri
