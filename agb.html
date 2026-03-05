@@ -10,6 +10,52 @@
 		<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 		<style>
+
+            /* ─── HIDE NATIVE INTRO, SHOW OUR HERO IMMEDIATELY ──────── */
+			/* Remove default scroll-required intro behaviour */
+			#intro { display: none !important; }
+
+			/* Ensure wrapper starts at top with no offset */
+			#wrapper { padding-top: 0 !important; margin-top: 0 !important; }
+
+			/* Make header always visible as overlay on our hero */
+			#header {
+				position: fixed !important;
+				top: 0; left: 0; right: 0;
+				z-index: 200;
+				background: rgba(6,14,7,0.82) !important;
+				backdrop-filter: blur(12px);
+				border-bottom: 1px solid rgba(88,160,64,0.18) !important;
+				padding: 0 32px !important;
+				height: 56px !important;
+				display: flex !important;
+				align-items: center !important;
+				justify-content: space-between !important;
+			}
+			#header .logo {
+				font-family: 'DM Mono', monospace !important;
+				font-size: 0.72rem !important;
+				letter-spacing: 0.15em !important;
+				color: #7ec86a !important;
+				text-transform: uppercase !important;
+				text-decoration: none !important;
+				border: none !important;
+			}
+			#header .logo:hover { color: #52a340 !important; }
+
+			/* Nav bar — sits just below fixed header */
+			#nav {
+				top: 56px !important;
+			}
+
+			/* Push main content down to account for fixed header */
+			#main {
+				margin-top: 0 !important;
+				padding-top: 0 !important;
+			}
+
+			/* th-hero already accounts for full viewport height */
+
 			/* ─── RESET & SCOPE ─────────────────────────────────────── */
 			#thesis-wrap * { box-sizing: border-box; }
 			#thesis-wrap { font-family: 'DM Sans', sans-serif; background: #060e07; }
