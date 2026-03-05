@@ -919,26 +919,26 @@
 							<div class="th-dist-card drought">
 								<span class="th-dist-emoji">🌵</span>
 								<div class="th-dist-type">Drought · Primary Driver</div>
-								<div class="th-dist-area">~838.53 km²</div>
-								<p class="th-dist-detail">per year · SWIR moisture stress · q=0.90 · β=−5.875 in LMEM · The cascade begins here — weakening trees, opening the door to beetle invasion.</p>
+								<div class="th-dist-area">838.53 km²</div>
+								<p class="th-dist-detail">per year · SWIR moisture stress · q=0.90 · β=−5.875 in LMEM · Drought reduces tree vitality and weaken physiological defence mechanisms. This predisposition increases susceptibility to bark beetle outbreaks.</p>
 							</div>
 							<div class="th-dist-card pest">
 								<span class="th-dist-emoji">🪲</span>
 								<div class="th-dist-type">Bark Beetle · Secondary</div>
-								<div class="th-dist-area">~330.91 km²</div>
-								<p class="th-dist-detail">per year · Ips typographus · Red-edge anomaly · Hotspot-adapted threshold q=0.269 · Explodes in drought-weakened spruce stands.</p>
+								<div class="th-dist-area">330.91 km²</div>
+								<p class="th-dist-detail">per year · Ips typographus · Red-edge anomaly · Hotspot-adapted threshold q=0.269 · Biotic amplifier in drought-weakened spruce stands.</p>
 							</div>
 							<div class="th-dist-card logging">
 								<span class="th-dist-emoji">🪵</span>
 								<div class="th-dist-type">Logging · Response</div>
-								<div class="th-dist-area">~655.7 km²</div>
-								<p class="th-dist-detail">per year · Red-edge drNBR · q=0.90 · Often salvage logging — a management response to drought and beetle damage that removes remaining biomass.</p>
+								<div class="th-dist-area">655.7 km²</div>
+								<p class="th-dist-detail">per year · Red-edge drNBR · q=0.90 · Often salvage logging which includes management response to drought and beetle damage that removes remaining biomass.</p>
 							</div>
 							<div class="th-dist-card fire">
 								<span class="th-dist-emoji">🔥</span>
 								<div class="th-dist-type">Fire · Localised</div>
-								<div class="th-dist-area">~563 km²</div>
-								<p class="th-dist-detail">per year · ΔNBR · ultra-conservative q=0.980 · Rare but intensifying — NRW's burned area tripled post-2020 from drought-fuelled fuel accumulation.</p>
+								<div class="th-dist-area">563 km²</div>
+								<p class="th-dist-detail">per year · ΔNBR · High conservative threshold q=0.980 · Rare but intensifying. NRW's burned area tripled post-2020.</p>
 							</div>
 						</div>
 					</div>
@@ -948,13 +948,13 @@
 						<div class="th-section">
 							<div class="th-eyebrow">Methodology</div>
 							<h2 class="th-section-title">A <span class="accent">six-step</span> pipeline</h2>
-							<p class="th-section-lead">From raw satellite archives to an interactive public dashboard — every step reproducible in Google Earth Engine.</p>
+							<p class="th-section-lead">From satellite imagery and remote sensing data to a live interactive dashboard. Every step reproducible in Google Earth Engine.</p>
 
 							<div class="th-method-grid">
 								<div class="th-method-card">
 									<div class="th-method-step">STEP 01</div>
 									<h4>🛰️ Multi-Sensor Fusion</h4>
-									<p>GEDI footprints co-registered with annual Sentinel-1/2 composites, GLCM textures, canopy height, SRTM terrain, and ERA5 climate — all at 100 m.</p>
+									<p>GEDI footprints fused with annual Sentinel-1/2 composites, GLCM textures, canopy height, SRTM terrain, and ERA5 climate, harmonised on a 100m grid.</p>
 									<div class="th-method-tags">
 										<span class="th-tag hl">GEDI</span><span class="th-tag hl">Sentinel-1/2</span><span class="th-tag">GLCM</span><span class="th-tag">ERA5</span>
 									</div>
@@ -962,7 +962,7 @@
 								<div class="th-method-card">
 									<div class="th-method-step">STEP 02</div>
 									<h4>🤖 ML AGB Modelling</h4>
-									<p>RF, kNN, CNN benchmarked under cross-validation. RF selected — R²=0.959. SHAP used to rank which satellite bands actually explain biomass variance.</p>
+									<p>RF, kNN, CNN trained under GroupKfold cross-validation. RF selected with R²=0.959. SHAP used to rank which satellite bands actually explain biomass variance.</p>
 									<div class="th-method-tags">
 										<span class="th-tag hl">Random Forest</span><span class="th-tag">kNN</span><span class="th-tag">CNN</span><span class="th-tag hl">SHAP</span>
 									</div>
@@ -970,15 +970,15 @@
 								<div class="th-method-card">
 									<div class="th-method-step">STEP 03</div>
 									<h4>🗺️ Annual AGB Maps</h4>
-									<p>RF applied wall-to-wall across NRW for 2019, 2020, 2021, 2022 — producing four consecutive annual biomass rasters validated against ESA-CCI and DLR products.</p>
+									<p>RF generated wall-to-wall above-ground biomass maps for 2019, 2020, 2021, 2022. Providing four consecutive annual biomass rasters validated against ESA-CCI and DLR products.</p>
 									<div class="th-method-tags">
 										<span class="th-tag hl">Wall-to-wall</span><span class="th-tag">ESA-CCI</span><span class="th-tag">DLR</span>
 									</div>
 								</div>
 								<div class="th-method-card">
 									<div class="th-method-step">STEP 04</div>
-									<h4>🔥 Disturbance Δ-Rasters</h4>
-									<p>Annual change rasters for drought, fire, pest, and logging computed from spectral indices. Agent-specific quantile thresholds suppress noise while preserving true signals.</p>
+									<h4>🔥 Disturbance Δ-Layers</h4>
+									<p>Annual change layers for drought, fire, pest, and logging computed from spectral indices. Disturbance Type-specific quantile thresholds suppress false positives while preserving true signals.</p>
 									<div class="th-method-tags">
 										<span class="th-tag hl">NBR</span><span class="th-tag hl">drNBR</span><span class="th-tag">NDWI</span><span class="th-tag">Red-Edge</span>
 									</div>
@@ -986,7 +986,7 @@
 								<div class="th-method-card">
 									<div class="th-method-step">STEP 05</div>
 									<h4>📐 LMEM Attribution</h4>
-									<p>Panel dataset of ΔAGB and disturbance proxies fitted with a Linear Mixed Effects Model. Fixed effects = disturbance type. Random effect = year. Drought β=−5.875.</p>
+									<p>Pixel-wise correlation of ΔAGB and disturbance layers with a Linear Mixed Effects Model. Fixed effects = disturbance type severities. Random effect = Biomass baseline year. Drought β=−5.875.</p>
 									<div class="th-method-tags">
 										<span class="th-tag hl">LMEM</span><span class="th-tag">ΔAGB</span><span class="th-tag">Panel Data</span><span class="th-tag">Bootstrap CI</span>
 									</div>
@@ -994,7 +994,7 @@
 								<div class="th-method-card">
 									<div class="th-method-step">STEP 06</div>
 									<h4>🌐 GEE Web App</h4>
-									<p>Interactive dashboard deployed publicly for foresters and researchers to explore disturbance footprints, biomass trajectories, and hotspots — bridging research and practice.</p>
+									<p>Interactive dashboard deployed publicly to enable users to query and visualise disturbance footprints, biomass change patterns, and hotspot distributions across NRW..</p>
 									<div class="th-method-tags">
 										<span class="th-tag hl">GEE App</span><span class="th-tag">JavaScript API</span><span class="th-tag">Open Access</span>
 									</div>
@@ -1013,7 +1013,7 @@
 							<div class="th-result-card">
 								<div class="th-result-label">AGB Model Performance</div>
 								<h4>Random Forest Dominated — Accuracy, Stability, Interpretability</h4>
-								<p>RF outperformed kNN and CNN across all metrics, handling non-linear SAR–optical–biomass relationships without overfitting under limited GEDI label density in European temperate forest.</p>
+								<p>This study demonstrated the generalization capacity of Random Forest algorithms under spatial cross-validation in AGB mapping. RF metrics; R² = 0.959, RMSE = 15.39 Mg ha⁻¹ outperforming kNN and CNN in temperate forests.</p>
 								<div class="th-metrics">
 									<div><div class="th-metric-val">0.959</div><div class="th-metric-lab">R²</div></div>
 									<div><div class="th-metric-val">15.39</div><div class="th-metric-lab">RMSE Mg/ha</div></div>
@@ -1024,7 +1024,7 @@
 							<div class="th-result-card">
 								<div class="th-result-label">Feature Importance · SHAP</div>
 								<h4>Texture Metrics Outranked Most Spectral Indices</h4>
-								<p>GLCM red-edge and red-band texture features ranked #3 overall — only after canopy height and VH backscatter. High texture = structured canopy = high AGB. Low texture = disturbed or fragmented stand.</p>
+								<p>GLCM red-edge and red-band texture features ranked #3 overall, only after canopy height and VH backscatter. High texture = structured canopy = high AGB. Low texture = disturbed or fragmented stand.</p>
 								<div class="th-metrics">
 									<div><div class="th-metric-val">#1</div><div class="th-metric-lab">Canopy Height</div></div>
 									<div><div class="th-metric-val">#2</div><div class="th-metric-lab">VH SAR</div></div>
@@ -1033,8 +1033,8 @@
 							</div>
 							<div class="th-result-card wide">
 								<div class="th-result-label">Core Finding · LMEM Attribution</div>
-								<h4>ΔAGB Is a Lagging Indicator — Drought Starts the Cascade</h4>
-								<p>The LMEM confirmed drought as the dominant negative driver of biomass change (β=−5.875). But the deeper finding is temporal: AGB loss doesn't spike in the drought year — it accumulates silently in subsequent years as bark beetle mortality progresses and salvage logging follows. Single-year carbon inventories miss this entirely. This has direct implications for LULUCF carbon reporting under EU climate policy.</p>
+								<h4>ΔAGB Is a Lagging Indicator. Drought Starts the Cascade</h4>
+								<p>The LMEM confirmed drought as the dominant negative driver of biomass change (β=−5.875). AGB loss doesn't spike in the drought year, it accumulates in subsequent years as bark beetle mortality progresses and salvage logging follows. Same-year accounting undestimates AGB loss. This has direct implications for LULUCF carbon reporting under EU climate policy.</p>
 								<div class="th-metrics" style="margin-top:20px;">
 									<div><div class="th-metric-val">−5.875</div><div class="th-metric-lab">Drought β</div></div>
 									<div><div class="th-metric-val">Lagging</div><div class="th-metric-lab">ΔAGB signal type</div></div>
@@ -1051,7 +1051,7 @@
 							<div class="th-timeline">
 								<div class="th-timeline-item">
 									<h4>First integrated AGB–disturbance framework for NRW at 100 m annual scale</h4>
-									<p>Combines GEDI-derived biomass prediction with four concurrent disturbance proxies in a single pipeline — enabling attribution of which agent drives local carbon loss each year.</p>
+									<p>Combines GEDI-derived biomass prediction with four concurrent disturbance proxies in a visualization framework. This enables attribution of which disturbance type drives local carbon loss each year.</p>
 								</div>
 								<div class="th-timeline-item">
 									<h4>SAR-optical fusion stabilises prediction across cloud-affected years</h4>
@@ -1062,8 +1062,8 @@
 									<p>Spatial co-occurrence analysis reveals that NRW's biomass-loss hotspots concentrate along drought-preconditioned spruce corridors where beetle outbreaks then triggered salvage operations.</p>
 								</div>
 								<div class="th-timeline-item">
-									<h4>Open GEE dashboard for evidence-based forest management</h4>
-									<p>Publicly accessible tool allowing foresters and researchers to query disturbance footprints, visualise biomass trajectories, and identify hotspot zones — no GIS software required.</p>
+									<h4>Interactive GEE dashboard for evidence-based forest management</h4>
+									<p>Publicly accessible tool allowing foresters and researchers to query disturbance footprints, visualise biomass trajectories, and identify hotspot zones. No GIS software required.</p>
 								</div>
 							</div>
 						</div>
