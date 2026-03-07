@@ -355,7 +355,7 @@
     <div class="gallery-panel active" id="panel-hegnach">
       <div class="compare-frame">
         <div class="compare-topbar">
-          <span class="compare-topbar-title">Georeferencing cleanup — Hegnach</span>
+          <span class="compare-topbar-title">Georeferencing cleanup: Hegnach</span>
           <span class="tag tag-teal" style="font-size:.6rem;padding:.18rem .6rem">Black border removed</span>
         </div>
         <div class="compare-cols">
@@ -380,22 +380,22 @@
     <div class="gallery-panel" id="panel-unterkirnach">
       <div class="compare-frame">
         <div class="compare-topbar">
-          <span class="compare-topbar-title">Georeferencing cleanup — Unterkirnach</span>
+          <span class="compare-topbar-title">Georeferencing cleanup:Unterkirnach</span>
           <span class="tag tag-teal" style="font-size:.6rem;padding:.18rem .6rem">Black border removed</span>
         </div>
         <div class="compare-cols">
           <div class="compare-col">
-            <img src="Unterkirnach1.jpg" alt="Unterkirnach before — black frame">
+            <img src="images/Unter1.jpg" alt="Unterkirnach before — black frame">
             <span class="col-label label-before">Before</span>
           </div>
           <div class="compare-col">
-            <img src="Unterkirnach2.jpg" alt="Unterkirnach after — clean overlay">
+            <img src="images/Unter2.jpg" alt="Unterkirnach after — clean overlay">
             <span class="col-label label-after">After</span>
           </div>
           <div class="arrow-div">→</div>
         </div>
         <div class="credit-bar">
-          <span class="credit-txt">Image credit: [Add source here]</span>
+          <span class="credit-txt">Image Source: [ https://www.schwarzwaelder-bote.de/inhalt.bw-von-oben-aus-unscheinbarem-unterkirnach-entsteht-attraktiver-ferienort.a03d0640-050f-43a1-a3e0-a77333bf2251.html]</span>
           <span class="credit-loc" style="color:var(--violet)">Unterkirnach, Baden-Württemberg</span>
         </div>
       </div>
@@ -405,23 +405,23 @@
     <div class="gallery-panel" id="panel-berlinmitte">
       <div class="compare-frame">
         <div class="compare-topbar">
-          <span class="compare-topbar-title">Georeferencing cleanup — Berlin Mitte</span>
+          <span class="compare-topbar-title">Georeferencing cleanup: Berlin Mitte</span>
           <span class="tag tag-teal" style="font-size:.6rem;padding:.18rem .6rem">Black border removed</span>
         </div>
         <div class="compare-cols">
           <div class="compare-col">
-            <img src="berlinmitte1.jpg" alt="Berlin Mitte before — black frame">
+            <img src="images/berlinmitte1.jpg" alt="Berlin Mitte before — black frame">
             <span class="col-label label-before">Before</span>
           </div>
           <div class="compare-col">
-            <img src="berlinmitte2.jpg" alt="Berlin Mitte after — clean overlay">
+            <img src="images/berlinmitte2.jpg" alt="Berlin Mitte after — clean overlay">
             <span class="col-label label-after">After</span>
           </div>
           <div class="arrow-div">→</div>
         </div>
         <div class="credit-bar">
-          <span class="credit-txt">Image credit: [Add source here]</span>
-          <span class="credit-loc" style="color:var(--sky)">Berlin Mitte, historical aerial</span>
+          <span class="credit-txt">Image source: [http://www.apaame.org/2013/02/historical-imagery-berlin.html]</span>
+          <span class="credit-loc" style="color:var(--sky)">Berlin Mitte, Berlin</span>
         </div>
       </div>
     </div>
@@ -430,23 +430,23 @@
     <div class="gallery-panel" id="panel-sudkreuz">
       <div class="compare-frame">
         <div class="compare-topbar">
-          <span class="compare-topbar-title">Georeferencing cleanup — Berlin Südkreuz</span>
+          <span class="compare-topbar-title">Georeferencing cleanup: Berlin Südkreuz</span>
           <span class="tag tag-teal" style="font-size:.6rem;padding:.18rem .6rem">Black border removed</span>
         </div>
         <div class="compare-cols">
           <div class="compare-col">
-            <img src="sudkreuz1.jpg" alt="Berlin Südkreuz before — black frame">
+            <img src="images/sudkreuz1.jpg" alt="Berlin Südkreuz before — black frame">
             <span class="col-label label-before">Before</span>
           </div>
           <div class="compare-col">
-            <img src="sudkreuz2.jpg" alt="Berlin Südkreuz after — clean overlay">
+            <img src="images/sudkreuz2.jpg" alt="Berlin Südkreuz after — clean overlay">
             <span class="col-label label-after">After</span>
           </div>
           <div class="arrow-div">→</div>
         </div>
         <div class="credit-bar">
-          <span class="credit-txt">Image credit: [Add source here]</span>
-          <span class="credit-loc" style="color:var(--amber)">Berlin Südkreuz, historical aerial</span>
+          <span class="credit-txt">Image credit: [https://www.reddit.com/r/berlin/comments/1b0rjim/what_was_left_of_mitte_after_wwii/]</span>
+          <span class="credit-loc" style="color:var(--amber)">Berlin Südkreuz, Berlin</span>
         </div>
       </div>
     </div>
@@ -478,7 +478,7 @@
   <div class="two-col">
     <div>
       <h2 class="sec-title">The black border problem in GIS</h2>
-      <p class="sec-desc">After georeferencing scanned maps and historical aerial photographs, the output raster always carries unwanted black frames — areas outside the warped footprint filled with background value 0.</p>
+      <p class="sec-desc"> After georeferencing scanned maps and historical aerial photos, the output raster often contains black frames / borders around the valid image footprint because areas outside the warped image are filled with a background value, usually 0.</p>
       <div class="prob-list">
         <div class="prob-card pc-rose fade">
           <span class="pc-icon">⬛</span>
@@ -486,24 +486,24 @@
         </div>
         <div class="prob-card pc-amber fade d1">
           <span class="pc-icon">⚙️</span>
-          <p class="pc-body"><strong>Complicates mosaicking and map layout</strong> — black frames cause seams and prevent clean blending between images.</p>
+          <p class="pc-body"><strong>Complicates mosaicking and map layout</strong>. Black frames cause seams and prevent clean blending between images.</p>
         </div>
         <div class="prob-card pc-violet fade d2">
           <span class="pc-icon">🕳️</span>
-          <p class="pc-body"><strong>Introduces internal holes</strong> when the standard NoData transparency workaround is applied, destroying legitimate dark pixels inside the image.</p>
+          <p class="pc-body"><strong>Introduces internal holes</strong> when the standard NoData transparency workaround is applied, removing legitimate dark pixels inside the image.</p>
         </div>
       </div>
     </div>
     <div>
       <div class="img-frame fade d1">
         <div class="img-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
-        <img src="hegnach1.jpg" alt="Black frame over satellite basemap — Hegnach">
-        <div class="img-cap">↑ Black frame obscuring the satellite basemap — Hegnach, before cleanup</div>
+        <img src="images/hegnach1.jpg" alt="Black frame over satellite basemap. Location: Hegnach">
+        <div class="img-cap">↑ Black frame obscuring the satellite basemap</div>
       </div>
       <div class="img-frame fade d2">
         <div class="img-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
-        <img src="hegnach2.jpg" alt="Clean raster after Black Frame Remover">
-        <div class="img-cap">↑ Same raster after Black Frame Remover — transparent footprint, basemap fully visible</div>
+        <img src="images/hegnach2.jpg" alt="Clean raster after Black Frame Remover">
+        <div class="img-cap">↑ Same raster after Black Frame Removal Plugin. Transparent footprint, basemap fully visible</div>
       </div>
     </div>
   </div>
@@ -516,23 +516,23 @@
     <span class="sec-eye-txt" style="color:var(--teal)">02 / Solution</span>
   </div>
   <h2 class="sec-title">A smarter approach: footprint detection</h2>
-  <p class="sec-desc">Rather than blindly making all dark pixels transparent, the plugin identifies the actual content region, builds a polygon footprint, and clips away only the outer frame — preserving every valid dark pixel inside.</p>
+  <p class="sec-desc">Rather than blindly making all dark pixels transparent, the plugin identifies the actual content region, builds a polygon footprint, and clips away only the outer frame. This preserves every valid dark pixel inside the image.</p>
 
   <table class="cmp-table fade">
     <thead>
       <tr>
         <th>Criterion</th>
         <th>Standard NoData = 0</th>
-        <th>Black Frame Remover</th>
+        <th>Black Frame Removal Plugin</th>
       </tr>
     </thead>
     <tbody>
       <tr><td class="col-feat">Removes outer black border</td><td><span class="good">✓</span> Yes</td><td><span class="good">✓</span> Yes</td></tr>
-      <tr><td class="col-feat">Preserves dark interior pixels</td><td><span class="bad">✗</span> No — creates holes</td><td><span class="good">✓</span> Fully preserved</td></tr>
+      <tr><td class="col-feat">Preserves dark interior pixels</td><td><span class="bad">✗</span> No: creates holes</td><td><span class="good">✓</span> Fully preserved</td></tr>
       <tr><td class="col-feat">Handles shadows & dark vegetation</td><td><span class="bad">✗</span> Incorrectly removed</td><td><span class="good">✓</span> Safe via edge morphology</td></tr>
       <tr><td class="col-feat">Footprint-based clipping</td><td><span class="bad">✗</span> Pixel value only</td><td><span class="good">✓</span> True polygon footprint</td></tr>
       <tr><td class="col-feat">Adjustable sensitivity</td><td><span class="bad">✗</span> Fixed threshold</td><td><span class="good">✓</span> 0–100 user-controlled</td></tr>
-      <tr><td class="col-feat">Alpha band export</td><td><span class="warn-c">~</span> Renderer-dependent</td><td><span class="good">✓</span> Baked into GeoTIFF output</td></tr>
+      <tr><td class="col-feat">Alpha band export</td><td><span class="warn-c">~</span> Renderer-dependent</td><td><span class="good">✓</span> Fused into GeoTIFF output</td></tr>
     </tbody>
   </table>
 
@@ -545,17 +545,17 @@
     <div class="step s2 fade d1">
       <div class="step-n">02</div>
       <div class="step-t">Edge-Safe Refinement</div>
-      <p class="step-d">Applies morphological closing to protect dark but valid pixels near image edges — forests, shadows, water bodies.</p>
+      <p class="step-d">Applies morphological closing to protect dark but valid pixels near image edges such as forests, shadows, water bodies.</p>
     </div>
     <div class="step s3 fade d2">
       <div class="step-n">03</div>
       <div class="step-t">Footprint Creation</div>
-      <p class="step-d">Converts the refined binary mask into the true raster footprint polygon. No guesswork — just geometry.</p>
+      <p class="step-d">Converts the refined binary mask into the true raster footprint polygon. No guesswork just geometry.</p>
     </div>
     <div class="step s4 fade d3">
       <div class="step-n">04</div>
       <div class="step-t">Clip &amp; Export</div>
-      <p class="step-d">Clips the raster to that footprint, optionally bakes in an alpha band, and exports a clean GeoTIFF auto-loaded into QGIS.</p>
+      <p class="step-d">Clips the raster to that footprint, optionally adds an alpha band for transparency, and exports a clean GeoTIFF auto-loaded into QGIS.</p>
     </div>
   </div>
 </section>
@@ -568,14 +568,14 @@
   </div>
   <div class="ui-layout">
     <div class="ui-img fade">
-      <img src="3.jpg" alt="Black Frame Remover QGIS plugin dialog">
+      <img src="images/bkf.jpg" alt="Black Frame Removal QGIS Plugin UI">
     </div>
     <div>
       <h2 class="sec-title" style="margin-bottom:1.5rem">One-click workflow in QGIS</h2>
       <div class="anns">
-        <div class="ann ann-1 fade"><span class="ann-badge">Input</span><p class="ann-text"><strong>Paste or browse</strong> the path to any georeferenced raster — supports all GDAL-readable formats including GeoTIFF.</p></div>
-        <div class="ann ann-2 fade d1"><span class="ann-badge">Threshold</span><p class="ann-text"><strong>Black threshold (0–100)</strong> — controls how aggressively border pixels are identified. 0 = pure black only; 100 = aggressive sweep.</p></div>
-        <div class="ann ann-3 fade d2"><span class="ann-badge">Smooth</span><p class="ann-text"><strong>Edge smoothing (1–51 px)</strong> — morphological buffer that prevents dark valid pixels near the edge from accidental removal.</p></div>
+        <div class="ann ann-1 fade"><span class="ann-badge">Input</span><p class="ann-text"><strong>Paste or browse</strong> the path to any georeferenced raster. Supports all GDAL-readable formats including GeoTIFF.</p></div>
+        <div class="ann ann-2 fade d1"><span class="ann-badge">Threshold</span><p class="ann-text"><strong>Black threshold (0–100)</strong> controls how aggressively border pixels are identified. 0 = pure black only; 100 = aggressive sweep.</p></div>
+        <div class="ann ann-3 fade d2"><span class="ann-badge">Smooth</span><p class="ann-text"><strong>Edge smoothing (1–51 px)</strong> morphological buffer that prevents dark valid pixels near the edge from accidental removal.</p></div>
         <div class="ann ann-4 fade d3"><span class="ann-badge">Output</span><p class="ann-text"><strong>Optional alpha band</strong> for clean transparency + auto-load back into the active QGIS canvas immediately after processing.</p></div>
       </div>
     </div>
@@ -588,15 +588,15 @@
     </div>
     <div class="feat fade d1">
       <div class="feat-head"><div class="feat-ico fi-v">🛡️</div><div class="feat-name">Edge-Safe Morphology</div></div>
-      <p class="feat-desc">Morphological closing prevents dark but valid pixels — forests, shadows, water — near the image boundary from being incorrectly classified as border and removed.</p>
+      <p class="feat-desc">Morphological closing prevents dark but valid pixels (such as forests, shadows, water), near the image boundary from being incorrectly classified as border and removed.</p>
     </div>
     <div class="feat fade d2">
       <div class="feat-head"><div class="feat-ico fi-s">🗺️</div><div class="feat-name">Polygon Footprint Detection</div></div>
-      <p class="feat-desc">Builds a true geometric footprint from the refined mask. The clip is driven by actual image extent — robust for tilted, cropped, or irregularly shaped rasters.</p>
+      <p class="feat-desc">Builds a true geometric footprint from the refined mask. The clip is driven by actual image extent making it robust for tilted, cropped, or irregularly shaped rasters.</p>
     </div>
     <div class="feat fade d3">
       <div class="feat-head"><div class="feat-ico fi-a">⚡</div><div class="feat-name">One-Click Auto-Load</div></div>
-      <p class="feat-desc">Exports a clean GeoTIFF with optional embedded alpha channel and immediately reloads the result into the active QGIS project — no manual file management needed.</p>
+      <p class="feat-desc">Exports a clean GeoTIFF with optional embedded alpha channel and immediately reloads the result into the active QGIS project. No manual file management needed.</p>
     </div>
   </div>
 </section>
@@ -607,14 +607,14 @@
     <div class="sec-eye-bar" style="background:var(--sky)"></div>
     <span class="sec-eye-txt" style="color:var(--sky)">04 / Use Cases</span>
   </div>
-  <h2 class="sec-title">Where it shines</h2>
+  <h2 class="sec-title">Practical Applications</h2>
   <p class="sec-desc">Designed for anyone working with historical or scanned geospatial imagery where clean raster overlays are essential.</p>
 
   <div class="ucs">
     <div class="uc uc-1 fade"><div class="uc-num">USE CASE 01</div><div class="uc-title">Historical Aerial Imagery Cleanup</div><p class="uc-desc">After georeferencing mid-20th century aerial surveys, remove black frames cleanly without destroying dark agricultural fields, forest shadows, or water features.</p></div>
     <div class="uc uc-2 fade d1"><div class="uc-num">USE CASE 02</div><div class="uc-title">Scanned Map Preparation for Digitization</div><p class="uc-desc">Prepare scanned topographic or cadastral maps with transparent borders, ready for feature digitization and overlay against modern reference data.</p></div>
     <div class="uc uc-3 fade d2"><div class="uc-num">USE CASE 03</div><div class="uc-title">Raster Overlays for Planning & Monitoring</div><p class="uc-desc">Create seamless historical baselayers for land-use change detection, environmental monitoring, and urban planning comparison workflows.</p></div>
-    <div class="uc uc-4 fade d3"><div class="uc-num">USE CASE 04</div><div class="uc-title">Map Layouts, Reports &amp; Mosaics</div><p class="uc-desc">Produce publication-ready raster tiles for print layouts, atlases, and geospatial reports — fully transparent borders, no black halos.</p></div>
+    <div class="uc uc-4 fade d3"><div class="uc-num">USE CASE 04</div><div class="uc-title">Map Layouts, Reports &amp; Mosaics</div><p class="uc-desc">Produce publication-ready raster tiles for print layouts, atlases, and geospatial reports.</p></div>
   </div>
 </section>
 
@@ -625,27 +625,27 @@
     <span class="sec-eye-txt" style="color:var(--emerald)">05 / Supporting Tool</span>
   </div>
   <h2 class="sec-title">Basemap Loader Plugin</h2>
-  <p class="sec-desc">A lightweight companion plugin to speed up visual QA, georeferencing checks, and raster inspection directly within QGIS.</p>
+  <p class="sec-desc">As a supporting productivity tool, I also developed a Basemap Loader Plugin for QGIS.</p>
 
   <div class="bm-box fade">
     <!-- Basemap UI screenshots -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.75rem">
       <div class="img-frame" style="margin:0">
         <div class="img-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
-        <img src="base1.jpg" alt="Basemap Loader toolbar in QGIS" style="width:100%;display:block">
-        <div class="img-cap">↑ Basemap Loader toolbar — one-click loading</div>
+        <img src="images/base1.jpg" alt="Basemap Loader toolbar in QGIS" style="width:100%;display:block">
+        <div class="img-cap">↑ Basemap Loader toolbar: one-click loading</div>
       </div>
       <div class="img-frame" style="margin:0">
         <div class="img-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
-        <img src="base2.jpg" alt="Basemap Loader dropdown with all services" style="width:100%;display:block">
-        <div class="img-cap">↑ Full dropdown — XYZ &amp; WMS services</div>
+        <img src="images/base2.jpg" alt="Basemap Loader dropdown with basemaps" style="width:100%;display:block">
+        <div class="img-cap">↑ Full dropdown XYZ &amp; WMS services</div>
       </div>
     </div>
 
-    <p style="font-size:.92rem;color:var(--text-body);line-height:1.8">A dropdown-based QGIS toolbar plugin for instant basemap switching — built to complement the Black Frame Remover by letting you quickly compare cleaned rasters against reference imagery without leaving the QGIS interface.</p>
+    <p style="font-size:.92rem;color:var(--text-body);line-height:1.8">A dropdown-based QGIS toolbar plugin for instant basemap switching. Built to complement the Black Frame Remover by letting you quickly compare cleaned rasters against reference imagery without leaving the QGIS interface.</p>
     <div class="bm-feats">
-      <div class="bm-feat"><span class="bm-dot"></span>Loads common XYZ and WMS basemaps via dropdown — no manual tile URL entry</div>
-      <div class="bm-feat"><span class="bm-dot"></span>Supports OpenStreetMap, CartoDB, Esri, OpenTopoMap, BKG, NRW orthophotos, Baden-Württemberg orthophotos, and selected ALKIS services</div>
+      <div class="bm-feat"><span class="bm-dot"></span>Loads common XYZ and WMS basemaps via dropdown. No manual tile URL entry</div>
+      <div class="bm-feat"><span class="bm-dot"></span>Supports OpenStreetMap, CartoDB, Esri, OpenTopoMap, BKG, Orthophotos, Baden-Württemberg orthophotos, and selected ALKIS services</div>
       <div class="bm-feat"><span class="bm-dot"></span>Dramatically speeds up georeferencing checks and visual QA workflows</div>
       <div class="bm-feat"><span class="bm-dot"></span>Useful for comparing cleaned rasters directly against authoritative reference basemaps</div>
       <div class="bm-feat"><span class="bm-dot"></span>Implemented with PyQGIS using dropdown-based toolbar loading for both XYZ tiles and WMS layers</div>
@@ -665,13 +665,13 @@
     <span class="sec-eye-txt" style="color:var(--amber)">06 / Technical Stack</span>
   </div>
   <h2 class="sec-title">Built with</h2>
-  <p class="sec-desc">Production Python tooling native to the QGIS ecosystem — no external dependencies beyond what ships with QGIS.</p>
+  <p class="sec-desc">Developed entirely within the QGIS Python ecosystem, requiring no external dependencies outside the default QGIS environment.</p>
   <div class="tech-wrap fade">
     <span class="tp tp-t">PyQGIS</span>
     <span class="tp tp-v">PyQt5</span>
     <span class="tp tp-s">GDAL / OGR</span>
     <span class="tp tp-a">NumPy</span>
-    <span class="tp tp-e">SciPy — Morphology</span>
+    <span class="tp tp-e">SciPy</span>
     <span class="tp tp-r">QGIS Processing Framework</span>
     <span class="tp tp-t">GeoTIFF Output</span>
     <span class="tp tp-v">Alpha Band — RGBA</span>
