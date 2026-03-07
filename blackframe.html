@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Black Frame Remover — QGIS Plugin</title>
+<title>QGIS Plugin for Black Frame Removal in Georeferenced Imagery</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -71,7 +71,7 @@
   .compare-cols{display:grid;grid-template-columns:1fr 1fr;position:relative}
   .compare-col{position:relative}
   .compare-col+.compare-col{border-left:2px solid var(--teal)}
-  .compare-col img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover}
+  .compare-col img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
   .col-label{position:absolute;bottom:.6rem;left:.6rem;padding:.2rem .65rem;border-radius:5px;font-family:var(--mono);font-size:.63rem;font-weight:500;letter-spacing:.04em}
   .label-before{background:var(--rose);color:#fff}
   .label-after{background:var(--teal);color:#fff}
@@ -303,8 +303,8 @@
 <!-- PORTFOLIO INTRO BANNER -->
 <div class="port-intro">
   <a href="index.html" class="port-intro-back">← Back to Projects</a>
-  <h1>Black <span>Frame</span> Remover<br>— QGIS Plugin</h1>
-  <p>A Python plugin that automatically removes black / nodata borders from georeferenced rasters using footprint detection and edge-safe morphology.</p>
+  <h1>QGIS <span>Plugin</span> for Black Frame Removal<br>in Georeferenced Imagery</h1>
+  <p>A Python plugin that automatically removes black/nodata borders from georeferenced rasters using footprint detection and edge-safe morphology better than the standard Nodata transparency workflows.</p>
   <div class="port-intro-tags">
     <span class="tag tag-teal"><span class="tag-dot"></span>QGIS Plugin</span>
     <span class="tag tag-violet">PyQGIS · GDAL · NumPy</span>
@@ -334,7 +334,7 @@
       <span class="tag tag-sky">Open Source</span>
     </div>
     <h1 class="hero-title">Black <span class="c-teal">Frame</span><br><span class="c-violet">Remover</span></h1>
-    <p class="hero-sub">A QGIS plugin that automatically removes black / nodata borders from georeferenced rasters using footprint detection and edge-safe morphology — far better than standard NoData transparency workflows.</p>
+    <p class="hero-sub">A QGIS plugin that automatically removes black / nodata borders from georeferenced rasters using footprint detection and edge-safe morphology better than standard NoData transparency workflows.</p>
     <div class="hero-btns">
       <a href="#solution" class="btn btn-teal">▶ See How It Works</a>
       <a href="#plugin" class="btn btn-outline">Explore the Plugin →</a>
@@ -360,17 +360,17 @@
         </div>
         <div class="compare-cols">
           <div class="compare-col">
-            <img src="hegnach1.jpg" alt="Hegnach before — black frame">
+            <img src="images/hegnach1.jpg" alt="Hegnach before — black frame">
             <span class="col-label label-before">Before</span>
           </div>
           <div class="compare-col">
-            <img src="hegnach2.jpg" alt="Hegnach after — clean overlay">
+            <img src="images/hegnach2.jpg" alt="Hegnach after — clean overlay">
             <span class="col-label label-after">After</span>
           </div>
           <div class="arrow-div">→</div>
         </div>
         <div class="credit-bar">
-          <span class="credit-txt">Image credit: [Add source here]</span>
+          <span class="credit-txt">Image Source: [ https://www.leo-bw.de/detail-gis/-/Detail/details/ORT/labw_ortslexikon/1622/Hegnach]</span>
           <span class="credit-loc" style="color:var(--teal)">Hegnach, Baden-Württemberg</span>
         </div>
       </div>
