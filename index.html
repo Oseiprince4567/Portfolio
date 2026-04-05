@@ -20,8 +20,7 @@
 				<!-- Intro -->
 					<div id="intro">
 						<h1>Prince Osei Boateng Portfolio</h1>
-						<p>Geoinformatics & Remote Sensing Specialist | Spatial Data Enthusiast | Driving Sustainable, Data-Driven Solutions| Emergy Enthusiast <a href="https://www.linkedin.com/in/oseiprince/"></a><a href="https://html5up.net"></a><br />
-						 <a href="https://html5up.net/license"></a></p>
+						<p data-i18n="hero_subtitle">Geoinformatics & Remote Sensing Specialist | Spatial Data Enthusiast | Driving Sustainable, Data-Driven Solutions | Energy Enthusiast</p>
 						<ul class="actions">
 							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
@@ -40,6 +39,12 @@
 							<li><a href="elements.html">Elements Reference</a></li>
 						</ul>
 						<ul class="icons">
+							<li>
+								<select id="lang-switcher" class="lang-switcher" aria-label="Language / Sprache" style="background:transparent;border:1px solid rgba(255,255,255,0.35);color:inherit;padding:3px 8px;border-radius:4px;font-size:0.8em;cursor:pointer;vertical-align:middle;">
+									<option value="en" style="background:#1e1e1e;">🇬🇧 EN</option>
+									<option value="de" style="background:#1e1e1e;">🇩🇪 DE</option>
+								</select>
+							</li>
 							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
@@ -54,45 +59,36 @@
 						<article class="post featured">
 							<header class="major">
 								<span class="date">February 27, 2026, 10:19 AM CEST</span>
-								<h2><a href="full-story.html">Spatio-Temporal Above-Ground Biomass Modelling & Forest Disturbances</a></h2>
-								<p style="text-align:left;">
-								This project models and visualises Above-Ground Biomass (AGB) patterns and disturbance-driven biomass change across North Rhine–Westphalia (NRW) for 2019-2022.<br />
-								AGB was predicted at 100 m resolution by fusing SAR, Sentinel-2 optical indices, GLCM textures, GEDI LIDAR, and environmental covariates. Disturbance severities were derived from annual change metrics using calibrated thresholds.
-								</p>
+								<h2><a href="full-story.html" data-i18n="proj1_title">Spatio-Temporal Above-Ground Biomass Modelling & Forest Disturbances</a></h2>
+								<p style="text-align:left;" data-i18n="proj1_desc">This project models and visualises Above-Ground Biomass (AGB) patterns and disturbance-driven biomass change across North Rhine–Westphalia (NRW) for 2019-2022. AGB was predicted at 100 m resolution by fusing SAR, Sentinel-2 optical indices, GLCM textures, GEDI LIDAR, and environmental covariates. Disturbance severities were derived from annual change metrics using calibrated thresholds.</p>
 							</header>
 							<a href="#" class="image main"><img src="images/agb1.jpg" alt="NRW Above-Ground Biomass & Forest Disturbance Analytics Dashboard" style="max-width: 80%; height: auto; display: block; margin: 0 auto;" /></a>
 							<ul class="actions special">
-								<li><a href="agb.html" class="button large">View Project</a></li>
+								<li><a href="agb.html" class="button large" data-i18n="view_project">View Project</a></li>
 							</ul>
 						</article>
 
 						<article class="post featured">
 							<header class="major">
 								<span class="date">February 15, 2026, 10:19 AM CEST</span>
-								<h2><a href="full-story.html">QGIS Plugin for Black Frame Removal in Georeferenced Imagery</a></h2>
-								<p style="text-align:left;">
-								A QGIS plugin that automatically removes black/nodata borders from georeferenced rasters using footprint detection and edge-safe morphology better than the standard Nodata transparency workflows.<br /></p>
+								<h2><a href="full-story.html" data-i18n="proj2_title">QGIS Plugin for Black Frame Removal in Georeferenced Imagery</a></h2>
+								<p style="text-align:left;" data-i18n="proj2_desc">A QGIS plugin that automatically removes black/nodata borders from georeferenced rasters using footprint detection and edge-safe morphology better than the standard Nodata transparency workflows.</p>
 							</header>
 							<a href="#" class="image main"><img src="images/homepagefor writeup.jpg" alt="QGIS Plugin for Black Frame Removal in Georeferenced Imagery" style="max-width: 80%; height: auto; display: block; margin: 0 auto;" /></a>
 							<ul class="actions special">
-								<li><a href="blackframe.html" class="button large">View Project</a></li>
+								<li><a href="blackframe.html" class="button large" data-i18n="view_project">View Project</a></li>
 							</ul>
 						</article>
-
 
 						<article class="post featured">
 							<header class="major">
 								<span class="date">October 20, 2025, 10:19 AM CEST</span>
-								<h2><a href="full-story.html">EV Charging Stations Activity Dashboard<br />
-								Using Hamburg SensorThingsAPI</a></h2>
-								<p style="text-align:left;">
-								The EV Charging Stations Activity Dashboard is a real-time, data-driven web application that visualizes the spatial and temporal dynamics of electric vehicle (EV) charging stations across Hamburg, Germany.<br />
-								It integrates open IoT data from the Hamburg SensorThings API with automated data ingestion, cloud database synchronization, and interactive analytics built in Streamlit.
-								</p>
+								<h2><a href="full-story.html" data-i18n="proj3_title">EV Charging Stations Activity Dashboard Using Hamburg SensorThingsAPI</a></h2>
+								<p style="text-align:left;" data-i18n="proj3_desc">The EV Charging Stations Activity Dashboard is a real-time, data-driven web application that visualizes the spatial and temporal dynamics of electric vehicle (EV) charging stations across Hamburg, Germany. It integrates open IoT data from the Hamburg SensorThings API with automated data ingestion, cloud database synchronization, and interactive analytics built in Streamlit.</p>
 							</header>
 							<a href="#" class="image main"><img src="images/dboriginal.jpg" alt="EV Charging Stations Activity Dashboard" style="max-width: 80%; height: auto; display: block; margin: 0 auto;" /></a>
 							<ul class="actions special">
-								<li><a href="Evdb.html" class="button large">View Project</a></li>
+								<li><a href="Evdb.html" class="button large" data-i18n="view_project">View Project</a></li>
 							</ul>
 						</article>
 
@@ -101,93 +97,91 @@
 							<article>
 								<header>
 									<span class="date">August 10, 2025</span>
-									<h2><a href="Concrete.html">Concrete Crack Detection Using TensorFlow/Keras API and Streamlit</a></h2>
+									<h2><a href="Concrete.html" data-i18n="proj4_title">Concrete Crack Detection Using TensorFlow/Keras API and Streamlit</a></h2>
 								</header>
 								<a href="#" class="image fit"><img src="images/5.jpg" alt="Concrete Crack Detection App" style="max-width: 80%; height: auto; display: block; margin: 0 auto;" /></a>
-								<p>This interactive web application enables users to upload images of concrete surfaces and instantly receive AI-powered crack detection with clear visualizations through a user-friendly Streamlit interface. Users can download the processed images with cracks highlighted, along with a detailed report that includes the number of pixels covered and the estimated total crack surface area. The app leverages a deep learning model trained on a balanced dataset to accurately identify and highlight cracks in concrete surfaces.</p>
+								<p data-i18n="proj4_desc">This interactive web application enables users to upload images of concrete surfaces and instantly receive AI-powered crack detection with clear visualizations through a user-friendly Streamlit interface. Users can download the processed images with cracks highlighted, along with a detailed report that includes the number of pixels covered and the estimated total crack surface area. The app leverages a deep learning model trained on a balanced dataset to accurately identify and highlight cracks in concrete surfaces.</p>
 								<ul class="actions special">
-									<li><a href="Concrete.html" class="button">View Project</a></li>
+									<li><a href="Concrete.html" class="button" data-i18n="view_project">View Project</a></li>
 								</ul>
 							</article>
 							<article>
 								<header>
 									<span class="date">July 31, 2025</span>
-									<h2><a href="UrbanCO.html">Urban Carbon Monoxide (CO) Monitoring and Nighttime Light Energy Analysis</a></h2>
+									<h2><a href="UrbanCO.html" data-i18n="proj5_title">Urban Carbon Monoxide (CO) Monitoring and Nighttime Light Energy Analysis</a></h2>
 								</header>
 								<a href="#" class="image fit"><img src="images/UrbanCO1.jpg" alt="Urban CO Monitoring and Nighttime Light Energy" style="max-width: 80%; height: auto; display: block; margin: 0 auto;" /></a>
-								<p>This project utilizes Sentinel-5P (for carbon monoxide, CO, concentration) and VIIRS (for nighttime lights as an energy proxy) to monitor urban air quality and urbanization patterns across all states of Germany between 2019 and 2023. This work leverages advanced satellite data to explore air pollution and energy consumption patterns, offering insights into urban environmental health and human activity.</p>
+								<p data-i18n="proj5_desc">This project utilizes Sentinel-5P (for carbon monoxide, CO, concentration) and VIIRS (for nighttime lights as an energy proxy) to monitor urban air quality and urbanization patterns across all states of Germany between 2019 and 2023. This work leverages advanced satellite data to explore air pollution and energy consumption patterns, offering insights into urban environmental health and human activity.</p>
 								<ul class="actions special">
-									<li><a href="UrbanCO.html" class="button">View Project</a></li>
+									<li><a href="UrbanCO.html" class="button" data-i18n="view_project">View Project</a></li>
 								</ul>
 							</article>
 							<article>
 								<header>
 									<span class="date">July 1, 2025</span>
-									<h2><a href="Buildingseg.html">Buildings Segmentation with Deep Learning in QGIS utilizing Deepness Plugin</a></h2>
+									<h2><a href="Buildingseg.html" data-i18n="proj6_title">Buildings Segmentation with Deep Learning in QGIS utilizing Deepness Plugin</a></h2>
 								</header>
 								<a href="#" class="image fit"><img src="images/50cmcompletefuersee.jpg" alt="" /></a>
-								<p>This project utilized the Deepness Plugin in QGIS to perform building segmentation using a pretrained model from the ramp Building Footprint Dataset, tested on Feuersee and Konradin-Kreutzer Weg at 40cm and 50cm resolutions.</p>
+								<p data-i18n="proj6_desc">This project utilized the Deepness Plugin in QGIS to perform building segmentation using a pretrained model from the ramp Building Footprint Dataset, tested on Feuersee and Konradin-Kreutzer Weg at 40cm and 50cm resolutions.</p>
 								<ul class="actions special">
-									<li><a href="Buildingseg.html" class="button">View Project</a></li>
+									<li><a href="Buildingseg.html" class="button" data-i18n="view_project">View Project</a></li>
 								</ul>
 							</article>
 
 							<article>
 								<header>
 									<span class="date">June 30, 2025, 10:19 AM CEST</span>
-									<h2><a href="full-story.html">Urban Footprint Analysis<br />
-									of Beitigheim-Bissingen</a></h2>
-									<p>This is a spatial analysis project mapping the urban footprint of the Beitigheim-Bissingen municipality (Baden-Württemberg, Germany) using QGIS and ESRI Land Cover data. The primary objective was to assess patterns of urbanization within a 10 km buffer zone<br />
-									This offers insights into built-up intensity and suburban expansion around the municipality.</p>
+									<h2><a href="full-story.html" data-i18n="proj7_title">Urban Footprint Analysis of Beitigheim-Bissingen</a></h2>
+									<p data-i18n="proj7_desc">This is a spatial analysis project mapping the urban footprint of the Beitigheim-Bissingen municipality (Baden-Württemberg, Germany) using QGIS and ESRI Land Cover data. The primary objective was to assess patterns of urbanization within a 10 km buffer zone. This offers insights into built-up intensity and suburban expansion around the municipality.</p>
 								</header>
 								<a href="#" class="image main"><img src="images/UFPimage.jpg" alt="Urban Footprint of Beitigheim-Bissingen" style="max-width: 80%; height: auto; display: block; margin: 0 auto;" /></a>
 								<ul class="actions special">
-								<li><a href="project1UFP.html" class="button large">View Project</a></li>
+									<li><a href="project1UFP.html" class="button large" data-i18n="view_project">View Project</a></li>
 								</ul>
 							</article>
 
 							<article>
 								<header>
 									<span class="date">June 15, 2025</span>
-									<h2><a href="flood.html">Mannheim City Center 3D Flood Risk Simulation Using QGIS</a></h2>
+									<h2><a href="flood.html" data-i18n="proj8_title">Mannheim City Center 3D Flood Risk Simulation Using QGIS</a></h2>
 								</header>
 								<a href="#" class="image fit"><img src="images/floodscenehomepage.png" alt="" /></a>
-								<p>This project models a 3D flood scenario in Mannheim’s city center using QGIS. Digital elevation models (DEM), building footprints, and OpenStreetMap data were used to simulate inundation and visualize flood-prone areas under low elevation flood conditions.</p>
+								<p data-i18n="proj8_desc">This project models a 3D flood scenario in Mannheim's city center using QGIS. Digital elevation models (DEM), building footprints, and OpenStreetMap data were used to simulate inundation and visualize flood-prone areas under low elevation flood conditions.</p>
 								<ul class="actions special">
-									<li><a href="flood.html" class="button">View Project</a></li>
+									<li><a href="flood.html" class="button" data-i18n="view_project">View Project</a></li>
 								</ul>
 							</article>
 							<article>
 								<header>
 									<span class="date">May 30, 2025</span>
-									<h2><a href="chlorophyll.html">Chlorophyll Estimation App for Selected Lakes in Baden-Württemberg</a></h2>	
+									<h2><a href="chlorophyll.html" data-i18n="proj9_title">Chlorophyll Estimation App for Selected Lakes in Baden-Württemberg</a></h2>
 								</header>
 								<a href="#" class="image fit"><img src="images/Chlorophyll homepage.jpg" alt="" /></a>
-								<p>This is an interactive Google Earth Engine (GEE) application designed to estimate and visualize chlorophyll levels in five key lakes of Baden-Württemberg; Titisee, Bodensee, Illmensee, Federsee, and Schluchsee. This interactive tool leverages Sentinel-2 satellite data to compute the Normalized Difference Chlorophyll Index (NDCI) from 2018 to 2024.</p>
+								<p data-i18n="proj9_desc">This is an interactive Google Earth Engine (GEE) application designed to estimate and visualize chlorophyll levels in five key lakes of Baden-Württemberg; Titisee, Bodensee, Illmensee, Federsee, and Schluchsee. This interactive tool leverages Sentinel-2 satellite data to compute the Normalized Difference Chlorophyll Index (NDCI) from 2018 to 2024.</p>
 								<ul class="actions special">
-									<li><a href="chlorophyll.html" class="button">View Project</a></li>
+									<li><a href="chlorophyll.html" class="button" data-i18n="view_project">View Project</a></li>
 								</ul>
 							</article>
 							<article>
 								<header>
 									<span class="date">February 24, 2025</span>
-									<h2><a href="project2.html">Cesium 3D Energy Dashboard and Web AR Scene</a></h2>
+									<h2><a href="project2.html" data-i18n="proj10_title">Cesium 3D Energy Dashboard and Web AR Scene</a></h2>
 								</header>
 								<a href="#" class="image fit"><img src="images/Stokach Dashboard.png" alt="" /></a>
-								<p>A collaborative project creating a 3D energy dashboard for Stöckach using Cesium and a Web AR scene with Three.js, featuring interactive visualizations and AR object placement.</p>
+								<p data-i18n="proj10_desc">A collaborative project creating a 3D energy dashboard for Stöckach using Cesium and a Web AR scene with Three.js, featuring interactive visualizations and AR object placement.</p>
 								<ul class="actions special">
-									<li><a href="Stokach.html" class="button">View Project</a></li>
+									<li><a href="Stokach.html" class="button" data-i18n="view_project">View Project</a></li>
 								</ul>
 							</article>
 							<article>
 								<header>
 									<span class="date">December 19, 2024</span>
-									<h2><a href="ikea.html">Geomarketing for IKEA Store Site Selection</a></h2>
+									<h2><a href="ikea.html" data-i18n="proj11_title">Geomarketing for IKEA Store Site Selection</a></h2>
 								</header>
 								<a href="#" class="image fit"><img src="images/FINALMAPREFINED.jpg" alt="IKEA Location Analysis Map" /></a>
-								<p>A spatial decision-making project applying geomarketing and GIS techniques to identify optimal sites for new IKEA stores in Germany. Highlights include purchasing power analysis, Euclidean distance modeling, and location-allocation for two suitable cities: Trier and Ingolstadt.</p>
+								<p data-i18n="proj11_desc">A spatial decision-making project applying geomarketing and GIS techniques to identify optimal sites for new IKEA stores in Germany. Highlights include purchasing power analysis, Euclidean distance modeling, and location-allocation for two suitable cities: Trier and Ingolstadt.</p>
 								<ul class="actions special">
-									<li><a href="ikea.html" class="button">View Project</a></li>
+									<li><a href="ikea.html" class="button" data-i18n="view_project">View Project</a></li>
 								</ul>
 							</article>
 						</section>
@@ -203,7 +197,7 @@
 								<a href="#" class="page">8</a>
 								<a href="#" class="page">9</a>
 								<a href="#" class="page">10</a>
-								<a href="#" class="next">Next</a>
+								<a href="#" class="next" data-i18n="pagination_next">Next</a>
 							</div>
 						</footer>
 
@@ -215,39 +209,39 @@
 							<form method="post" action="#">
 								<div class="fields">
 									<div class="field">
-										<label for="name">Name</label>
+										<label for="name" data-i18n="contact_name_label">Name</label>
 										<input type="text" name="name" id="name" />
 									</div>
 									<div class="field">
-										<label for="email">Email</label>
+										<label for="email" data-i18n="contact_email_label">Email</label>
 										<input type="text" name="email" id="email" />
 									</div>
 									<div class="field">
-										<label for="message">Message</label>
+										<label for="message" data-i18n="contact_msg_label">Message</label>
 										<textarea name="message" id="message" rows="3"></textarea>
 									</div>
 								</div>
 								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
+									<li><input type="submit" value="Send Message" data-i18n-value="contact_send_btn" /></li>
 								</ul>
 							</form>
 						</section>
 						<section class="split contact">
 							<section class="alt">
-								<h3>Address</h3>
+								<h3 data-i18n="contact_address_label">Address</h3>
 								<p>In der Au 16, Untertükheim, Stuttgart<br />
 								70327</p>
 							</section>
 							<section>
-								<h3>Phone</h3>
+								<h3 data-i18n="contact_phone_label">Phone</h3>
 								<p><a href="#">(+49) 1633-9124-01</a></p>
 							</section>
 							<section>
-								<h3>Email</h3>
+								<h3 data-i18n="contact_email_h3">Email</h3>
 								<p><a href="#">oseiboateng93@gmail.com</a></p>
 							</section>
 							<section>
-								<h3>Social</h3>
+								<h3 data-i18n="contact_social_label">Social</h3>
 								<ul class="icons alt">
 									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
 									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -273,6 +267,8 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/translations.js"></script>
+			<script src="assets/js/i18n.js"></script>
 
 	</body>
 </html>
