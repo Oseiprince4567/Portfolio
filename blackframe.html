@@ -498,13 +498,23 @@
     <div>
       <div class="img-frame fade d1">
         <div class="img-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
-        <img src="images/hegnach1.jpg" alt="Black frame over satellite basemap. Location: Hegnach">
-        <div class="img-cap">↑ Black frame obscuring the satellite basemap</div>
+        <img src="images/holes1.jpg" alt="NoData=0 creating holes in dark forest canopy">
+        <div class="img-cap">↑ Standard NoData = 0: holes punched through valid dark forest pixels</div>
       </div>
       <div class="img-frame fade d2">
         <div class="img-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
-        <img src="images/hegnach2.jpg" alt="Clean raster after Black Frame Remover">
-        <div class="img-cap">↑ Same raster after Black Frame Removal Plugin. Transparent footprint, basemap fully visible</div>
+        <img src="images/holes2.jpg" alt="Dark vegetation incorrectly removed at image edge">
+        <div class="img-cap">↑ Dark vegetation near the footprint edge incorrectly made transparent</div>
+      </div>
+      <div class="img-frame fade d3">
+        <div class="img-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+        <img src="images/holes3.jpg" alt="Dense forest canopy lost to NoData transparency">
+        <div class="img-cap">↑ Dense coniferous canopy lost entirely — NoData cannot distinguish forest from border</div>
+      </div>
+      <div class="img-frame fade d4">
+        <div class="img-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+        <img src="images/holes4.jpg" alt="Shadows and dark terrain removed by NoData approach">
+        <div class="img-cap">↑ Shadows and dark terrain near the image boundary removed by pixel-value approach</div>
       </div>
     </div>
   </div>
@@ -683,10 +693,9 @@
     <span class="tp tp-v">PyQt5</span>
     <span class="tp tp-s">GDAL / OGR</span>
     <span class="tp tp-a">NumPy</span>
-    <span class="tp tp-e">SciPy</span>
     <span class="tp tp-r">QGIS Processing Framework</span>
     <span class="tp tp-t">GeoTIFF Output</span>
-    <span class="tp tp-v">Alpha Band — RGBA</span>
+    <span class="tp tp-v">Alpha Band: RGBA</span>
     <span class="tp tp-s">XYZ Tile Loader</span>
     <span class="tp tp-a">WMS Integration</span>
   </div>
