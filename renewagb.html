@@ -64,7 +64,7 @@
     background:
       linear-gradient(135deg, rgba(5,15,3,0.82) 0%, rgba(10,30,7,0.72) 55%, rgba(5,20,10,0.78) 100%);
   }
-  .hero-inner { position: relative; z-index: 1; max-width: 860px; }
+  .hero-inner { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; width: 90%; }
   .hero-kicker {
     display: inline-flex; align-items: center; gap: .6rem;
     font-family: var(--mono); font-size: .68rem; letter-spacing: .2em;
@@ -85,7 +85,7 @@
   .port-hero h1 .accent { color: #7ec86a; font-style: italic; }
   .hero-sub {
     font-size: 1rem; color: rgba(255,255,255,.65); line-height: 1.8;
-    max-width: 640px; margin-bottom: 2rem;
+    max-width: 900px; margin-bottom:0 auto 2rem; text-align: center; width:100;
     animation: fadeUp .65s ease .16s both;
   }
   .hero-tags {
@@ -533,8 +533,8 @@
     <div class="sec-eye-bar"></div>
     <span class="sec-eye-txt">03 / Methodology</span>
   </div>
-  <h2 class="sec-title">A <span class="accent">six-step</span> pipeline</h2>
-  <p class="sec-desc">From satellite imagery to a publicly accessible live dashboard. Every step reproducible in Google Earth Engine.</p>
+  <h2 class="sec-title">A <span class="accent">Multi-Sensor ETL & Feature Engineering</span> pipeline</h2>
+  <p class="sec-desc">Reproducible workflow integrating data fusion, machine learning, and statistical attribution to derive disturbance-driven AGB dynamics.</p>
 
   <div class="steps">
     <div class="step s1 fade">
@@ -548,9 +548,9 @@
     </div>
     <div class="step s2 fade d1">
       <div class="step-n">Step 02</div>
-      <div class="step-icon">🤖</div>
+      <div class="step-icon">⚙️</div>
       <div class="step-t">Machine Learning AGB Modelling</div>
-      <p class="step-d">RF, kNN, and CNN trained under GroupKFold spatial cross-validation. Random Forest selected with R²=0.959. SHAP analysis ranks which satellite bands actually explain biomass variance.</p>
+      <p class="step-d">RF, kNN, and CNN trained under GroupKFold spatial cross-validation. Random Forest selected with R²=0.959. SHAP analysis ranks which predictors actually explain biomass variance.</p>
       <div class="step-tags">
         <span class="stag stag-hl">Random Forest</span><span class="stag">kNN</span><span class="stag">CNN</span><span class="stag stag-hl">SHAP</span>
       </div>
@@ -566,7 +566,7 @@
     </div>
     <div class="step s4 fade">
       <div class="step-n">Step 04</div>
-      <div class="step-icon">🔥</div>
+      <div class="step-icon">🌲</div>
       <div class="step-t">Disturbance Δ-Layers</div>
       <p class="step-d">Annual spectral change layers for drought, fire, pest, and logging computed from spectral indices. Disturbance-type-specific quantile thresholds suppress false positives while preserving ecological signals.</p>
       <div class="step-tags">
@@ -575,7 +575,7 @@
     </div>
     <div class="step s5 fade d1">
       <div class="step-n">Step 05</div>
-      <div class="step-icon">📐</div>
+      <div class="step-icon">📊</div>
       <div class="step-t">LMEM Attribution Analysis</div>
       <p class="step-d">Pixel-wise correlation of ΔAGB with disturbance layers using a Linear Mixed Effects Model. Fixed effects = disturbance type severities. Random effect = biomass baseline year. Drought β = −5.875.</p>
       <div class="step-tags">
@@ -601,7 +601,7 @@
     <span class="sec-eye-txt">04 / Key Results</span>
   </div>
   <h2 class="sec-title">What the data <span class="accent">revealed</span></h2>
-  <p class="sec-desc">Five findings that change how we should think about carbon accounting in managed temperate forests.</p>
+  <p class="sec-desc">Findings and recommendations that change how we should think about carbon accounting in managed temperate forests.</p>
 
   <div class="results-grid">
     <div class="result-card fade">
