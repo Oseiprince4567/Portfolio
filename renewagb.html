@@ -133,9 +133,9 @@
   .section-white { background: var(--white); }
   .section-gray  { background: var(--bg); }
 
-  .sec-eye { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
-  .sec-eye-bar { width: 28px; height: 3px; border-radius: 2px; background: var(--green); }
-  .sec-eye-txt { font-family: var(--mono); font-size: .7rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--green); }
+  .sec-eye { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+  .sec-eye-bar { width: 40px; height: 4px; border-radius: 3px; background: var(--green); }
+  .sec-eye-txt { font-family: var(--mono); font-size: .85rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--green); }
 
   .sec-title { font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 700; letter-spacing: -.025em; line-height: 1.15; margin-bottom: .75rem; color: var(--text); }
   .sec-title .accent { color: var(--green); font-style: italic; }
@@ -420,7 +420,7 @@
 <div class="stat-strip">
   <div class="stat-cell fade">
     <div class="stat-val">0.959<sup> R²</sup></div>
-    <div class="stat-lbl">Random Forest · best of RF, kNN, CNN</div>
+    <div class="stat-lbl">Random Forest · RF with High Accuracy and Predictions than kNN(R²=0.83) and CNN(R²=0.78)</div>
   </div>
   <div class="stat-cell fade d1">
     <div class="stat-val">15.39</div>
@@ -442,13 +442,13 @@
     <div class="sec-eye-bar"></div>
     <span class="sec-eye-txt">01 / The Study</span>
   </div>
-  <h2 class="sec-title">Research in three acts</h2>
-  <p class="sec-desc">A case study in NRW asking: what is actually killing German forests, and how much carbon are they losing?</p>
+  <h2 class="sec-title">Framework</h2>
+  <p class="sec-desc">A case study in North Rhine-Westphalia examining how forest disturbances drive above-ground biomass loss across space and time.</p>
 
   <div class="story-grid">
     <div class="story-card sc-1 fade">
       <div class="story-num">01</div>
-      <div class="story-icon">🌡️</div>
+      <div class="story-icon">🌲📉</div>
       <div class="story-head">The Problem</div>
       <p class="story-body">Between 2018 and 2022, <strong>over 490 km² of German forests</strong> were damaged by drought, bark beetle, and logging cascades. Yet disturbance impacts and biomass dynamics are often analysed separately, limiting understanding of how different disturbance types drive carbon loss over time and space.</p>
     </div>
@@ -741,9 +741,7 @@
 <!-- ── FOOTER ─────────────────────────────────────────────── -->
 <footer>
   <span class="foot-brand">AGB Modelling & Forest Disturbances · Master Thesis</span>
-  <span>GIS & Remote Sensing Portfolio · Prince Osei Boateng</span>
   <div class="foot-links">
-    <a href="index.html">← Portfolio</a>
     <a href="#story">Overview</a>
     <a href="#disturbances">Disturbances</a>
     <a href="#results">Results</a>
