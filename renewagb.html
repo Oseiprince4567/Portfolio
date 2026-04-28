@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spatio-Temporal AGB Modelling & Forest Disturbances — Prince Osei Boateng</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #ffffff;
+    --bg: #f5f6fa;
+    --bg2: #eceef6;
+    --border: #e2e5f0;
+    --text: #1a1d2e;
+    --text-body: #4a4f6a;
+    --text-muted: #9198b5;
+    /* Forest-green accent replaces teal */
+    --green:    #2d7a1a; --green-lt: #edf7ea; --green-md: #86c97a;
+    --teal:     #0d9488; --teal-lt: #e6faf8; --teal-md: #5eead4;
+    --violet:   #7c3aed; --violet-lt: #f3eeff; --violet-md: #c4b5fd;
+    --amber:    #d97706; --amber-lt: #fffbeb; --amber-md: #fcd34d;
+    --rose:     #e11d48; --rose-lt: #fff1f5; --rose-md: #fda4af;
+    --sky:      #0284c7; --sky-lt: #e0f2fe; --sky-md: #7dd3fc;
+    --emerald:  #059669; --emerald-lt: #ecfdf5; --emerald-md: #6ee7b7;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Outfit', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+  /* ── NAV ─────────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 3rem;
+    background: rgba(255,255,255,0.93); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-back {
+    display: inline-flex; align-items: center; gap: .45rem;
+    font-family: var(--mono); font-size: .72rem; font-weight: 500;
+    letter-spacing: .06em; text-decoration: none;
+    color: var(--green); border: 1px solid var(--green-md);
+    background: var(--green-lt); padding: .32rem .85rem; border-radius: 6px;
+    transition: all .2s;
+  }
+  .nav-back:hover { background: var(--green); color: #fff; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: .85rem; font-weight: 500; color: var(--text-body); text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--green); }
+
+  /* ── HERO BANNER ─────────────────────────────────────────── */
+  .port-hero {
+    background-image: url('images/forest_images.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    color: #fff; padding: 7rem 3rem 4.5rem;
+    position: relative; overflow: hidden;
+  }
+  /* Dark overlay so text stays legible over the canopy photo */
+  .port-hero::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(135deg, rgba(5,15,3,0.82) 0%, rgba(10,30,7,0.72) 55%, rgba(5,20,10,0.78) 100%);
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 860px; }
+  .hero-kicker {
+    display: inline-flex; align-items: center; gap: .6rem;
+    font-family: var(--mono); font-size: .68rem; letter-spacing: .2em;
+    text-transform: uppercase; color: rgba(86,200,50,0.85);
+    margin-bottom: 1.5rem;
+    animation: fadeUp .6s ease both;
+  }
+  .kicker-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: #7ec86a;
+    animation: blink 2s ease infinite;
+  }
+  .port-hero h1 {
+    font-size: clamp(2.2rem, 4.5vw, 4rem); font-weight: 800;
+    line-height: 1.08; letter-spacing: -.03em; margin-bottom: 1.25rem;
+    color: #fff;
+    animation: fadeUp .65s ease .08s both;
+  }
+  .port-hero h1 .accent { color: #7ec86a; font-style: italic; }
+  .hero-sub {
+    font-size: 1rem; color: rgba(255,255,255,.65); line-height: 1.8;
+    max-width: 640px; margin-bottom: 2rem;
+    animation: fadeUp .65s ease .16s both;
+  }
+  .hero-tags {
+    display: flex; gap: .55rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+    animation: fadeUp .65s ease .22s both;
+  }
+  .htag {
+    font-family: var(--mono); font-size: .65rem; letter-spacing: .08em;
+    padding: .28rem .85rem; border-radius: 100px;
+    border: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.7);
+    background: rgba(255,255,255,.06);
+  }
+  .htag-green { border-color: rgba(86,200,50,.45); color: #9fe88a; background: rgba(86,200,50,.08); }
+  .hero-btns { display: flex; gap: .75rem; flex-wrap: wrap; animation: fadeUp .65s ease .28s both; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .7rem 1.4rem; border-radius: 8px; font-size: .85rem; font-weight: 600;
+    text-decoration: none; transition: all .2s; border: none; cursor: pointer;
+  }
+  .btn-green { background: #3d8a2a; color: #fff; box-shadow: 0 2px 12px rgba(45,122,26,.3); }
+  .btn-green:hover { background: #2d7a1a; transform: translateY(-1px); box-shadow: 0 6px 22px rgba(45,122,26,.4); }
+  .btn-outline { background: transparent; color: rgba(255,255,255,.75); border: 1.5px solid rgba(255,255,255,.22); }
+  .btn-outline:hover { border-color: #7ec86a; color: #7ec86a; }
+
+  /* ── STAT STRIP ──────────────────────────────────────────── */
+  .stat-strip {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    background: var(--white); border-bottom: 1px solid var(--border);
+  }
+  .stat-cell {
+    padding: 2rem 1.75rem; border-right: 1px solid var(--border);
+    transition: background .2s;
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-cell:hover { background: var(--green-lt); }
+  .stat-val {
+    font-size: clamp(1.7rem,2.5vw,2.2rem); font-weight: 800; line-height: 1;
+    color: var(--green); margin-bottom: .35rem; letter-spacing: -.02em;
+  }
+  .stat-val sup { font-size: .9rem; vertical-align: super; }
+  .stat-lbl { font-family: var(--mono); font-size: .78rem; color: var(--text-body); letter-spacing: .03em; line-height: 1.6; font-weight: 500; }
+
+  /* ── SECTIONS ─────────────────────────────────────────────── */
+  .section { padding: 5.5rem 3rem; border-bottom: 1px solid var(--border); }
+  .section-white { background: var(--white); }
+  .section-gray  { background: var(--bg); }
+
+  .sec-eye { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
+  .sec-eye-bar { width: 28px; height: 3px; border-radius: 2px; background: var(--green); }
+  .sec-eye-txt { font-family: var(--mono); font-size: .7rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--green); }
+
+  .sec-title { font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 700; letter-spacing: -.025em; line-height: 1.15; margin-bottom: .75rem; color: var(--text); }
+  .sec-title .accent { color: var(--green); font-style: italic; }
+  .sec-desc { font-size: .97rem; color: var(--text-body); max-width: 560px; line-height: 1.8; margin-bottom: 2.5rem; }
+
+  /* ── STORY 3-COL ─────────────────────────────────────────── */
+  .story-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+  .story-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+    padding: 2rem 1.75rem; position: relative; overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .story-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.08); }
+  .story-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  }
+  .sc-1::before { background: var(--amber); }
+  .sc-2::before { background: var(--sky); }
+  .sc-3::before { background: var(--green); }
+  .story-num {
+    font-size: 3rem; font-weight: 800; line-height: 1;
+    color: var(--bg2); position: absolute; top: 1.5rem; right: 1.5rem;
+    user-select: none;
+  }
+  .story-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+  .story-head { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: .6rem; }
+  .story-body { font-size: .87rem; color: var(--text-body); line-height: 1.75; }
+  .story-body strong { color: var(--text); font-weight: 600; }
+
+  /* ── DISTURBANCE CASCADE ─────────────────────────────────── */
+  .dist-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
+  .dist-card {
+    border-radius: 12px; border: 1px solid; padding: 1.75rem 1.5rem;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .dist-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.07); }
+  .dc-drought { background: var(--amber-lt);  border-color: var(--amber-md); }
+  .dc-pest    { background: var(--green-lt);  border-color: var(--green-md); }
+  .dc-logging { background: var(--emerald-lt);border-color: var(--emerald-md); }
+  .dc-fire    { background: var(--rose-lt);   border-color: var(--rose-md); }
+  .dist-type {
+    font-family: var(--mono); font-size: .62rem; font-weight: 500;
+    letter-spacing: .1em; text-transform: uppercase; margin-bottom: .4rem;
+  }
+  .dc-drought .dist-type { color: var(--amber); }
+  .dc-pest    .dist-type { color: var(--green); }
+  .dc-logging .dist-type { color: var(--emerald); }
+  .dc-fire    .dist-type { color: var(--rose); }
+  .dist-icon { font-size: 1.7rem; margin-bottom: .8rem; }
+  .dist-area {
+    font-size: 1.6rem; font-weight: 800; line-height: 1; margin-bottom: .3rem;
+  }
+  .dc-drought .dist-area { color: var(--amber); }
+  .dc-pest    .dist-area { color: var(--green); }
+  .dc-logging .dist-area { color: var(--emerald); }
+  .dc-fire    .dist-area { color: var(--rose); }
+  .dist-sub { font-family: var(--mono); font-size: .62rem; color: var(--text-muted); letter-spacing: .04em; margin-bottom: .8rem; }
+  .dist-detail { font-size: .83rem; color: var(--text-body); line-height: 1.65; }
+  .dist-detail strong { font-weight: 600; color: var(--text); }
+
+  /* cascade arrow row */
+  .cascade-row {
+    display: flex; align-items: center; justify-content: center; gap: .75rem;
+    margin-top: 1.75rem; flex-wrap: wrap;
+  }
+  .cascade-step {
+    display: flex; align-items: center; gap: .75rem;
+    font-family: var(--mono); font-size: .7rem; font-weight: 500; letter-spacing: .05em;
+  }
+  .cascade-badge {
+    padding: .32rem .9rem; border-radius: 100px; white-space: nowrap;
+  }
+  .cb-amber   { background: var(--amber-lt);   color: var(--amber);   border: 1px solid var(--amber-md);   }
+  .cb-green   { background: var(--green-lt);   color: var(--green);   border: 1px solid var(--green-md);   }
+  .cb-emerald { background: var(--emerald-lt); color: var(--emerald); border: 1px solid var(--emerald-md); }
+  .cascade-arr { color: var(--text-muted); font-size: 1rem; }
+
+  /* ── METHODOLOGY STEPS ───────────────────────────────────── */
+  .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+  .step {
+    background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.75rem 1.5rem; position: relative; transition: transform .2s, box-shadow .2s;
+  }
+  .step:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.08); }
+  .step::before { content: ''; position: absolute; top: 0; left: 1.5rem; right: 1.5rem; height: 3px; border-radius: 0 0 4px 4px; }
+  .s1::before { background: var(--green); }   .s2::before { background: var(--sky); }
+  .s3::before { background: var(--violet); }  .s4::before { background: var(--amber); }
+  .s5::before { background: var(--emerald); } .s6::before { background: var(--teal); }
+  .step-n { font-size: .62rem; font-family: var(--mono); letter-spacing: .15em; text-transform: uppercase; font-weight: 500; margin-bottom: .9rem; }
+  .s1 .step-n{color:var(--green)} .s2 .step-n{color:var(--sky)} .s3 .step-n{color:var(--violet)}
+  .s4 .step-n{color:var(--amber)} .s5 .step-n{color:var(--emerald)} .s6 .step-n{color:var(--teal)}
+  .step-icon { font-size: 1.4rem; margin-bottom: .75rem; }
+  .step-t { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; }
+  .step-d { font-size: .84rem; color: var(--text-body); line-height: 1.7; }
+  .step-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+  .stag {
+    font-family: var(--mono); font-size: .6rem; padding: .2rem .6rem; border-radius: 5px;
+    border: 1px solid var(--border); color: var(--text-muted); background: var(--bg);
+  }
+  .stag-hl { border-color: var(--green-md); color: var(--green); background: var(--green-lt); }
+
+  /* ── RESULTS ─────────────────────────────────────────────── */
+  .results-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.25rem; }
+  .result-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+    padding: 2rem 1.75rem; position: relative; overflow: hidden;
+    transition: border-color .3s, box-shadow .2s;
+  }
+  .result-card:hover { border-color: var(--green-md); box-shadow: 0 6px 24px rgba(0,0,0,.06); }
+  .result-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 0; height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--teal));
+    transition: width .5s ease;
+  }
+  .result-card:hover::before { width: 100%; }
+  .result-card.wide { grid-column: 1 / -1; }
+  .result-label { font-family: var(--mono); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--green); margin-bottom: .75rem; }
+  .result-card h4 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: .6rem; line-height: 1.3; }
+  .result-card p { font-size: .87rem; color: var(--text-body); line-height: 1.75; }
+  .metrics { display: flex; gap: 1.75rem; margin-top: 1.25rem; flex-wrap: wrap; }
+  .metric-val { font-size: 1.55rem; font-weight: 800; color: var(--green); line-height: 1; }
+  .metric-lbl { font-family: var(--mono); font-size: .62rem; color: var(--text-muted); margin-top: .2rem; letter-spacing: .04em; }
+
+  /* ── FINDING TIMELINE ────────────────────────────────────── */
+  .timeline { padding-left: 2rem; border-left: 2px solid var(--border); }
+  .tl-item { position: relative; margin-bottom: 2rem; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -2.55rem; top: .45rem;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--green); box-shadow: 0 0 0 3px var(--green-lt);
+  }
+  .tl-item h4 { font-size: .98rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
+  .tl-item p { font-size: .87rem; color: var(--text-body); line-height: 1.75; }
+
+  /* ── GEE EMBED ───────────────────────────────────────────── */
+  .gee-wrap {
+    background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+    overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.06);
+  }
+  .gee-inner { display: grid; grid-template-columns: 340px 1fr; min-height: 500px; }
+  .gee-info {
+    padding: 2.5rem; border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; justify-content: center; gap: 1rem;
+    background: var(--bg);
+  }
+  .gee-info h3 { font-size: 1.35rem; font-weight: 700; color: var(--text); line-height: 1.25; }
+  .gee-info h3 em { color: var(--green); font-style: italic; }
+  .gee-info p { font-size: .87rem; color: var(--text-body); line-height: 1.8; }
+  .gee-features { list-style: none; padding: 0; display: flex; flex-direction: column; gap: .45rem; }
+  .gee-features li { font-size: .85rem; color: var(--text-body); display: flex; gap: .65rem; align-items: flex-start; }
+  .gee-features li::before { content: '▸'; color: var(--green); flex-shrink: 0; margin-top: .1rem; }
+  .gee-embed { position: relative; }
+  .gee-embed iframe { width: 100%; height: 100%; border: none; display: block; min-height: 500px; }
+  .gee-badge {
+    position: absolute; top: 1rem; left: 1rem; z-index: 5;
+    background: rgba(255,255,255,.92); backdrop-filter: blur(8px);
+    border: 1px solid var(--green-md); border-radius: 6px;
+    padding: .3rem .8rem; font-family: var(--mono); font-size: .6rem;
+    color: var(--green); letter-spacing: .1em; text-transform: uppercase;
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .live-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: blink 2s infinite; }
+
+  /* ── TECH GRID ───────────────────────────────────────────── */
+  .tech-grid { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 2rem; }
+  .tp {
+    display: inline-flex; align-items: center; gap: .45rem;
+    padding: .42rem 1rem; border-radius: 100px; font-family: var(--mono);
+    font-size: .72rem; font-weight: 500; border: 1px solid; transition: transform .2s;
+  }
+  .tp:hover { transform: translateY(-1px); }
+  .tp-g  { background: var(--green-lt);   color: var(--green);   border-color: var(--green-md);   }
+  .tp-t  { background: var(--teal-lt);    color: var(--teal);    border-color: var(--teal-md);    }
+  .tp-s  { background: var(--sky-lt);     color: var(--sky);     border-color: var(--sky-md);     }
+  .tp-v  { background: var(--violet-lt);  color: var(--violet);  border-color: var(--violet-md);  }
+  .tp-a  { background: var(--amber-lt);   color: var(--amber);   border-color: var(--amber-md);   }
+  .tp-e  { background: var(--emerald-lt); color: var(--emerald); border-color: var(--emerald-md); }
+
+  /* ── FINDING CALLOUT ─────────────────────────────────────── */
+  .callout {
+    background: var(--green-lt); border: 1px solid var(--green-md);
+    border-left: 4px solid var(--green); border-radius: 10px;
+    padding: 1.5rem 1.75rem; margin-top: 2rem;
+  }
+  .callout-label { font-family: var(--mono); font-size: .62rem; letter-spacing: .15em; text-transform: uppercase; color: var(--green); margin-bottom: .6rem; }
+  .callout p { font-size: .95rem; color: var(--text); line-height: 1.8; font-weight: 500; }
+
+  /* ── FOOTER ──────────────────────────────────────────────── */
+  footer {
+    background: var(--text); color: rgba(255,255,255,.45);
+    padding: 2.5rem 3rem; display: flex; align-items: center;
+    justify-content: space-between; font-size: .78rem; font-family: var(--mono); letter-spacing: .03em;
+  }
+  .foot-brand { color: rgba(255,255,255,.85); font-weight: 500; }
+  .foot-links { display: flex; gap: 1.5rem; }
+  .foot-links a { color: rgba(255,255,255,.4); text-decoration: none; font-size: .72rem; transition: color .2s; }
+  .foot-links a:hover { color: #7ec86a; }
+
+  /* ── ANIMATIONS ──────────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  .fade { opacity: 0; transform: translateY(18px); transition: opacity .5s, transform .5s; }
+  .fade.in { opacity: 1; transform: translateY(0); }
+  .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s}
+
+  /* ── RESPONSIVE ──────────────────────────────────────────── */
+  @media(max-width:960px){
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .port-hero { padding: 5.5rem 1.5rem 3.5rem; }
+    .section { padding: 3.5rem 1.5rem; }
+    .stat-strip { grid-template-columns: 1fr 1fr; }
+    .stat-cell { border-bottom: 1px solid var(--border); }
+    .story-grid, .dist-grid, .steps { grid-template-columns: 1fr 1fr; }
+    .results-grid { grid-template-columns: 1fr; }
+    .gee-inner { grid-template-columns: 1fr; }
+    .gee-embed iframe { min-height: 380px; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .foot-links { flex-wrap: wrap; justify-content: center; }
+  }
+  @media(max-width:600px){
+    .story-grid, .steps, .dist-grid { grid-template-columns: 1fr; }
+    .stat-strip { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────────── -->
+<nav>
+  <a href="index.html" class="nav-back">← Back to Portfolio</a>
+  <ul class="nav-links">
+    <li><a href="#story">Overview</a></li>
+    <li><a href="#disturbances">Disturbances</a></li>
+    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#dashboard">Dashboard</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO BANNER ────────────────────────────────────────── -->
+<div class="port-hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">
+      <span class="kicker-dot"></span>
+      Master Thesis · HFT Stuttgart · Winter 2025/26
+    </div>
+    <h1>
+      When forests lose biomass,<br>
+      <span class="accent">we map the causes.</span>
+    </h1>
+    <p class="hero-sub">
+      A spatio-temporal remote sensing framework modelling annual above-ground biomass across North Rhine-Westphalia, fusing GEDI LiDAR, Sentinel-1 SAR, Sentinel-2 optical, and machine learning to attribute drought, bark beetle, fire, and logging as drivers of carbon loss.
+    </p>
+    <div class="hero-tags">
+      <span class="htag htag-green">GEDI LiDAR</span>
+      <span class="htag htag-green">Sentinel-1 SAR</span>
+      <span class="htag htag-green">Sentinel-2 MSI</span>
+      <span class="htag htag-green">Random Forest · R²=0.959</span>
+      <span class="htag htag-green">LMEM Attribution</span>
+      <span class="htag htag-green">Google Earth Engine</span>
+      <span class="htag">NRW · 100 m · 2019–2022</span>
+    </div>
+    <div class="hero-btns">
+      <a href="https://oseiprince93nrw.projects.earthengine.app/view/disturbance-driven-agb-change"
+         target="_blank" class="btn btn-green">
+        <span style="width:7px;height:7px;background:#7ec86a;border-radius:50%;display:inline-block;animation:blink 2s ease infinite;"></span>
+        Explore Live Dashboard
+      </a>
+      <a href="#results" class="btn btn-outline">View Key Results</a>
+      <a href="#methodology" class="btn btn-outline">Methodology</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── STAT STRIP ─────────────────────────────────────────── -->
+<div class="stat-strip">
+  <div class="stat-cell fade">
+    <div class="stat-val">0.959<sup> R²</sup></div>
+    <div class="stat-lbl">Random Forest · best of RF, kNN, CNN</div>
+  </div>
+  <div class="stat-cell fade d1">
+    <div class="stat-val">15.39</div>
+    <div class="stat-lbl">RMSE in Mg ha⁻¹ · MAE = 11.76 · Bias = 0.23</div>
+  </div>
+  <div class="stat-cell fade d2">
+    <div class="stat-val">−5.88<sup> β</sup></div>
+    <div class="stat-lbl">Drought LMEM coefficient · dominant driver of biomass loss</div>
+  </div>
+  <div class="stat-cell fade d3">
+    <div class="stat-val">4 yrs</div>
+    <div class="stat-lbl">Annual AGB maps at 100 m · NRW · 2019–2022</div>
+  </div>
+</div>
+
+<!-- ── STORY ──────────────────────────────────────────────── -->
+<section id="story" class="section section-gray">
+  <div class="sec-eye">
+    <div class="sec-eye-bar"></div>
+    <span class="sec-eye-txt">01 / The Study</span>
+  </div>
+  <h2 class="sec-title">Research in three acts</h2>
+  <p class="sec-desc">A case study in NRW asking: what is actually killing German forests, and how much carbon are they losing?</p>
+
+  <div class="story-grid">
+    <div class="story-card sc-1 fade">
+      <div class="story-num">01</div>
+      <div class="story-icon">🌡️</div>
+      <div class="story-head">The Problem</div>
+      <p class="story-body">Between 2018 and 2022, <strong>over 490 km² of German forests</strong> were damaged by drought, bark beetle, and logging cascades. Yet disturbance impacts and biomass dynamics are often analysed separately, limiting understanding of how different disturbance types drive carbon loss over time and space.</p>
+    </div>
+    <div class="story-card sc-2 fade d1">
+      <div class="story-num">02</div>
+      <div class="story-icon">🛰️</div>
+      <div class="story-head">The Approach</div>
+      <p class="story-body">Fuse <strong>GEDI LiDAR + Sentinel-1 SAR + Sentinel-2 optical + terrain + climate data</strong> into a 100 m annual grid. Model above-ground biomass with RF, kNN, and CNN. Map four disturbance types. Then run a Linear Mixed Effects Model to attribute which disturbance is actually driving biomass loss.</p>
+    </div>
+    <div class="story-card sc-3 fade d2">
+      <div class="story-num">03</div>
+      <div class="story-icon">💡</div>
+      <div class="story-head">The Core Finding</div>
+      <p class="story-body"><strong>ΔAGB is a lagging indicator of cumulative stress, not an immediate disturbance response.</strong> Biomass loss doesn't peak in the year the disturbance occurs. It accumulates over subsequent years. Same-year accounting systematically underestimates what forests are actually losing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── DISTURBANCES ───────────────────────────────────────── -->
+<section id="disturbances" class="section section-white">
+  <div class="sec-eye">
+    <div class="sec-eye-bar"></div>
+    <span class="sec-eye-txt">02 / Disturbance Mapping</span>
+  </div>
+  <h2 class="sec-title">Four disturbance types. One <span class="accent">cascade.</span></h2>
+  <p class="sec-desc">Annual Δ-rasters computed across all forested pixels in NRW. Each disturbance type is thresholded to its ecological signal extent.</p>
+
+  <div class="dist-grid">
+    <div class="dist-card dc-drought fade">
+      <div class="dist-icon">🌵</div>
+      <div class="dist-type">Drought · Primary Driver</div>
+      <div class="dist-area">838.53 km²</div>
+      <div class="dist-sub">per year · q = 0.90 · β = −5.875</div>
+      <p class="dist-detail">SWIR moisture stress index. <strong>Drought reduces tree vitality and weakens physiological defences,</strong> increasing susceptibility to bark beetle outbreaks. Confirmed as the dominant negative driver of biomass change.</p>
+    </div>
+    <div class="dist-card dc-pest fade d1">
+      <div class="dist-icon">🪲</div>
+      <div class="dist-type">Bark Beetle · Secondary</div>
+      <div class="dist-area">330.91 km²</div>
+      <div class="dist-sub">per year · Ips typographus · q = 0.269</div>
+      <p class="dist-detail">Red-edge spectral anomaly. <strong>A biotic amplifier in drought-weakened spruce stands.</strong> Beetle outbreaks expand rapidly in stands already compromised by drought stress, compounding biomass loss.</p>
+    </div>
+    <div class="dist-card dc-logging fade d2">
+      <div class="dist-icon">🪵</div>
+      <div class="dist-type">Logging · Response</div>
+      <div class="dist-area">655.7 km²</div>
+      <div class="dist-sub">per year · Red-edge drNBR · q = 0.90</div>
+      <p class="dist-detail">Primarily salvage logging, <strong>a management response to drought and beetle damage</strong> that removes remaining biomass. The final stage of the disturbance cascade, often occurring 1–2 years after initial stress.</p>
+    </div>
+    <div class="dist-card dc-fire fade d3">
+      <div class="dist-icon">🔥</div>
+      <div class="dist-type">Fire · Localised</div>
+      <div class="dist-area">563 km²</div>
+      <div class="dist-sub">per year · ΔNBR · q = 0.980</div>
+      <p class="dist-detail">Rare but intensifying. <strong>NRW's burned area tripled post-2020.</strong> High conservative threshold preserves specificity. A localised but ecologically significant disturbance with trajectory implications under climate change.</p>
+    </div>
+  </div>
+
+  <!-- Cascade summary -->
+  <div class="cascade-row fade">
+    <div class="cascade-step">
+      <span class="cascade-badge cb-amber">🌵 Drought</span>
+    </div>
+    <span class="cascade-arr">→</span>
+    <div class="cascade-step">
+      <span class="cascade-badge cb-green">🪲 Bark Beetle</span>
+    </div>
+    <span class="cascade-arr">→</span>
+    <div class="cascade-step">
+      <span class="cascade-badge cb-emerald">🪵 Salvage Logging</span>
+    </div>
+    <span class="cascade-arr">→</span>
+    <div class="cascade-step">
+      <span class="cascade-badge" style="background:var(--bg2);border:1px solid var(--border);color:var(--text-body);">Cumulative AGB Loss (lagged)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── METHODOLOGY ────────────────────────────────────────── -->
+<section id="methodology" class="section section-gray">
+  <div class="sec-eye">
+    <div class="sec-eye-bar"></div>
+    <span class="sec-eye-txt">03 / Methodology</span>
+  </div>
+  <h2 class="sec-title">A <span class="accent">six-step</span> pipeline</h2>
+  <p class="sec-desc">From satellite imagery to a publicly accessible live dashboard. Every step reproducible in Google Earth Engine.</p>
+
+  <div class="steps">
+    <div class="step s1 fade">
+      <div class="step-n">Step 01</div>
+      <div class="step-icon">🛰️</div>
+      <div class="step-t">Multi-Sensor Data Fusion</div>
+      <p class="step-d">GEDI LiDAR footprints fused with annual Sentinel-1/2 composites, GLCM texture features, canopy height model, SRTM terrain, and ERA5 climate variables, harmonised on a 100 m grid.</p>
+      <div class="step-tags">
+        <span class="stag stag-hl">GEDI</span><span class="stag stag-hl">Sentinel-1/2</span><span class="stag">GLCM</span><span class="stag">ERA5</span>
+      </div>
+    </div>
+    <div class="step s2 fade d1">
+      <div class="step-n">Step 02</div>
+      <div class="step-icon">🤖</div>
+      <div class="step-t">Machine Learning AGB Modelling</div>
+      <p class="step-d">RF, kNN, and CNN trained under GroupKFold spatial cross-validation. Random Forest selected with R²=0.959. SHAP analysis ranks which satellite bands actually explain biomass variance.</p>
+      <div class="step-tags">
+        <span class="stag stag-hl">Random Forest</span><span class="stag">kNN</span><span class="stag">CNN</span><span class="stag stag-hl">SHAP</span>
+      </div>
+    </div>
+    <div class="step s3 fade d2">
+      <div class="step-n">Step 03</div>
+      <div class="step-icon">🗺️</div>
+      <div class="step-t">Annual AGB Map Generation</div>
+      <p class="step-d">RF generated wall-to-wall biomass maps for 2019–2022, providing four consecutive annual rasters validated against ESA-CCI and DLR reference products.</p>
+      <div class="step-tags">
+        <span class="stag stag-hl">100 m Resolution</span><span class="stag">ESA-CCI</span><span class="stag">DLR</span>
+      </div>
+    </div>
+    <div class="step s4 fade">
+      <div class="step-n">Step 04</div>
+      <div class="step-icon">🔥</div>
+      <div class="step-t">Disturbance Δ-Layers</div>
+      <p class="step-d">Annual spectral change layers for drought, fire, pest, and logging computed from spectral indices. Disturbance-type-specific quantile thresholds suppress false positives while preserving ecological signals.</p>
+      <div class="step-tags">
+        <span class="stag stag-hl">NBR</span><span class="stag stag-hl">drNBR</span><span class="stag">NDWI</span><span class="stag">Red-Edge</span>
+      </div>
+    </div>
+    <div class="step s5 fade d1">
+      <div class="step-n">Step 05</div>
+      <div class="step-icon">📐</div>
+      <div class="step-t">LMEM Attribution Analysis</div>
+      <p class="step-d">Pixel-wise correlation of ΔAGB with disturbance layers using a Linear Mixed Effects Model. Fixed effects = disturbance type severities. Random effect = biomass baseline year. Drought β = −5.875.</p>
+      <div class="step-tags">
+        <span class="stag stag-hl">LMEM</span><span class="stag">ΔAGB</span><span class="stag">Panel Data</span><span class="stag">Bootstrap CI</span>
+      </div>
+    </div>
+    <div class="step s6 fade d2">
+      <div class="step-n">Step 06</div>
+      <div class="step-icon">🌐</div>
+      <div class="step-t">GEE Interactive Dashboard</div>
+      <p class="step-d">Publicly deployed web application enabling users to query disturbance footprints, visualise biomass change patterns, and identify hotspot zones across NRW, no GIS software needed.</p>
+      <div class="step-tags">
+        <span class="stag stag-hl">GEE App</span><span class="stag">JavaScript API</span><span class="stag">Open Access</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESULTS ────────────────────────────────────────────── -->
+<section id="results" class="section section-white">
+  <div class="sec-eye">
+    <div class="sec-eye-bar"></div>
+    <span class="sec-eye-txt">04 / Key Results</span>
+  </div>
+  <h2 class="sec-title">What the data <span class="accent">revealed</span></h2>
+  <p class="sec-desc">Five findings that change how we should think about carbon accounting in managed temperate forests.</p>
+
+  <div class="results-grid">
+    <div class="result-card fade">
+      <div class="result-label">AGB Model Performance</div>
+      <h4>Random Forest Dominated: Accuracy, Stability, Interpretability</h4>
+      <p>This study demonstrated the generalization capacity of Random Forest under spatial cross-validation in AGB mapping. RF metrics outperformed kNN and CNN in temperate forest conditions.</p>
+      <div class="metrics">
+        <div><div class="metric-val">0.959</div><div class="metric-lbl">R²</div></div>
+        <div><div class="metric-val">15.39</div><div class="metric-lbl">RMSE Mg/ha</div></div>
+        <div><div class="metric-val">11.76</div><div class="metric-lbl">MAE Mg/ha</div></div>
+        <div><div class="metric-val">0.23</div><div class="metric-lbl">Bias Mg/ha</div></div>
+      </div>
+    </div>
+    <div class="result-card fade d1">
+      <div class="result-label">Feature Importance · SHAP</div>
+      <h4>Texture Metrics Outranked Most Spectral Indices</h4>
+      <p>GLCM red-edge and red-band texture features ranked #3 overall, behind only canopy height and VH backscatter. High texture = structured canopy = high AGB. Low texture = disturbed or fragmented stand.</p>
+      <div class="metrics">
+        <div><div class="metric-val">#1</div><div class="metric-lbl">Canopy Height</div></div>
+        <div><div class="metric-val">#2</div><div class="metric-lbl">VH SAR</div></div>
+        <div><div class="metric-val">#3</div><div class="metric-lbl">GLCM Texture</div></div>
+      </div>
+    </div>
+    <div class="result-card wide fade d2">
+      <div class="result-label">Core Finding · LMEM Attribution</div>
+      <h4>ΔAGB Is a Lagging Indicator: Drought Starts the Cascade</h4>
+      <p>The LMEM confirmed drought as the dominant negative driver of biomass change (β = −5.875). AGB loss doesn't spike in the drought year, it accumulates in subsequent years as bark beetle mortality progresses and salvage logging follows. Same-year accounting underestimates AGB loss. This has direct implications for LULUCF carbon reporting under EU climate policy.</p>
+      <div class="metrics" style="margin-top:1.25rem">
+        <div><div class="metric-val">−5.875</div><div class="metric-lbl">Drought β (LMEM)</div></div>
+        <div><div class="metric-val">Lagging</div><div class="metric-lbl">ΔAGB signal type</div></div>
+        <div><div class="metric-val">Cascade</div><div class="metric-lbl">Drought → Pest → Logging</div></div>
+        <div><div class="metric-val">Clustered</div><div class="metric-lbl">Spruce-stand hotspots</div></div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Policy Implication</div>
+        <p>Annual same-year LULUCF carbon accounting under EU climate reporting frameworks systematically underestimates forest carbon loss. ΔAGB should be tracked as a multi-year lagged response to disturbance events, not as a co-temporal indicator.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scientific Contributions -->
+  <div style="margin-top:4rem">
+    <div class="sec-eye">
+      <div class="sec-eye-bar"></div>
+      <span class="sec-eye-txt">Scientific Contributions</span>
+    </div>
+    <h2 class="sec-title" style="margin-bottom:2rem">What this work <span class="accent">advances</span></h2>
+    <div class="timeline">
+      <div class="tl-item fade">
+        <h4>First integrated AGB–disturbance framework for NRW at 100 m annual scale</h4>
+        <p>Combines GEDI-derived biomass prediction with four concurrent disturbance proxies in a unified visualization framework. Enables attribution of which disturbance type drives local carbon loss each year.</p>
+      </div>
+      <div class="tl-item fade d1">
+        <h4>SAR-optical fusion stabilises prediction across cloud-affected years</h4>
+        <p>Sentinel-1 VV/VH reduces canopy saturation effects and cloud-gap errors that compromise optical-only models in Germany's frequently overcast temperate climate.</p>
+      </div>
+      <div class="tl-item fade d2">
+        <h4>Evidence of drought → pest → logging disturbance cascades</h4>
+        <p>Spatial co-occurrence analysis reveals that NRW's biomass-loss hotspots concentrate along drought-preconditioned spruce corridors where beetle outbreaks then triggered salvage operations.</p>
+      </div>
+      <div class="tl-item fade d3">
+        <h4>Interactive GEE dashboard for evidence-based forest management</h4>
+        <p>Publicly accessible tool allowing foresters and policymakers to query disturbance footprints, visualise biomass trajectories, and identify hotspot zones, no GIS software required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GEE DASHBOARD ──────────────────────────────────────── -->
+<section id="dashboard" class="section section-gray">
+  <div class="sec-eye">
+    <div class="sec-eye-bar"></div>
+    <span class="sec-eye-txt">05 / Live Dashboard</span>
+  </div>
+  <h2 class="sec-title"><span class="accent">Disturbance-Driven</span> AGB Change Explorer</h2>
+  <p class="sec-desc">A Google Earth Engine application built to make every result from this thesis explorable, no software needed, runs in any browser.</p>
+
+  <div class="gee-wrap fade">
+    <div class="gee-inner">
+      <div class="gee-info">
+        <h3><em>Explore</em> the full dataset live</h3>
+        <p>Query any forested location in NRW and visualise annual biomass change alongside disturbance footprints interactively.</p>
+        <ul class="gee-features">
+          <li>Annual predicted AGB maps at 100 m (2019–2022)</li>
+          <li>Drought, fire, pest, and logging disturbance overlays</li>
+          <li>Biomass-loss hotspot identification by disturbance type</li>
+          <li>Point query any forest location in NRW</li>
+          <li>Interannual ΔAGB trajectory visualisation</li>
+        </ul>
+        <a href="https://oseiprince93nrw.projects.earthengine.app/view/disturbance-driven-agb-change"
+           target="_blank" class="btn btn-green" style="align-self:flex-start">
+          <span class="live-dot"></span>
+          Open Full Dashboard
+        </a>
+      </div>
+      <div class="gee-embed">
+        <div class="gee-badge">
+          <span class="live-dot"></span>
+          Live · GEE App
+        </div>
+        <iframe
+          src="https://oseiprince93nrw.projects.earthengine.app/view/disturbance-driven-agb-change"
+          title="Disturbance-Driven AGB Change Dashboard"
+          loading="lazy"
+          allow="fullscreen">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TECH STACK ─────────────────────────────────────────── -->
+<section class="section section-white">
+  <div class="sec-eye">
+    <div class="sec-eye-bar"></div>
+    <span class="sec-eye-txt">06 / Technical Stack</span>
+  </div>
+  <h2 class="sec-title">Built with</h2>
+  <p class="sec-desc">Developed within the Google Earth Engine ecosystem combined with Python and R for statistical analysis.</p>
+  <div class="tech-grid fade">
+    <span class="tp tp-g">🌍 Google Earth Engine</span>
+    <span class="tp tp-g">🛰️ Sentinel-1 SAR</span>
+    <span class="tp tp-s">📡 Sentinel-2 MSI</span>
+    <span class="tp tp-t">🔦 NASA GEDI</span>
+    <span class="tp tp-v">🐍 Python</span>
+    <span class="tp tp-g">🌲 Random Forest</span>
+    <span class="tp tp-v">🧠 CNN / Deep Learning</span>
+    <span class="tp tp-a">📊 SHAP Analysis</span>
+    <span class="tp tp-e">📐 LMEM (R)</span>
+    <span class="tp tp-s">🗺️ QGIS</span>
+    <span class="tp tp-a">🧮 R Statistics</span>
+    <span class="tp tp-t">⚡ GEE JavaScript API</span>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <span class="foot-brand">AGB Modelling & Forest Disturbances · Master Thesis</span>
+  <span>GIS & Remote Sensing Portfolio · Prince Osei Boateng</span>
+  <div class="foot-links">
+    <a href="index.html">← Portfolio</a>
+    <a href="#story">Overview</a>
+    <a href="#disturbances">Disturbances</a>
+    <a href="#results">Results</a>
+    <a href="https://oseiprince93nrw.projects.earthengine.app/view/disturbance-driven-agb-change" target="_blank">Live Dashboard</a>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade').forEach(el => io.observe(el));
+  // Immediate fade-in for stat strip
+  document.querySelectorAll('.stat-cell.fade').forEach((el, i) => {
+    setTimeout(() => el.classList.add('in'), 200 + i * 80);
+  });
+</script>
+</body>
+</html>
