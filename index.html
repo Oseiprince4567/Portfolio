@@ -61,7 +61,8 @@ section.alt { background: var(--bg-section); }
 nav#navbar {
   position: fixed; top: 3px; left: 0; right: 0; z-index: 1000;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 10px 32px;
+  gap: 12px;
+  padding: 8px 24px;
   background: rgba(255,255,255,0.82);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -73,18 +74,18 @@ nav#navbar.scrolled {
   background: rgba(255,255,255,0.95);
 }
 .nav-logo {
-  font-family: var(--font-display);
-  font-weight: 800; font-size: 1.35rem;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  display: flex; align-items: center;
+  display: flex; align-items: center; flex-shrink: 0;
+  text-decoration: none;
 }
 .nav-logo img {
-  height: 40px; width: auto;
-  display: block;
-  /* neutralise the gradient text clip so img shows normally */
-  -webkit-text-fill-color: initial;
-  filter: none;
+  height: 36px; width: auto; display: block;
+}
+/* Fallback when image missing — compact POB monogram only */
+.nav-logo-fallback {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.2rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  letter-spacing: -0.02em;
 }
 /* Pill container — the track */
 .nav-links {
@@ -111,21 +112,21 @@ nav#navbar.scrolled {
 }
 .nav-links li { position: relative; z-index: 1; }
 .nav-links a {
-  font-size: 0.85rem; font-weight: 500; color: var(--text-muted);
-  padding: 7px 16px; border-radius: 99px;
+  font-size: 0.8rem; font-weight: 500; color: var(--text-muted);
+  padding: 6px 12px; border-radius: 99px;
   transition: color 0.2s;
   display: block; white-space: nowrap;
 }
 .nav-links a:hover { color: var(--text); }
 .nav-links a.active { color: #fff; }
-.nav-right { display: flex; align-items: center; gap: 12px; }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .btn-contact {
   font-family: var(--font-display);
-  font-size: 0.875rem; font-weight: 700;
-  padding: 10px 22px; border-radius: 99px;
+  font-size: 0.8rem; font-weight: 700;
+  padding: 8px 16px; border-radius: 99px;
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   color: #fff; border: none; cursor: pointer; transition: all 0.2s;
-  box-shadow: 0 4px 15px rgba(0,98,255,0.3);
+  box-shadow: 0 4px 15px rgba(0,98,255,0.3); white-space: nowrap;
 }
 .btn-contact:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,98,255,0.4); }
 
@@ -135,10 +136,10 @@ nav#navbar.scrolled {
   border: 1px solid var(--border); background: var(--bg-section);
 }
 .lang-toggle button {
-  font-size: 0.8rem; font-weight: 600; padding: 7px 14px;
+  font-size: 0.72rem; font-weight: 600; padding: 5px 10px;
   border: none; cursor: pointer; background: transparent;
   color: var(--text-muted); transition: all 0.2s;
-  font-family: var(--font-body);
+  font-family: var(--font-body); white-space: nowrap;
 }
 .lang-toggle button.active { background: var(--accent); color: #fff; }
 
@@ -724,7 +725,7 @@ footer#footer {
 <!-- ── NAVBAR ─────────────────────────────────────────────── -->
 <nav id="navbar">
   <a class="nav-logo" href="#home">
-    <img src="LogoNow.png" alt="Prince Osei Boateng logo" />
+    <img src="images/LogoNow.jpeg" alt="" />
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#home" class="active" data-i18n="nav_home">Home</a></li>
@@ -732,7 +733,6 @@ footer#footer {
     <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
     <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
     <li><a href="#education" data-i18n="nav_education">Education</a></li>
-    <li><a href="#services" data-i18n="nav_services_link">Services</a></li>
     <li><a href="#contact" data-i18n="nav_contact_link">Contact</a></li>
   </ul>
   <div class="nav-right">
@@ -752,7 +752,6 @@ footer#footer {
   <a href="#projects" onclick="closeMobileNav()" data-i18n="nav_projects">Projects</a>
   <a href="#skills" onclick="closeMobileNav()" data-i18n="nav_skills">Skills</a>
   <a href="#education" onclick="closeMobileNav()" data-i18n="nav_education">Education</a>
-  <a href="#services" onclick="closeMobileNav()" data-i18n="nav_services_link">Services</a>
   <a href="#contact" onclick="closeMobileNav()" data-i18n="nav_contact_link">Contact</a>
 </div>
 
