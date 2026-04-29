@@ -435,21 +435,14 @@ nav#navbar.scrolled {
 .skill-bar-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
 .skill-badges { display: flex; flex-wrap: wrap; gap: 6px; }
 .skill-badge {
-  font-size: 0.72rem; font-weight: 700; padding: 5px 11px;
-  border-radius: 7px; font-family: var(--font-display);
-  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.72rem; font-weight: 700; padding: 5px 14px;
+  border-radius: 99px; font-family: var(--font-display);
+  display: inline-flex; align-items: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff; border: none;
   transition: transform 0.15s;
 }
 .skill-badge:hover { transform: translateY(-1px); }
-/* Color variants */
-.skill-badge.c-blue   { background: rgba(0,98,255,0.1);  border: 1.5px solid rgba(0,98,255,0.25);  color: #0062FF; }
-.skill-badge.c-teal   { background: rgba(0,209,209,0.1); border: 1.5px solid rgba(0,209,209,0.3);  color: #009999; }
-.skill-badge.c-green  { background: rgba(16,185,129,0.1);border: 1.5px solid rgba(16,185,129,0.3); color: #059669; }
-.skill-badge.c-orange { background: rgba(249,115,22,0.1);border: 1.5px solid rgba(249,115,22,0.3); color: #EA6500; }
-.skill-badge.c-purple { background: rgba(139,92,246,0.1);border: 1.5px solid rgba(139,92,246,0.3); color: #7C3AED; }
-.skill-badge.c-pink   { background: rgba(236,72,153,0.1);border: 1.5px solid rgba(236,72,153,0.3); color: #BE185D; }
-.skill-badge.c-amber  { background: rgba(245,158,11,0.1);border: 1.5px solid rgba(245,158,11,0.3); color: #B45309; }
-.skill-badge.c-sky    { background: rgba(14,165,233,0.1); border: 1.5px solid rgba(14,165,233,0.3); color: #0369A1; }
 
 /* ── TIMELINE (Education / Experience) ─────────────────────── */
 .timeline { position: relative; padding-left: 32px; }
@@ -967,7 +960,7 @@ footer#footer {
             <p class="car-label result">Result:</p>
             <p class="car-text">4 annual wall-to-wall AGB maps validated against ESA-CCI and DLR. Drought identified as dominant driver of biomass loss (β=−5.88). Live GEE dashboard to query and visualize disturbance-driven biomass loss footprints.</p>
           </div>
-          <div class="project-footer"><span class="skill-badge c-blue"><i class="devicon-python-plain"></i> Random Forest</span><span class="skill-badge c-teal">🛰️ GEDI LiDAR</span><span class="skill-badge c-green"><i class="devicon-googlecloud-plain"></i> GEE</span><span class="skill-badge c-purple"><i class="devicon-rstudio-plain"></i> R / LMEM</span><a href="renewagb.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
+          <div class="project-footer"><span class="skill-badge c-blue">Random Forest</span><span class="skill-badge c-teal">GEDI LiDAR</span><span class="skill-badge c-green">GEE</span><span class="skill-badge c-purple">R / LMEM</span><a href="renewagb.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
@@ -988,7 +981,7 @@ footer#footer {
             <p class="car-label result">Result:</p>
             <p class="car-text">Plugin produces clean GeoTIFFs with optional embedded alpha channel and auto-reloads results into the active QGIS canvas after processing. Outperforms native NoData workflows on all tested imagery types.</p>
           </div>
-          <div class="project-footer"><span class="skill-badge c-blue"><i class="devicon-python-plain"></i> PyQGIS</span><span class="skill-badge c-orange"><i class="devicon-ubuntu-plain"></i> GDAL</span><span class="skill-badge c-purple"><i class="devicon-numpy-plain"></i> NumPy</span><span class="skill-badge c-teal"><i class="devicon-github-original"></i> Open Source</span><a href="blackframe.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
+          <div class="project-footer"><span class="skill-badge c-blue">PyQGIS</span><span class="skill-badge c-orange">GDAL</span><span class="skill-badge c-purple">NumPy</span><span class="skill-badge c-teal">Open Source</span><a href="blackframe.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
@@ -1009,7 +1002,7 @@ footer#footer {
             <p class="car-label result">Result:</p>
             <p class="car-text">Live dashboard showing real-time station availability, spatial intensity heatmaps, and top-10 station performance.</p>
           </div>
-          <div class="project-footer"><span class="skill-badge c-blue"><i class="devicon-python-plain"></i> Python</span><span class="skill-badge c-pink"><i class="devicon-python-plain"></i> Streamlit</span><span class="skill-badge c-purple"><i class="devicon-postgresql-plain"></i> PostgreSQL</span><span class="skill-badge c-orange"><i class="devicon-github-original"></i> GitHub Actions</span><span class="skill-badge c-sky">🌐 SensorThings API</span><span class="skill-badge c-teal"><i class="devicon-pandas-plain"></i> Pandas</span><span class="skill-badge c-green">🗺️ Folium</span><span class="skill-badge c-amber"><i class="devicon-plotly-plain"></i> Plotly</span><a href="Evdb.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
+          <div class="project-footer"><span class="skill-badge c-blue">Python</span><span class="skill-badge c-pink">Streamlit</span><span class="skill-badge c-purple">PostgreSQL</span><span class="skill-badge c-orange">GitHub Actions</span><span class="skill-badge c-sky">SensorThings API</span><span class="skill-badge c-teal">Pandas</span><span class="skill-badge c-green">Folium</span><span class="skill-badge c-amber">Plotly</span><a href="Evdb.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
@@ -1030,7 +1023,7 @@ footer#footer {
             <p class="car-label result">Result:</p>
             <p class="car-text">Live 3D dashboard with zoom-responsive charts showing heating demand per building. Fully functional Web AR scene which demonstrates end-to-end 3D geospatial web development.</p>
           </div>
-          <div class="project-footer"><span class="skill-badge c-blue"><i class="devicon-javascript-plain"></i> Cesium</span><span class="skill-badge c-purple">🏗️ CityGML / 3DTiles</span><span class="skill-badge c-orange">⚙️ FME</span><span class="skill-badge c-teal"><i class="devicon-threejs-original"></i> Three.js</span><span class="skill-badge c-green">🥽 WebXR / AR</span><span class="skill-badge c-sky"><i class="devicon-javascript-plain"></i> Chart.js</span><a href="Stokach.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
+          <div class="project-footer"><span class="skill-badge c-blue">Cesium</span><span class="skill-badge c-purple">CityGML / 3DTiles</span><span class="skill-badge c-orange">FME</span><span class="skill-badge c-teal">Three.js</span><span class="skill-badge c-green">WebXR / AR</span><span class="skill-badge c-sky">Chart.js</span><a href="Stokach.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
@@ -1052,7 +1045,7 @@ footer#footer {
             <p class="car-label result">Result:</p>
             <p class="car-text">Web app: crackdetect-pro.streamlit.app. Outputs crack area in px² and % image coverage per upload and generates downloadable inspection reports.</p>
           </div>
-          <div class="project-footer"><span class="skill-badge c-orange"><i class="devicon-tensorflow-original"></i> TensorFlow</span><span class="skill-badge c-blue"><i class="devicon-keras-plain"></i> Keras</span><span class="skill-badge c-purple"><i class="devicon-python-plain"></i> CNN</span><span class="skill-badge c-teal"><i class="devicon-opencv-plain"></i> OpenCV</span><span class="skill-badge c-pink"><i class="devicon-python-plain"></i> Streamlit</span><span class="skill-badge c-green">🤖 Binary Classification</span><span class="skill-badge c-amber"><i class="devicon-numpy-plain"></i> NumPy</span><span class="skill-badge c-sky"><i class="devicon-pandas-plain"></i> Image Segmentation</span><a href="Concrete.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
+          <div class="project-footer"><span class="skill-badge c-orange">TensorFlow</span><span class="skill-badge c-blue">Keras</span><span class="skill-badge c-purple">CNN</span><span class="skill-badge c-teal">OpenCV</span><span class="skill-badge c-pink">Streamlit</span><span class="skill-badge c-green">Binary Classification</span><span class="skill-badge c-amber">NumPy</span><span class="skill-badge c-sky">Image Segmentation</span><a href="Concrete.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
@@ -1073,7 +1066,7 @@ footer#footer {
             <p class="car-label result">Result:</p>
             <p class="car-text">Hotspots of High CO and Very High nighttime lights in NRW's industrial west, Berlin, Hamburg, and Stuttgart and other states. Live GEE app deployed for public exploration; GeoTIFF exports enable downstream GIS workflows.</p>
           </div>
-          <div class="project-footer"><span class="skill-badge c-teal">🛰️ Satellite Imagery Processing</span><span class="skill-badge c-purple">Radiometric Calibrations</span><span class="skill-badge c-green"><i class="devicon-googlecloud-plain"></i> Google Earth Engine</span><span class="skill-badge c-blue"><i class="devicon-javascript-plain"></i> JavaScript</span><span class="skill-badge c-sky">📡 TROPOMI</span><span class="skill-badge c-orange">🗺️ GADM Boundaries</span><span class="skill-badge c-amber">📊 Time-Series Analysis</span><a href="UrbanCO.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
+          <div class="project-footer"><span class="skill-badge c-teal">Satellite Imagery Processing</span><span class="skill-badge c-purple">Radiometric Calibrations</span><span class="skill-badge c-green">Google Earth Engine</span><span class="skill-badge c-blue">JavaScript</span><span class="skill-badge c-sky">TROPOMI</span><span class="skill-badge c-orange">GADM Boundaries</span><span class="skill-badge c-amber">Time-Series Analysis</span><a href="UrbanCO.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
@@ -1094,7 +1087,7 @@ footer#footer {
             <p class="car-label result">Result:</p>
             <p class="car-text">50 cm + 256 px tiles confirmed as optimal, capturing 92,119 m² buildings at Feuersee vs 77,159 m² at 40 cm. Before/after swipe videos validate model performance visually.</p>
           </div>
-          <div class="project-footer"><span class="skill-badge c-blue"><i class="devicon-python-plain"></i> QGIS Deepness</span><span class="skill-badge c-orange">🏗️ RAMP Model</span><span class="skill-badge c-purple">🤖 Semantic Segmentation</span><span class="skill-badge c-teal">🛰️ VHR Imagery</span><span class="skill-badge c-green"><i class="devicon-python-plain"></i> PyQGIS</span><span class="skill-badge c-sky">📐 Zonal Statistics</span><span class="skill-badge c-amber">🗺️ GDAL</span><a href="Buildingseg.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
+          <div class="project-footer"><span class="skill-badge c-blue">QGIS Deepness</span><span class="skill-badge c-orange">RAMP Model</span><span class="skill-badge c-purple">Semantic Segmentation</span><span class="skill-badge c-teal">VHR Imagery</span><span class="skill-badge c-green">PyQGIS</span><span class="skill-badge c-sky">Zonal Statistics</span><span class="skill-badge c-amber">GDAL</span><a href="Buildingseg.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
@@ -1115,7 +1108,7 @@ footer#footer {
             <p class="car-label result">Result:</p>
             <p class="car-text">Of 11,720 buildings, 7,935 (67.7%) fall within the ≤5 m flood zone. Delivered interactive 3D scenes and video walkthroughs showing inundation extent, with central areas less affected due to elevation planning and existing dykes.</p>
           </div>
-         <div class="project-footer"><span class="skill-badge c-blue"><i class="devicon-python-plain"></i> QGIS</span><span class="skill-badge c-teal">🏔️ DTM / DSM</span><span class="skill-badge c-purple">🌊 Flood Simulation</span><span class="skill-badge c-orange">🏙️ QGIS2ThreeJS</span><span class="skill-badge c-green">📐 Zonal Statistics</span><span class="skill-badge c-sky">🗺️ QuickOSM</span><a href="flood.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
+         <div class="project-footer"><span class="skill-badge c-blue">QGIS</span><span class="skill-badge c-teal">DTM / DSM</span><span class="skill-badge c-purple">Flood Simulation</span><span class="skill-badge c-orange">QGIS2ThreeJS</span><span class="skill-badge c-green">Zonal Statistics</span><span class="skill-badge c-sky">QuickOSM</span><a href="flood.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
@@ -1136,7 +1129,7 @@ footer#footer {
             <p class="car-label result">Result:</p>
             <p class="car-text">Google Earth Engine app enabling limnologists and environmental managers to query chlorophyll class distributions and detect seasonal eutrophication signals across all 5 lakes, year-by-year.</p>
           </div>
-         <div class="project-footer"><span class="skill-badge c-green"><i class="devicon-googlecloud-plain"></i> Google Earth Engine</span><span class="skill-badge c-blue"><i class="devicon-javascript-plain"></i> JavaScript</span><span class="skill-badge c-teal">🛰️ Satellite Imagery</span><span class="skill-badge c-sky"> Sentinel Indices</span><span class="skill-badge c-purple">📊 Time-Series Analysis</span><span class="skill-badge c-amber">🌿 Limnology</span><a href="chlorophyll.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
+         <div class="project-footer"><span class="skill-badge c-green">Google Earth Engine</span><span class="skill-badge c-blue">JavaScript</span><span class="skill-badge c-teal">Satellite Imagery</span><span class="skill-badge c-sky"> Sentinel Indices</span><span class="skill-badge c-purple">Time-Series Analysis</span><span class="skill-badge c-amber">Limnology</span><a href="chlorophyll.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
@@ -1157,7 +1150,7 @@ footer#footer {
             <p class="car-label result">Result:</p>
             <p class="car-text">Selected Trier (pop. 110,674, near rail/road nexus, high purchasing power, coordinates: 328463E 5513063N) and Ingolstadt (pop. 136,952, Audi AG hub, high employment, coordinates: 11.4488°E 48.7750°N) as optimal sites.</p>
           </div>
-          <div class="project-footer"><span class="skill-badge c-blue">🌐 ArcGIS Pro</span><span class="skill-badge c-orange">⚙️ Model Builder</span><span class="skill-badge c-purple">🔗 Network Analysis</span><span class="skill-badge c-teal">📐 Location-Allocation</span><span class="skill-badge c-green">💰 Socioeconomic Data Analysis</span><span class="skill-badge c-sky">🗺️ Cartography</span><span class="skill-badge c-amber">Data wrangling</span><a href="ikea.html" target="_blank" class="project-link" data-i18n="p_view">View Project →</a></div>
+          <div class="project-footer"><span class="skill-badge c-blue">ArcGIS Pro</span><span class="skill-badge c-orange">Model Builder</span><span class="skill-badge c-purple">Network Analysis</span><span class="skill-badge c-teal">Location-Allocation</span><span class="skill-badge c-green">Socioeconomic Data Analysis</span><span class="skill-badge c-sky">Cartography</span><span class="skill-badge c-amber">Data wrangling</span><a href="ikea.html" target="_blank" class="project-link" data-i18n="p_view">View Project →</a></div>
         </div>
       </div>
 
@@ -1179,12 +1172,12 @@ footer#footer {
         <p class="skill-desc">Processing raw geospatial data into meaningful maps and spatial insights.</p>
         <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
         <div class="skill-badges">
-          <span class="skill-badge c-blue">🗺️ QGIS</span>
-          <span class="skill-badge c-orange">🌐 ArcGIS</span>
-          <span class="skill-badge c-purple">🗄️ Google Earth Engine</span>
-          <span class="skill-badge c-teal">📡 Satellite Imagery Analysis</span>
-          <span class="skill-badge c-green">🛰️ Point Cloud Processing</span>
-          <span class="skill-badge c-pink">🤖 CNN / U-Net</span>
+          <span class="skill-badge c-blue">QGIS</span>
+          <span class="skill-badge c-orange">ArcGIS</span>
+          <span class="skill-badge c-purple">Google Earth Engine</span>
+          <span class="skill-badge c-teal">Satellite Imagery Analysis</span>
+          <span class="skill-badge c-green">Point Cloud Processing</span>
+          <span class="skill-badge c-pink">CNN / U-Net</span>
         </div>
       </div>
       <div class="skill-card reveal reveal-delay-1">
@@ -1192,14 +1185,14 @@ footer#footer {
         <p class="skill-desc">Designing and managing geospatial data infrastructure. From PostGIS geodatabase engineering to live IoT data pipelines.</p>
         <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
         <div class="skill-badges">
-          <span class="skill-badge c-purple"><i class="devicon-postgresql-plain"></i> PostGIS</span>
-          <span class="skill-badge c-teal"><i class="devicon-python-plain"></i> GeoPandas</span>
-          <span class="skill-badge c-blue"><i class="devicon-python-plain"></i> Rasterio</span>
-          <span class="skill-badge c-orange">🌐 GeoServer</span>
-          <span class="skill-badge c-green">📡 WMS / WFS</span>
-          <span class="skill-badge c-sky">⚙️ FME</span>
-          <span class="skill-badge c-pink">🔗 SensorThings API</span>
-          <span class="skill-badge c-amber">🛢️ Geodatabase Design</span>
+          <span class="skill-badge c-purple">PostGIS</span>
+          <span class="skill-badge c-teal">GeoPandas</span>
+          <span class="skill-badge c-blue">Rasterio</span>
+          <span class="skill-badge c-orange">GeoServer</span>
+          <span class="skill-badge c-green">WMS / WFS</span>
+          <span class="skill-badge c-sky">FME</span>
+          <span class="skill-badge c-pink">SensorThings API</span>
+          <span class="skill-badge c-amber">Geodatabase Design</span>
         </div>
       </div>
       <div class="skill-card reveal reveal-delay-2">
@@ -1207,13 +1200,13 @@ footer#footer {
         <p class="skill-desc">Turning ideas into interactive and visually stunning web pages that adapt to any device.</p>
         <div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div>
         <div class="skill-badges">
-          <span class="skill-badge c-amber"><i class="devicon-javascript-plain"></i> JavaScript</span>
-          <span class="skill-badge c-orange"><i class="devicon-html5-plain"></i> HTML5</span>
-          <span class="skill-badge c-blue"><i class="devicon-css3-plain"></i> CSS</span>
-          <span class="skill-badge c-teal"><i class="devicon-threejs-original"></i> Three.js</span>
-          <span class="skill-badge c-sky">🗺️ Leaflet / Folium</span>
-          <span class="skill-badge c-sky">🗺️ Openlayers</span>
-          <span class="skill-badge c-purple">🌐 Cesium</span>
+          <span class="skill-badge c-amber">JavaScript</span>
+          <span class="skill-badge c-orange">HTML5</span>
+          <span class="skill-badge c-blue">CSS</span>
+          <span class="skill-badge c-teal">Three.js</span>
+          <span class="skill-badge c-sky">Leaflet / Folium</span>
+          <span class="skill-badge c-sky">Openlayers</span>
+          <span class="skill-badge c-purple">Cesium</span>
         </div>
       </div>
       <div class="skill-card reveal reveal-delay-3">
@@ -1221,15 +1214,15 @@ footer#footer {
         <p class="skill-desc">Powering geospatial pipelines with solid server-side logic, automation, and cloud-based data workflows.</p>
         <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
         <div class="skill-badges">
-          <span class="skill-badge c-blue"><i class="devicon-python-plain"></i> Python (FastAPI/Flask)</span>
-          <span class="skill-badge c-purple"><i class="devicon-postgresql-plain"></i> PostgreSQL / Neon</span>
-          <span class="skill-badge c-orange"><i class="devicon-mysql-plain"></i> MySQL</span>
-          <span class="skill-badge c-green"><i class="devicon-django-plain"></i> GeoDjango</span>
-          <span class="skill-badge c-teal">🌐 GeoServer</span>
-          <span class="skill-badge c-sky"><i class="devicon-github-original"></i> GitHub Actions (CI/CD)</span>
-          <span class="skill-badge c-purple"><i class="devicon-docker-plain"></i> Docker</span>
-          <span class="skill-badge c-pink">🌐 GeoJSON & REST APIs</span>
-          <span class="skill-badge c-amber">⚙️ Async Task Queues (Celery)</span>
+          <span class="skill-badge c-blue">Python (FastAPI/Flask)</span>
+          <span class="skill-badge c-purple">PostgreSQL / Neon</span>
+          <span class="skill-badge c-orange">MySQL</span>
+          <span class="skill-badge c-green">GeoDjango</span>
+          <span class="skill-badge c-teal">GeoServer</span>
+          <span class="skill-badge c-sky">GitHub Actions (CI/CD)</span>
+          <span class="skill-badge c-purple">Docker</span>
+          <span class="skill-badge c-pink">GeoJSON & REST APIs</span>
+          <span class="skill-badge c-amber">Async Task Queues (Celery)</span>
         </div>
       </div>
     </div>
