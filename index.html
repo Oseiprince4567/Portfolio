@@ -700,6 +700,7 @@ footer#footer {
 
 /* ── CERT GRID ───────────────────────────────────────────────── */
 .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+@media (max-width: 640px) { .cert-grid { grid-template-columns: 1fr; } }
 .cert-card {
   background: var(--bg-card); border: 1px solid var(--border);
   border-radius: var(--radius-sm); padding: 24px 28px;
@@ -1222,7 +1223,7 @@ footer#footer {
           <span class="skill-badge c-purple">💻 VS Code</span>
           <span class="skill-badge c-amber">📓 Jupyter</span>
           <span class="skill-badge c-pink">🔬 MATLAB</span>
-          <span class="skill-badge c-teal">🐘 PostgreSQL</span>
+          <span class="skill-badge c-teal">🛢️ PostgreSQL</span>
         </div>
       </div>
     </div>
@@ -1271,31 +1272,59 @@ footer#footer {
       <div class="cert-card">
         <div class="cert-logo">🌍</div>
         <div>
-          <p class="cert-meta">COURSERA • 2024</p>
-          <p class="cert-title" data-i18n="cert1_title">Google Earth Engine for Geospatial Analysis</p>
-          <p class="cert-org">Google / Coursera</p>
+          <p class="cert-meta">FRONTEND MASTERS • 2026</p>
+          <p class="cert-title" data-i18n="cert1_title">Full Stack Fundamentals, v3</p>
+          <p class="cert-org">Frontend Masters, Jem Young</p>
         </div>
       </div>
       <div class="cert-card">
-        <div class="cert-logo">🤖</div>
+        <div class="cert-logo">🛢️</div>
         <div>
-          <p class="cert-meta">UDEMY • 2023</p>
-          <p class="cert-title" data-i18n="cert2_title">Deep Learning &amp; Computer Vision with TensorFlow</p>
-          <p class="cert-org">Udemy</p>
+          <p class="cert-meta">FRONTEND MASTERS • 2026</p>
+          <p class="cert-title" data-i18n="cert2_title">Complete Intro to SQL & PostgreSQL</p>
+          <p class="cert-org">Frontend Masters, Brian Holt</p>
         </div>
       </div>
       <div class="cert-card">
         <div class="cert-logo">🐍</div>
         <div>
-          <p class="cert-meta">DATACAMP • 2023</p>
+          <p class="cert-meta">DATACAMP • 2025</p>
           <p class="cert-title" data-i18n="cert3_title">Python for Data Science &amp; Geospatial Analysis</p>
           <p class="cert-org">DataCamp</p>
         </div>
       </div>
+
+      <div class="cert-card">
+        <div class="cert-logo"><i class="fa-solid fa-map-location-dot" style="font-size:1.4rem;color:#fff;"></i></div>
+        <div>
+          <p class="cert-meta">ESRI • 2025</p>
+          <p class="cert-title" data-i18n="cert3_title">ArcGIS Indoors Basics</p>
+          <p class="cert-org">Esri Training — Jack Dangermond</p>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-logo">🌍</div>
+        <div>
+          <p class="cert-meta">COURSERA • 2024</p>
+          <p class="cert-title" data-i18n="cert3_title">Google Earth Engine for Geospatial Analysis</p>
+          <p class="cert-org">Google / Coursera</p>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-logo"><i class="fa-solid fa-diagram-project" style="font-size:1.4rem;color:#fff;"></i></div>
+        <div>
+          <p class="cert-meta">HFT STUTTGART • JAN 2024</p>
+          <p class="cert-title" data-i18n="cert6_title">Management of International Projects</p>
+          <p class="cert-org">Hochschule für Technik Stuttgart</p>
+        </div>
+      </div>
+
       <div class="cert-card">
         <div class="cert-logo">🗺️</div>
         <div>
-          <p class="cert-meta">ESRI • 2022</p>
+          <p class="cert-meta">ESRI • 2023</p>
           <p class="cert-title" data-i18n="cert4_title">ArcGIS Pro: Spatial Analysis Fundamentals</p>
           <p class="cert-org">ESRI Training</p>
         </div>
@@ -1510,10 +1539,14 @@ const translations = {
     edu1_desc: "Specializing in spatial data science, remote sensing, and GIS application development. Research focus on biomass modelling and urban analytics.",
     edu2_title: "Bachelor of Science – Geography & Resource Development",
     edu2_desc: "Core studies in physical geography, environmental management, GIS fundamentals, and spatial data collection methodologies.",
-    cert1_title: "Google Earth Engine for Geospatial Analysis",
-    cert2_title: "Deep Learning & Computer Vision with TensorFlow",
+    cert_heading: "Certificates:",
+    cert1_title: "Full Stack Fundamentals, v3",
+    cert2_title: "Complete Intro to SQL & PostgreSQL",
     cert3_title: "Python for Data Science & Geospatial Analysis",
-    cert4_title: "ArcGIS Pro: Spatial Analysis Fundamentals",
+    cert4_title: "ArcGIS Indoors Basics",
+    cert5_title: "Google Earth Engine for Geospatial Analysis",
+    cert6_title: "Management of International Projects",
+    cert7_title: "ArcGIS Pro: Spatial Analysis Fundamentals",
     exp1_title: "Graduate Researcher – GIS & Remote Sensing",
     exp1_challenge: "Modelling biomass dynamics and building automated geospatial processing pipelines.",
     exp1_action: "Fused multi-sensor satellite data (SAR, optical, LiDAR) with ML regression models; built Streamlit dashboards for interactive exploration.",
@@ -1588,10 +1621,14 @@ const translations = {
     edu1_desc: "Spezialisierung auf räumliche Datenwissenschaft, Fernerkundung und GIS-Anwendungsentwicklung. Forschungsschwerpunkt: Biomassemodellierung und Stadtanalytik.",
     edu2_title: "Bachelor of Science – Geografie & Ressourcenentwicklung",
     edu2_desc: "Kernstudien in physischer Geographie, Umweltmanagement, GIS-Grundlagen und Methoden der räumlichen Datenerhebung.",
-    cert1_title: "Google Earth Engine für Geospatial-Analyse",
-    cert2_title: "Deep Learning & Computer Vision mit TensorFlow",
+    cert_heading: "Zertifikate:",
+    cert1_title: "Full Stack Fundamentals, v3",
+    cert2_title: "Einführung in SQL & PostgreSQL",
     cert3_title: "Python für Data Science & Geospatial-Analyse",
-    cert4_title: "ArcGIS Pro: Grundlagen der räumlichen Analyse",
+    cert4_title: "ArcGIS Indoors Grundlagen",
+    cert5_title: "Google Earth Engine für Geospatial-Analyse",
+    cert6_title: "Management internationaler Projekte",
+    cert7_title: "ArcGIS Pro: Grundlagen der räumlichen Analyse",
     exp1_title: "Wissenschaftlicher Mitarbeiter – GIS & Fernerkundung",
     exp1_challenge: "Modellierung von Biomasseentwicklung und Aufbau automatisierter Geodatenverarbeitungspipelines.",
     exp1_action: "Fusion von Multisensor-Satellitendaten (SAR, optisch, LiDAR) mit ML-Regressionsmodellen; Erstellung von Streamlit-Dashboards.",
