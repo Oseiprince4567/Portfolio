@@ -1029,7 +1029,7 @@ footer#footer {
             <p class="car-label result">Result:</p>
             <p class="car-text">Live 3D dashboard with zoom-responsive charts showing heating demand per building. Fully functional Web AR scene which demonstrates end-to-end 3D geospatial web development.</p>
           </div>
-          <div class="project-footer"><span class="skill-badge c-blue"><i class="devicon-javascript-plain"></i> Cesium</span><span class="skill-badge c-purple">🏗️ CityGML / 3DTiles</span><span class="skill-badge c-orange">⚙️ FME</span><span class="skill-badge c-teal"><i class="devicon-threejs-original"></i> Three.js</span><span class="skill-badge c-green">🥽 WebXR / AR</span><span class="skill-badge c-sky"><i class="devicon-javascript-plain"></i> Chart.js</span><a href="Stokach.html" target="_blank" class="project-link" data-i18n="p_view">View Project →</a></div>
+          <div class="project-footer"><span class="skill-badge c-blue"><i class="devicon-javascript-plain"></i> Cesium</span><span class="skill-badge c-purple">🏗️ CityGML / 3DTiles</span><span class="skill-badge c-orange">⚙️ FME</span><span class="skill-badge c-teal"><i class="devicon-threejs-original"></i> Three.js</span><span class="skill-badge c-green">🥽 WebXR / AR</span><span class="skill-badge c-sky"><i class="devicon-javascript-plain"></i> Chart.js</span><a href="Stokach.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
@@ -1097,26 +1097,24 @@ footer#footer {
         </div>
       </div>
 
-      
-
       <!-- 8. 3D Flood Risk -->
       <div class="project-card reveal reveal-delay-1">
         <div class="project-img-wrap"><img src="images/floodscenehomepage.png" alt="3D Flood Risk Mannheim" style="width:100%;height:100%;object-fit:cover;" /></div>
         <div class="project-body">
-          <h3 class="project-title" data-i18n="p8_title">Mannheim City Center 3D Flood Risk Simulation Using QGIS</h3>
+          <h3 class="project-title" data-i18n="p8_title">3D Flood Risk Simulation</h3>
           <div class="car-block">
             <p class="car-label challenge">Challenge:</p>
-            <p class="car-text">Mannheim's proximity to the Rhine and Neckar rivers makes it highly flood-vulnerable, yet no accessible 3D visualisation of building-level inundation risk existed for the city center — limiting risk communication to planners and the public.</p>
+            <p class="car-text">Mannheim's proximity to the Rhine and Neckar rivers makes it highly flood-vulnerable. This work simulate inundation and visualize flood-prone areas under low elevation flood conditions.</p>
           </div>
           <div class="car-block">
             <p class="car-label action">Action:</p>
-            <p class="car-text">Extracted OSM building footprints via QuickOSM, processed DTM and DSM (void-filled), applied Raster Calculator flood simulation at ≤5 m elevation threshold, computed building heights via Zonal Statistics on DSM, then extruded buildings and flood polygons into interactive 3D using QGIS2ThreeJS. Slope rasters identified natural barriers like dykes.</p>
+            <p class="car-text">Processed DTM/DSM, simulated ≤5 m flood threshold via Raster Calculator, computed building heights via Zonal Statistics, then extruded buildings and flood polygons into interactive 3D using QGIS2ThreeJS.</p>
           </div>
           <div class="car-block">
             <p class="car-label result">Result:</p>
-            <p class="car-text">Of 11,720 buildings in the GeoPackage, 7,935 (67.7%) fall within the ≤5 m flood zone. Delivered interactive 3D scenes and video walkthroughs showing inundation extent, with central areas less affected due to elevation planning and existing dykes.</p>
+            <p class="car-text">Of 11,720 buildings, 7,935 (67.7%) fall within the ≤5 m flood zone. Delivered interactive 3D scenes and video walkthroughs showing inundation extent, with central areas less affected due to elevation planning and existing dykes.</p>
           </div>
-          <div class="project-footer"><span class="skill-badge c-blue">QGIS 3.44</span><span class="skill-badge c-sky">DTM/DSM</span><span class="skill-badge c-teal">QGIS2ThreeJS</span><span class="skill-badge c-orange">QuickOSM</span><a href="flood.html" target="_blank" class="project-link" data-i18n="p_view">View Project →</a></div>
+         <div class="project-footer"><span class="skill-badge c-blue"><i class="devicon-python-plain"></i> QGIS</span><span class="skill-badge c-teal">🏔️ DTM / DSM</span><span class="skill-badge c-purple">🌊 Flood Simulation</span><span class="skill-badge c-orange">🏙️ QGIS2ThreeJS</span><span class="skill-badge c-green">📐 Zonal Statistics</span><span class="skill-badge c-sky">🗺️ QuickOSM</span><a href="flood.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
@@ -1124,20 +1122,20 @@ footer#footer {
       <div class="project-card reveal reveal-delay-2">
         <div class="project-img-wrap"><img src="images/Chlorophyll%20homepage.jpg" alt="Chlorophyll App BW" style="width:100%;height:100%;object-fit:cover;" /></div>
         <div class="project-body">
-          <h3 class="project-title" data-i18n="p9_title">Chlorophyll Estimation App for Lakes in Baden-Württemberg</h3>
+          <h3 class="project-title" data-i18n="p9_title">Chlorophyll Estimation WebApp for Lakes in Baden-Württemberg</h3>
           <div class="car-block">
             <p class="car-label challenge">Challenge:</p>
-            <p class="car-text">Monitoring chlorophyll trends across five ecologically distinct Baden-Württemberg lakes — from the internationally studied Bodensee to small-network lakes like Illmensee — without costly field sampling or lab analysis over a 7-year window.</p>
+            <p class="car-text">Monitor chlorophyll trends across 5 ecologically distinct BW lakes over 7 years without costly field sampling or lab analysis.</p>
           </div>
           <div class="car-block">
             <p class="car-label action">Action:</p>
-            <p class="car-text">Built a GEE interactive app computing NDCI (Bands B5−B4 / B5+B4) from cloud-filtered Sentinel-2 imagery, masked by NDWI for water-only pixels. Applied 5th–95th percentile dynamic colour stretch. Built dropdown UI for lake and year (2018–2024) selection, annual mean NDCI time-series charts, and GeoTIFF export to Google Drive for further analysis.</p>
+            <p class="car-text">Built a live GEE JS app computing NDCI from cloud-filtered Sentinel-2, masked by NDWI for water-only pixels. Dropdown UI for lake/year selection, annual time-series charts, and GeoTIFF export to Google Drive.</p>
           </div>
           <div class="car-block">
             <p class="car-label result">Result:</p>
-            <p class="car-text">Live app deployed at GEE for public use — enables limnologists, environmental managers, and students to query chlorophyll class distributions (clear: NDCI &lt; 0.1 through very high: &gt;0.6) and detect seasonal eutrophication signals across all five lakes, year-by-year, in any browser.</p>
+            <p class="car-text">Google Earth Engine app enabling limnologists and environmental managers to query chlorophyll class distributions and detect seasonal eutrophication signals across all 5 lakes, year-by-year.</p>
           </div>
-          <div class="project-footer"><span class="skill-badge c-green">GEE</span><span class="skill-badge c-teal">Sentinel-2</span><span class="skill-badge c-blue">NDCI/NDWI</span><span class="skill-badge c-sky">Limnology</span><a href="chlorophyll.html" target="_blank" class="project-link" data-i18n="p_view">View Project →</a></div>
+         <div class="project-footer"><span class="skill-badge c-green"><i class="devicon-googlecloud-plain"></i> Google Earth Engine</span><span class="skill-badge c-blue"><i class="devicon-javascript-plain"></i> JavaScript</span><span class="skill-badge c-teal">🛰️ Satellite Imagery</span><span class="skill-badge c-sky"> Sentinel Indices</span><span class="skill-badge c-purple">📊 Time-Series Analysis</span><span class="skill-badge c-amber">🌿 Limnology</span><a href="chlorophyll.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
@@ -1145,18 +1143,18 @@ footer#footer {
       <div class="project-card reveal">
         <div class="project-img-wrap"><img src="images/FINALMAPREFINED.jpg" alt="IKEA Site Selection" style="width:100%;height:100%;object-fit:cover;" /></div>
         <div class="project-body">
-          <h3 class="project-title" data-i18n="p10_title">Geomarketing for IKEA Store Site Selection in Germany</h3>
+          <h3 class="project-title" data-i18n="p10_title">Geomarketing for IKEA Store Site Selection</h3>
           <div class="car-block">
             <p class="car-label challenge">Challenge:</p>
-            <p class="car-text">IKEA requires 20,000–25,000 m² sites in cities of 100k+ population, with high purchasing power, good road/rail access, and low proximity to competitors (XXXLutz, Roller). Identifying genuinely underserved German cities using spatial evidence rather than intuition.</p>
+            <p class="car-text">Identify genuinely underserved German cities for new IKEA stores using spatial evidence, accounting for purchasing power, population, road/rail access, site size, and competitor proximity simultaneously.</p>
           </div>
           <div class="car-block">
             <p class="car-label action">Action:</p>
-            <p class="car-text">Built 50 km exclusion buffers around all existing IKEA stores to isolate underserved zones. Applied Euclidean distance reclassification for purchasing power (ESRI Living Atlas), road/rail network buffers (700 m, Deutsche Bahn + DIVA-GIS), and competitor proximity. Ran location-allocation optimisation to rank candidate plots meeting all suitability criteria simultaneously.</p>
+            <p class="car-text">Full ArcGIS Pro pipeline: data cleaning, spatial joins, summary statistics, clip batches to isolate candidate zones. Applied Euclidean distance reclassification, road/rail network and competitor exclusion buffers, and location-allocation optimisation to rank final sites.</p>
           </div>
           <div class="car-block">
             <p class="car-label result">Result:</p>
-            <p class="car-text">Selected Trier (pop. 110,674 — near rail/road nexus, high purchasing power, coordinates: 328463E 5513063N) and Ingolstadt (pop. 136,952 — Audi AG hub, high employment, coordinates: 11.4488°E 48.7750°N) as the two optimal sites, supported by evidence maps for each stage of the analysis.</p>
+            <p class="car-text">Selected Trier (pop. 110,674, near rail/road nexus, high purchasing power, coordinates: 328463E 5513063N) and Ingolstadt (pop. 136,952, Audi AG hub, high employment, coordinates: 11.4488°E 48.7750°N) as optimal sites.</p>
           </div>
           <div class="project-footer"><span class="skill-badge c-blue">ArcGIS / QGIS</span><span class="skill-badge c-amber">Location-Allocation</span><span class="skill-badge c-orange">Geomarketing</span><span class="skill-badge c-sky">ESRI Living Atlas</span><a href="ikea.html" target="_blank" class="project-link" data-i18n="p_view">View Project →</a></div>
         </div>
@@ -1549,7 +1547,7 @@ const translations = {
     p5_desc: "Monitoring urban air quality and urbanization across all German states (2019–2023) using Sentinel-5P CO data and VIIRS nighttime lights via GEE.",
     p6_title: "Building Segmentation with Deep Learning in QGIS — Deepness Plugin",
     p6_desc: "Building segmentation using a pretrained RAMP model via the Deepness Plugin in QGIS, tested at 40–50 cm resolution across Stuttgart sites.",
-    p7_title: "Urban Footprint Analysis of Beitigheim-Bissingen",
+    p7_title:"Cesium 3D Energy Dashboard & Web AR Scene — Stöckach",
     p7_desc: "Mapping urbanization patterns within a 10 km buffer zone using QGIS and ESRI Land Cover data to assess built-up intensity and suburban expansion.",
     p8_title: "Mannheim City Center 3D Flood Risk Simulation Using QGIS",
     p8_desc: "3D inundation modelling of Mannheim's city center using DEM, building footprints, and OSM data to visualize flood-prone areas under low-elevation conditions.",
