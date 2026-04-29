@@ -1040,17 +1040,17 @@ footer#footer {
           <h3 class="project-title" data-i18n="p5_title">Urban Carbon Monoxide Monitoring &amp; Nighttime Light Energy Analysis</h3>
           <div class="car-block">
             <p class="car-label challenge">Challenge:</p>
-            <p class="car-text">No sub-national, multi-year spatial comparison of CO pollution and energy-use intensity existed across all 16 German states — leaving urban planners and policymakers without evidence-based tools for targeting air quality interventions.</p>
+            <p class="car-text">No sub-national, multi-year spatial comparison of CO pollution and energy-use intensity existed across all 16 German states.</p>
           </div>
           <div class="car-block">
             <p class="car-label action">Action:</p>
-            <p class="car-text">Integrated Sentinel-5P L2 CO (mol/m²) and VIIRS Nighttime Lights radiance in GEE for 2019–2023. Applied GADM Level-1 state boundaries, excluded June–July VIIRS data to remove wildfire and sunlight interference, computed monthly averages and multi-year means, and applied 5th–95th percentile quantile stretching per state. Built interactive dropdown UI with time-series charts and GeoTIFF export to Google Drive.</p>
+            <p class="car-text">Integrated Sentinel-5P L2 CO (mol/m²) and VIIRS Nighttime Lights radiance in GEE for 2019–2023. Built interactive JS dropdown app with per-state time-series charts, quantile stretching, and GeoTIFF export.</p>
           </div>
           <div class="car-block">
             <p class="car-label result">Result:</p>
-            <p class="car-text">Confirmed co-location of High CO and Very High nighttime lights in NRW's industrial west, Berlin, Hamburg, and Stuttgart — quantifying urban-rural gradients across all 16 states. Live GEE app deployed for public exploration; GeoTIFF exports enable downstream GIS workflows.</p>
+            <p class="car-text">Validated spatial correlation between High CO and Very High nighttime lights in NRW's industrial west, Berlin, Hamburg, and Stuttgart and other states. Live GEE app deployed for public exploration; GeoTIFF exports enable downstream GIS workflows.</p>
           </div>
-          <div class="project-footer"><span class="skill-badge c-teal">🛰️ Sentinel-5P</span><span class="skill-badge c-purple">🌙 VIIRS</span><span class="skill-badge c-green"><i class="devicon-googlecloud-plain"></i> Google Earth Engine</span><span class="skill-badge c-blue"><i class="devicon-javascript-plain"></i> JavaScript</span><span class="skill-badge c-sky">📡 TROPOMI</span><span class="skill-badge c-orange">🗺️ GADM Boundaries</span><span class="skill-badge c-amber">📊 Time-Series Analysis</span><a href="UrbanCO.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
+          <div class="project-footer"><span class="skill-badge c-teal">🛰️ Satellite Imagery Processing</span><span class="skill-badge c-purple">Radiometric Calibrations</span><span class="skill-badge c-green"><i class="devicon-googlecloud-plain"></i> Google Earth Engine</span><span class="skill-badge c-blue"><i class="devicon-javascript-plain"></i> JavaScript</span><span class="skill-badge c-sky">📡 TROPOMI</span><span class="skill-badge c-orange">🗺️ GADM Boundaries</span><span class="skill-badge c-amber">📊 Time-Series Analysis</span><a href="UrbanCO.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
@@ -1058,20 +1058,20 @@ footer#footer {
       <div class="project-card reveal reveal-delay-2">
         <div class="project-img-wrap"><img src="images/50cmcompletefuersee.jpg" alt="Building Segmentation" style="width:100%;height:100%;object-fit:cover;" /></div>
         <div class="project-body">
-          <h3 class="project-title" data-i18n="p6_title">Building Segmentation with Deep Learning in QGIS — Deepness Plugin</h3>
+          <h3 class="project-title" data-i18n="p6_title">Building Segmentation with Deep Learning in QGIS</h3>
           <div class="car-block">
             <p class="car-label challenge">Challenge:</p>
-            <p class="car-text">Extracting building footprints at very-high-resolution (sub-metre) without custom training infrastructure — comparing model performance across urban (Feuersee) and rural (Konradin-Kreutzer Weg) environments at two spatial resolutions.</p>
+            <p class="car-text">Extract building footprints at sub-metre resolution across contrasting urban and rural environments without custom model training infrastructure.</p>
           </div>
           <div class="car-block">
             <p class="car-label action">Action:</p>
-            <p class="car-text">Deployed the RAMP pretrained Segmentor model via the Deepness QGIS Plugin. Mapped 4 input image bands to 3 model channels; processed at 256×256 px tiles at both 40 cm and 50 cm resolutions across both sites. Recorded building and background area statistics for each run.</p>
+            <p class="car-text">Deployed pretrained RAMP Segmentor via QGIS Deepness Plugin. Processed 256×256 px tiles at 40 cm and 50 cm across Feuersee and Konradin-Kreutzer Weg.</p>
           </div>
           <div class="car-block">
             <p class="car-label result">Result:</p>
-            <p class="car-text">Feuersee (urban): 77,159 m² buildings at 40 cm vs 92,119 m² at 50 cm — 50 cm captured more structures. Konradin-Kreutzer (rural): 18,588 m² at 40 cm vs 24,767 m² at 50 cm. Confirmed 50 cm + 256 px tiles as optimal configuration. Before/after swipe videos validate model performance visually.</p>
+            <p class="car-text">50 cm + 256 px tiles confirmed as optimal, capturing 92,119 m² buildings at Feuersee vs 77,159 m² at 40 cm. Before/after swipe videos validate model performance visually.</p>
           </div>
-          <div class="project-footer"><span class="skill-badge c-blue">QGIS Deepness</span><span class="skill-badge c-orange">RAMP Model</span><span class="skill-badge c-purple">Segmentation</span><span class="skill-badge c-teal">VHR Imagery</span><a href="Buildingseg.html" target="_blank" class="project-link" data-i18n="p_view">View Project →</a></div>
+          <div class="project-footer"><span class="skill-badge c-blue"><i class="devicon-python-plain"></i> QGIS Deepness</span><span class="skill-badge c-orange">🏗️ RAMP Model</span><span class="skill-badge c-purple">🤖 Semantic Segmentation</span><span class="skill-badge c-teal">🛰️ VHR Imagery</span><span class="skill-badge c-green"><i class="devicon-python-plain"></i> PyQGIS</span><span class="skill-badge c-sky">📐 Zonal Statistics</span><span class="skill-badge c-amber">🗺️ GDAL</span><a href="Buildingseg.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
 
