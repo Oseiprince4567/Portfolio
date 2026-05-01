@@ -1470,66 +1470,6 @@ footer#footer {
     </div>
   </section>
 
-<!-- ── SERVICES ────────────────────────────────────────────── -->
-<section id="services">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="section-tag" data-i18n="services_tag">What I Offer</p>
-      <h2 class="section-title" data-i18n="services_title">Services</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-icon">🌐</div>
-        <h3 class="service-title" data-i18n="svc1_title">Geospatial Analysis</h3>
-        <p class="service-desc" data-i18n="svc1_desc">End-to-end spatial modelling — from raw satellite data acquisition to multi-criteria decision analysis, land cover classification, and change detection.</p>
-        <div class="service-tags">
-          <span class="skill-badge c-blue">QGIS</span><span class="skill-badge c-green">GEE</span><span class="skill-badge c-blue">Python</span>
-        </div>
-      </div>
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon">🛰️</div>
-        <h3 class="service-title" data-i18n="svc2_title">Remote Sensing &amp; EO</h3>
-        <p class="service-desc" data-i18n="svc2_desc">Processing multi-source Earth Observation data — Sentinel, Landsat, SAR and LiDAR — for vegetation monitoring, urban mapping, and environmental assessment.</p>
-        <div class="service-tags">
-          <span class="skill-badge c-teal">Sentinel</span><span class="skill-badge c-blue">SAR</span><span class="skill-badge c-orange">LiDAR</span>
-        </div>
-      </div>
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon">📊</div>
-        <h3 class="service-title" data-i18n="svc3_title">Spatial Dashboards &amp; Apps</h3>
-        <p class="service-desc" data-i18n="svc3_desc">Building interactive web dashboards and GIS applications that make complex spatial data accessible and actionable for stakeholders and decision-makers.</p>
-        <div class="service-tags">
-          <span class="skill-badge c-pink">Streamlit</span><span class="skill-badge c-sky">Leaflet</span><span class="skill-badge c-purple">PostgreSQL</span>
-        </div>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">🤖</div>
-        <h3 class="service-title" data-i18n="svc4_title">Machine Learning for EO</h3>
-        <p class="service-desc" data-i18n="svc4_desc">Applying deep learning and ML regression to satellite imagery for object segmentation, crack detection, biomass estimation, and classification tasks.</p>
-        <div class="service-tags">
-          <span class="skill-badge c-orange">TensorFlow</span><span class="skill-badge c-amber">scikit-learn</span><span class="skill-badge c-blue">CNN</span>
-        </div>
-      </div>
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon">🗄️</div>
-        <h3 class="service-title" data-i18n="svc5_title">Spatial Database Development</h3>
-        <p class="service-desc" data-i18n="svc5_desc">Designing and managing spatial databases using PostgreSQL/PostGIS and SensorThings API for IoT and real-time data ingestion pipelines.</p>
-        <div class="service-tags">
-          <span class="skill-badge c-purple">PostGIS</span><span class="skill-badge c-teal">SQL</span><span class="skill-badge c-sky">IoT</span>
-        </div>
-      </div>
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon">🌱</div>
-        <h3 class="service-title" data-i18n="svc6_title">Sustainability &amp; Emergy Analysis</h3>
-        <p class="service-desc" data-i18n="svc6_desc">Applying emergy accounting and systems ecology frameworks to evaluate environmental sustainability and resource flow in urban and natural systems.</p>
-        <div class="service-tags">
-          <span class="skill-badge c-green">Emergy</span><span class="skill-badge c-teal">Systems Ecology</span><span class="skill-badge c-sky">R</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ── CONTACT ─────────────────────────────────────────────── -->
 <section id="contact">
@@ -1632,7 +1572,7 @@ footer#footer {
 const translations = {
   en: {
     nav_home: "Home", nav_about: "About", nav_education: "Education", nav_experience: "Experience",
-    nav_skills: "Skills", nav_projects: "Projects", nav_services_link: "Services",
+    nav_skills: "Skills", nav_projects: "Projects",
     nav_contact_link: "Contact", nav_contact_btn: "Contact",
     hero_available: "Open to opportunities",
     hero_sub: "HI, I'M", hero_role: "GIS Data Engineer & Remote Sensing Specialist",
@@ -1665,19 +1605,6 @@ const translations = {
     exp2_title: "GIS Data Engineer",
     exp3_title: "Utility GIS Analyst",
     exp4_title: "GIS Technician (Geodata Acquisition & Data Maintenance)",
-    services_tag: "What I Offer", services_title: "Services",
-    svc1_title: "Geospatial Analysis",
-    svc1_desc: "End-to-end spatial modelling — from raw satellite data acquisition to multi-criteria decision analysis, land cover classification, and change detection.",
-    svc2_title: "Remote Sensing & EO",
-    svc2_desc: "Processing multi-source Earth Observation data — Sentinel, Landsat, SAR and LiDAR — for vegetation monitoring, urban mapping, and environmental assessment.",
-    svc3_title: "Spatial Dashboards & Apps",
-    svc3_desc: "Building interactive web dashboards and GIS applications that make complex spatial data accessible and actionable for stakeholders and decision-makers.",
-    svc4_title: "Machine Learning for EO",
-    svc4_desc: "Applying deep learning and ML regression to satellite imagery for object segmentation, crack detection, biomass estimation, and classification tasks.",
-    svc5_title: "Spatial Database Development",
-    svc5_desc: "Designing and managing spatial databases using PostgreSQL/PostGIS and SensorThings API for IoT and real-time data ingestion pipelines.",
-    svc6_title: "Sustainability & Emergy Analysis",
-    svc6_desc: "Applying emergy accounting and systems ecology frameworks to evaluate environmental sustainability and resource flow in urban and natural systems.",
     proj_tag: "What I've Built", proj_title: "Projects",
     p_challenge: "Challenge:", p_view: "View Project",
     p1_title: "Spatio-Temporal Above-Ground Biomass Modelling & Forest Disturbances",
@@ -1713,7 +1640,7 @@ const translations = {
   },
   de: {
     nav_home: "Start", nav_about: "Über mich", nav_education: "Ausbildung", nav_experience: "Erfahrung",
-    nav_skills: "Fähigkeiten", nav_projects: "Projekte", nav_services_link: "Leistungen",
+    nav_skills: "Fähigkeiten", nav_projects: "Projekte",
     nav_contact_link: "Kontakt", nav_contact_btn: "Kontakt",
     hero_available: "Offen für neue Möglichkeiten",
     hero_sub: "HALLO, ICH BIN",
@@ -1747,18 +1674,6 @@ const translations = {
     exp2_title: "GIS-Dateningenieur",
     exp3_title: "Utility-GIS-Analyst",
     exp4_title: "GIS-Techniker – Geodatenerfassung & Datenpflege",
-    services_tag: "Was ich anbiete", services_title: "Leistungen",
-    svc1_title: "Geospatiale Analyse",
-    svc1_desc: "Durchgängige räumliche Modellierung — von der Rohdatenerfassung bis zur Mehrkriterien-Entscheidungsanalyse und Landbedeckungsklassifikation.",
-    svc2_title: "Fernerkundung & EO",
-    svc2_desc: "Verarbeitung von Erdbeobachtungsdaten — Sentinel, Landsat, SAR und LiDAR — für Vegetationsmonitoring und Stadtplanung.",
-    svc3_title: "Räumliche Dashboards & Apps",
-    svc3_desc: "Entwicklung interaktiver Web-Dashboards und GIS-Anwendungen für räumliche Daten.",
-    svc4_title: "Maschinelles Lernen für EO",
-    svc4_desc: "Anwendung von Deep Learning auf Satellitenbilder für Segmentierung, Rissdetektion und Biomasseschätzung.",
-    svc5_title: "Räumliche Datenbankentwicklung",
-    svc5_desc: "Design und Verwaltung räumlicher Datenbanken mit PostgreSQL/PostGIS und SensorThings API.",
-    svc6_title: "Nachhaltigkeit & Emergie-Analyse",
     svc6_desc: "Anwendung von Emergiebuchhaltung und Systemökologie zur Bewertung von Umweltbelastungen.",
     proj_tag: "Was ich entwickelt habe", proj_title: "Projekte",
     p_challenge: "Herausforderung:", p_view: "Projekt ansehen",
