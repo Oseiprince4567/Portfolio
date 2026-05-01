@@ -483,6 +483,8 @@ nav#navbar.scrolled {
 .tl-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--text); margin-bottom: 2px; }
 .tl-org { font-size: 0.875rem; font-weight: 600; color: var(--accent); margin-bottom: 8px; }
 .tl-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; }
+.tl-card ul { margin: 6px 0 0 16px; padding: 0; }
+.tl-card ul li { font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 6px; }
 .tl-label {
   font-size: 0.78rem; font-weight: 700; color: var(--accent2);
   font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em;
@@ -1351,42 +1353,85 @@ footer#footer {
       </div>
     </div>
 
-    <!-- Experience sub-section -->
-    <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--accent);margin:56px 0 24px;" data-i18n="exp_heading">Professional Journey</h3>
-    <div class="timeline reveal">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-logo-placeholder">HFT</div>
-          <div>
-            <p class="tl-meta">OCT 2023 – PRESENT</p>
-            <h4 class="tl-title" data-i18n="exp1_title">Graduate Researcher – GIS &amp; Remote Sensing</h4>
-            <p class="tl-org">HFT Stuttgart</p>
-            <p class="tl-label">Challenge:</p>
-            <p class="tl-desc" data-i18n="exp1_challenge">Modelling biomass dynamics and building automated geospatial processing pipelines.</p>
-            <p class="tl-label" style="margin-top:8px">Action:</p>
-            <p class="tl-desc" data-i18n="exp1_action">Fused multi-sensor satellite data (SAR, optical, LiDAR) with ML regression models; built Streamlit dashboards for interactive exploration.</p>
-            <p class="tl-label" style="margin-top:8px">Result:</p>
-            <p class="tl-desc" data-i18n="exp1_result">Delivered peer-reviewed-quality spatial outputs at 100 m resolution across NRW; presented findings to faculty panel.</p>
+   <!-- Experience sub-section -->
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--accent);margin:56px 0 24px;" data-i18n="exp_heading">Professional Journey</h3>
+      <div class="timeline reveal">
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-logo-placeholder">LBA</div>
+            <div>
+              <p class="tl-meta">09/2024 – PRESENT</p>
+              <h4 class="tl-title" data-i18n="exp1_title">Geospatial Analyst (Werkstudent)</h4>
+              <p class="tl-org">Luftbildauswertung GmbH, Stuttgart, Germany</p>
+              <ul>
+                <li>Enforce strict georeferencing standards for historical aerial imagery by applying precise Ground Control Point (GCP) alignment and rigorous Root Mean Square Error (RMSE) validation protocols.</li>
+                <li>Execute Raster ETL processes for rectifying and standardising datasets to support reliable geospatial inputs for munitions contamination assessments.</li>
+                <li>Develop auxiliary Python-based scripts to process, clean, and standardize large-scale raster and vector datasets, minimizing manual data-wrangling time.</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-logo-placeholder">GH</div>
-          <div>
-            <p class="tl-meta">JAN 2016 – SEP 2023</p>
-            <h4 class="tl-title" data-i18n="exp2_title">GIS Analyst &amp; Data Specialist</h4>
-            <p class="tl-org">Various Environmental Agencies, Ghana</p>
-            <p class="tl-label">Action:</p>
-            <p class="tl-desc" data-i18n="exp2_action">Conducted field surveys, land-cover mapping, and spatial database management for government and NGO clients using ArcGIS and QGIS.</p>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-logo-placeholder">UOU</div>
+            <div>
+              <p class="tl-meta">08/2021 – 06/2023</p>
+              <h4 class="tl-title" data-i18n="exp2_title">GIS Data Engineer</h4>
+              <p class="tl-org">University of Ulsan, South Korea</p>
+              <ul>
+                <li>Developed custom plugins and ModelBuilder workflows to automate the generation of site plans, zoning compliance maps, and parcel reports reducing manual processing time.</li>
+                <li>Created a PostGIS-enabled PostgreSQL database integrating multi-source urban data, enabling spatial statistics analysis linking energy consumption with biophilic design indicators.</li>
+                <li>Collaborated on academic publications by providing technical expertise in geospatial methodology, data visualization, and statistical modeling.</li>
+                <li>Developed a 3D digital twin of Ulsan city center using CityEngine, analyzing urban morphology and high-rise growth patterns informing planning insights.</li>
+                <li>Assisted in training deep learning models using TensorFlow and PyTorch for image classification and anomaly detection tasks.</li>
+              </ul>
+            </div>
           </div>
         </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-logo-placeholder">NED</div>
+            <div>
+              <p class="tl-meta">01/2018 – 07/2019</p>
+              <h4 class="tl-title" data-i18n="exp3_title">Utility GIS Analyst</h4>
+              <p class="tl-org">Northern Electricity Distribution Company, Sunyani, Ghana</p>
+              <ul>
+                <li>Handled pre-modeling and documentation of electricity distribution networks (low and medium voltage) in the ArcGIS Utility Network.</li>
+                <li>Developed backend logic to standardise cross-format data (CAD, GeoTIFF, CSV, and GeoJSON) for export and integration into utility operations.</li>
+                <li>Updated and maintained spatial and attribute network data for lines, transformers, switchgear, and service connections.</li>
+                <li>Worked with network topologies, asset types, and attribute rules to ensure consistent network data.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-logo-placeholder">LCG</div>
+            <div>
+              <p class="tl-meta">09/2016 – 11/2017</p>
+              <h4 class="tl-title" data-i18n="exp4_title">GIS Technician – Geodata Acquisition & Data Maintenance</h4>
+              <p class="tl-org">Lands Commission Ghana, Sunyani, Ghana</p>
+              <ul>
+                <li>Automated geodataset acquisition using GNSS and mobile GIS tools (ArcPad & ArcGIS Field Maps) to ensure accurate land parcel planning and ownership data.</li>
+                <li>Developed raster ETL pipelines to extract insights from satellite and drone imagery, tracking urban morphology shifts to inform predictive high-density zoning.</li>
+                <li>Optimized enterprise-scale PostGIS query performance by implementing spatial indexing and geoprocessing logic to accelerate land ownership verification and compliance reporting workflows.</li>
+                <li>Handled automated QA/QC workflows (topology validation, attributes, projections) for seamless ingestion into a central management system.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 <!-- ── SERVICES ────────────────────────────────────────────── -->
 <section id="services">
