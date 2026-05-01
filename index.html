@@ -975,16 +975,15 @@ footer#footer {
           <h3 class="project-title" data-i18n="p2_title">QGIS Plugin for Black Frame Removal in Georeferenced Imagery</h3>
           <div class="car-block">
             <p class="car-label challenge">Challenge:</p>
-            <p class="car-text">After georeferencing scanned maps and historical aerial photos, the output raster often contains black frames / borders around the valid image footprint because areas outside the warped image are filled with a background value, usually 0.</p>
+            <p class="car-text">Georeferenced scanned maps and aerial photos often contain black borders outside the valid footprint.</p>
           </div>
           <div class="car-block">
             <p class="car-label action">Action:</p>
-            <p class="car-text">Developed and published a QGIS Plugin (PyQGIS, GDAL, NumPy) that automatically removes black/nodata borders from georeferenced rasters using footprint detection and edge-safe morphology better alternative than the standard Nodata transparency workflow.</p>
+            <p class="car-text">Developed and published a QGIS Plugin (PyQGIS, GDAL, NumPy) that automatically removes black/nodata borders through footprint detection and edge-safe morphology.</p>
           </div>
           <div class="car-block">
             <p class="car-label result">Result:</p>
-            <p class="car-text">Plugin produces clean GeoTIFFs with optional embedded alpha channel and auto-reloads results into the active QGIS canvas after processing. Outperforms native NoData workflows on all tested imagery types.</p>
-          </div>
+            <p class="car-text">Generates clean GeoTIFFs with optional alpha channel and auto-loads results into QGIS. It outperforms native NoData workflows on tested imagery.</p>
           <div class="project-footer"><span class="skill-badge c-blue">PyQGIS</span><span class="skill-badge c-orange">GDAL</span><span class="skill-badge c-purple">NumPy</span><span class="skill-badge c-teal">Open Source</span><a href="blackframe.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
       </div>
@@ -1000,11 +999,11 @@ footer#footer {
           </div>
           <div class="car-block">
             <p class="car-label action">Action:</p>
-            <p class="car-text">Built a fully automated and serverless pipeline: GitHub Actions fetches IoT observations every 6 hours and stores in Neon PostgreSQL. Streamlit app renders Folium heatmaps, Plotly time-series and radar charts to show temporal patterns. Every aspect is auto-updated, no manual intervention.</p>
+            <p class="car-text">Built a serverless pipeline with GitHub Actions and Neon PostgreSQL. A Streamlit app visualizes Folium heatmaps, Plotly charts, and radar plots, updated every 6 hours.</p>
           </div>
           <div class="car-block">
             <p class="car-label result">Result:</p>
-            <p class="car-text">Live dashboard showing real-time station availability, spatial intensity heatmaps, and top-10 station performance.</p>
+            <p class="car-text">Live dashboard showing real-time station availability, spatial intensity, and top-performing stations.</p>
           </div>
           <div class="project-footer"><span class="skill-badge c-blue">Python</span><span class="skill-badge c-pink">Streamlit</span><span class="skill-badge c-purple">PostgreSQL</span><span class="skill-badge c-orange">GitHub Actions</span><span class="skill-badge c-sky">SensorThings API</span><span class="skill-badge c-teal">Pandas</span><span class="skill-badge c-green">Folium</span><span class="skill-badge c-amber">Plotly</span><a href="Evdb.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
@@ -1017,7 +1016,7 @@ footer#footer {
           <h3 class="project-title" data-i18n="p7_title">Cesium 3D Energy Dashboard & Web AR Scene.</h3>
           <div class="car-block">
             <p class="car-label challenge">Challenge:</p>
-            <p class="car-text">Visualise building-level energy demand across Stöckach in 3D and deliver an interactive Web AR scene using CityGML data with no native web-ready format.</p>
+            <p class="car-text">Visualise building-level energy demand across Stöckach in 3D and deliver an interactive Web AR scene using CityGML data.</p>
           </div>
           <div class="car-block">
             <p class="car-label action">Action:</p>
@@ -1025,7 +1024,7 @@ footer#footer {
           </div>
           <div class="car-block">
             <p class="car-label result">Result:</p>
-            <p class="car-text">Live 3D dashboard with zoom-responsive charts showing heating demand per building. Fully functional Web AR scene which demonstrates end-to-end 3D geospatial web development.</p>
+            <p class="car-text">Delivered a live 3D dashboard with responsive charts and a functional Web AR scene for end-to-end 3D geospatial web development.</p> 
           </div>
           <div class="project-footer"><span class="skill-badge c-blue">Cesium</span><span class="skill-badge c-purple">CityGML / 3DTiles</span><span class="skill-badge c-orange">FME</span><span class="skill-badge c-teal">Three.js</span><span class="skill-badge c-green">WebXR / AR</span><span class="skill-badge c-sky">Chart.js</span><a href="Stokach.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
@@ -1047,7 +1046,7 @@ footer#footer {
           </div>
           <div class="car-block">
             <p class="car-label result">Result:</p>
-            <p class="car-text">Web app: crackdetect-pro.streamlit.app. Outputs crack area in px² and % image coverage per upload and generates downloadable inspection reports.</p>
+            <p class="car-text">Web app: crackdetect-pro.streamlit.app estimates crack area and generates downloadable inspection reports.</p>
           </div>
           <div class="project-footer"><span class="skill-badge c-orange">TensorFlow</span><span class="skill-badge c-blue">Keras</span><span class="skill-badge c-purple">CNN</span><span class="skill-badge c-teal">OpenCV</span><span class="skill-badge c-pink">Streamlit</span><span class="skill-badge c-green">Binary Classification</span><span class="skill-badge c-amber">NumPy</span><span class="skill-badge c-sky">Image Segmentation</span><a href="Concrete.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
@@ -1060,15 +1059,15 @@ footer#footer {
           <h3 class="project-title" data-i18n="p5_title">Urban Carbon Monoxide Monitoring &amp; Nighttime Light Energy Analysis</h3>
           <div class="car-block">
             <p class="car-label challenge">Challenge:</p>
-            <p class="car-text">No sub-national, multi-year spatial comparison of CO pollution and energy-use intensity existed across all 16 German states.</p>
+            <p class="car-text">No sub-national, multi-year comparison of CO pollution and energy-use intensity across all 16 German states.</p>
           </div>
           <div class="car-block">
             <p class="car-label action">Action:</p>
-            <p class="car-text">Integrated Sentinel-5P L2 CO (mol/m²) and VIIRS Nighttime Lights radiance in GEE for 2019–2023. Built interactive JS dropdown app with per-state time-series charts, quantile stretching, and GeoTIFF export.</p>
+            <p class="car-text">Integrated Sentinel-5P L2 CO (mol/m²) and VIIRS Nighttime Lights radiance in GEE for 2019–2023. Built GEE app with per-state time-series charts, quantile stretching, and GeoTIFF export.</p>
           </div>
           <div class="car-block">
             <p class="car-label result">Result:</p>
-            <p class="car-text">Hotspots of High CO and Very High nighttime lights in NRW's industrial west, Berlin, Hamburg, and Stuttgart and other states. Live GEE app deployed for public exploration; GeoTIFF exports enable downstream GIS workflows.</p>
+            <p class="car-text">Hotspots of High CO and Very High nighttime lights in all 16 states.</p>
           </div>
           <div class="project-footer"><span class="skill-badge c-teal">Satellite Imagery Processing</span><span class="skill-badge c-purple">Radiometric Calibrations</span><span class="skill-badge c-green">Google Earth Engine</span><span class="skill-badge c-blue">JavaScript</span><span class="skill-badge c-sky">TROPOMI</span><span class="skill-badge c-orange">GADM Boundaries</span><span class="skill-badge c-amber">Time-Series Analysis</span><a href="UrbanCO.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
@@ -1110,7 +1109,7 @@ footer#footer {
           </div>
           <div class="car-block">
             <p class="car-label result">Result:</p>
-            <p class="car-text">Of 11,720 buildings, 7,935 (67.7%) fall within the ≤5 m flood zone. Delivered interactive 3D scenes and video walkthroughs showing inundation extent, with central areas less affected due to elevation planning and existing dykes.</p>
+            <p class="car-text">Of 11,720 buildings, 7,935 were identified as at risk. Delivered interactive 3D scenes and walkthroughs showing inundation extent.</p>
           </div>
          <div class="project-footer"><span class="skill-badge c-blue">QGIS</span><span class="skill-badge c-teal">DTM / DSM</span><span class="skill-badge c-purple">Flood Simulation</span><span class="skill-badge c-orange">QGIS2ThreeJS</span><span class="skill-badge c-green">Zonal Statistics</span><span class="skill-badge c-sky">QuickOSM</span><a href="flood.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
@@ -1123,15 +1122,15 @@ footer#footer {
           <h3 class="project-title" data-i18n="p9_title">Chlorophyll Estimation WebApp for Lakes in Baden-Württemberg</h3>
           <div class="car-block">
             <p class="car-label challenge">Challenge:</p>
-            <p class="car-text">Monitor chlorophyll trends across 5 ecologically distinct BW lakes over 7 years without costly field sampling or lab analysis.</p>
+            <p class="car-text">Monitor chlorophyll patterns across 5 ecologically distinct BW lakes over a 7 year period.</p>
           </div>
           <div class="car-block">
             <p class="car-label action">Action:</p>
-            <p class="car-text">Built a live GEE JS app computing NDCI from cloud-filtered Sentinel-2, masked by NDWI for water-only pixels. Dropdown UI for lake/year selection, annual time-series charts, and GeoTIFF export to Google Drive.</p>
+            <p class="car-text">Built a live GEE app that computes NDCI from cloud-filtered Sentinel-2, masks water pixels with NDWI, and provides lake-year selection, annual charts, and GeoTIFF export.</p>
           </div>
           <div class="car-block">
             <p class="car-label result">Result:</p>
-            <p class="car-text">Google Earth Engine app enabling limnologists and environmental managers to query chlorophyll class distributions and detect seasonal eutrophication signals across all 5 lakes, year-by-year.</p>
+            <p class="car-text">The app enables users to query chlorophyll distributions and detect seasonal patterns across all five lakes.</p>
           </div>
          <div class="project-footer"><span class="skill-badge c-green">Google Earth Engine</span><span class="skill-badge c-blue">JavaScript</span><span class="skill-badge c-teal">Satellite Imagery</span><span class="skill-badge c-sky"> Sentinel Indices</span><span class="skill-badge c-purple">Time-Series Analysis</span><span class="skill-badge c-amber">Limnology</span><a href="chlorophyll.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
         </div>
@@ -1144,15 +1143,14 @@ footer#footer {
           <h3 class="project-title" data-i18n="p10_title">Geomarketing for IKEA Store Site Selection</h3>
           <div class="car-block">
             <p class="car-label challenge">Challenge:</p>
-            <p class="car-text">Identify genuinely underserved German cities for new IKEA stores using spatial evidence, accounting for purchasing power, population, road/rail access, site size, and competitor proximity simultaneously.</p>
-          </div>
+            <p class="car-text">The goal was to identify underserved German cities for new IKEA stores using spatial evidence.</p>
           <div class="car-block">
             <p class="car-label action">Action:</p>
-            <p class="car-text">Full ArcGIS Pro pipeline: data cleaning, spatial joins, summary statistics, model builder, clip batches to isolate candidate zones. Applied Euclidean distance reclassification, road/rail network and competitor exclusion buffers, and location-allocation optimisation to rank final sites.</p>
+            <p class="car-text">Built a full ArcGIS Pro workflow with data cleaning, spatial joins, Model Builder, distance reclassification, network analysis, and location-allocation optimization.</p>
           </div>
           <div class="car-block">
             <p class="car-label result">Result:</p>
-            <p class="car-text">Selected Trier (pop. 110,674, near rail/road nexus, high purchasing power, coordinates: 328463E 5513063N) and Ingolstadt (pop. 136,952, Audi AG hub, high employment, coordinates: 11.4488°E 48.7750°N) as optimal sites.</p>
+            <p class="car-text">Selected Trier (coordinates: 328463E 5513063N) and Ingolstadt (coordinates: 11.4488°E 48.7750°N) as optimal sites.</p>
           </div>
           <div class="project-footer"><span class="skill-badge c-blue">ArcGIS Pro</span><span class="skill-badge c-orange">Model Builder</span><span class="skill-badge c-purple">Network Analysis</span><span class="skill-badge c-teal">Location-Allocation</span><span class="skill-badge c-green">Socioeconomic Data Analysis</span><span class="skill-badge c-sky">Cartography</span><span class="skill-badge c-amber">Data wrangling</span><a href="ikea.html" target="_blank" class="project-link" data-i18n="p_view">View Project →</a></div>
         </div>
