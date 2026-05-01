@@ -1166,69 +1166,96 @@ footer#footer {
 <section id="skills">
   <div class="container">
     <div class="section-header reveal">
-      <p class="section-tag" data-i18n="skills_tag">What I Work With</p>
-      <h2 class="section-title" data-i18n="skills_title">Technical Skills</h2>
+      <p class="section-tag" data-i18n="skills_tag">Skills</p>
+      <h2 class="section-title" data-i18n="skills_title">Core toolkit</h2>
       <div class="section-divider"></div>
     </div>
-    <div class="skills-grid">
+    <div class="skills-grid" style="grid-template-columns: repeat(3, 1fr);">
+
       <div class="skill-card reveal">
-        <p class="skill-cat">GIS &amp; Remote Sensing</p>
-        <p class="skill-desc">Processing raw geospatial data into meaningful maps and spatial insights.</p>
-        <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
+        <p class="skill-cat">Earth Observation & Remote Sensing</p>
         <div class="skill-badges">
-          <span class="skill-badge c-blue">QGIS</span>
-          <span class="skill-badge c-orange">ArcGIS</span>
-          <span class="skill-badge c-purple">Google Earth Engine</span>
-          <span class="skill-badge c-teal">Satellite Imagery Analysis</span>
-          <span class="skill-badge c-green">Point Cloud Processing</span>
-          <span class="skill-badge c-pink">CNN / U-Net</span>
+          <span class="skill-badge">Point Cloud Processing</span>
+          <span class="skill-badge">SAR Processing</span>
+          <span class="skill-badge">Raster ETL Pipelines</span>
+          <span class="skill-badge">SNAP</span>
+          <span class="skill-badge">ERDAS Imagine</span>
+          <span class="skill-badge">Radiometric Calibration</span>
+          <span class="skill-badge">Image Classification & Feature Extraction</span>
+          <span class="skill-badge">Google Earth Engine</span>
         </div>
       </div>
+
       <div class="skill-card reveal reveal-delay-1">
-        <p class="skill-cat">Spatial Data Engineering</p>
-        <p class="skill-desc">Designing and managing geospatial data infrastructure. From PostGIS geodatabase engineering to live IoT data pipelines.</p>
-        <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+        <p class="skill-cat">GIS Analysis & Cartography</p>
         <div class="skill-badges">
-          <span class="skill-badge c-purple">PostGIS</span>
-          <span class="skill-badge c-teal">GeoPandas</span>
-          <span class="skill-badge c-blue">Rasterio</span>
-          <span class="skill-badge c-orange">GeoServer</span>
-          <span class="skill-badge c-green">WMS / WFS</span>
-          <span class="skill-badge c-sky">FME</span>
-          <span class="skill-badge c-pink">SensorThings API</span>
-          <span class="skill-badge c-amber">Geodatabase Design</span>
+          <span class="skill-badge">QGIS</span>
+          <span class="skill-badge">ArcGIS Pro</span>
+          <span class="skill-badge">Spatial Analysis</span>
+          <span class="skill-badge">UtilityNetwork Analysis</span>
+          <span class="skill-badge">Location-Allocation</span>
+          <span class="skill-badge">Model Builder</span>
+          <span class="skill-badge">QGIS2ThreeJS</span>
+          <span class="skill-badge">Cartographic Design</span>
         </div>
       </div>
+
       <div class="skill-card reveal reveal-delay-2">
+        <p class="skill-cat">Geospatial Data Engineering</p>
+        <div class="skill-badges">
+          <span class="skill-badge">PostGIS / PostgreSQL</span>
+          <span class="skill-badge">GeoPandas</span>
+          <span class="skill-badge">Rasterio</span>
+          <span class="skill-badge">FME</span>
+          <span class="skill-badge">SensorThings API</span>
+          <span class="skill-badge">Mapbox</span>
+          <span class="skill-badge">GeoServer</span>
+          <span class="skill-badge">WMS / WFS</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <p class="skill-cat">AI & ML</p>
+        <div class="skill-badges">
+          <span class="skill-badge">Computer Vision</span>
+          <span class="skill-badge">CNN / U-Net</span>
+          <span class="skill-badge">TensorFlow</span>
+          <span class="skill-badge">PyTorch</span>
+          <span class="skill-badge">scikit-learn</span>
+          <span class="skill-badge">Predictive Analytics</span>
+          <span class="skill-badge">Anomaly Detection</span>
+          <span class="skill-badge">Image Segmentation</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal reveal-delay-1">
         <p class="skill-cat">Frontend</p>
-        <p class="skill-desc">Turning ideas into interactive and visually stunning web pages that adapt to any device.</p>
-        <div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div>
         <div class="skill-badges">
-          <span class="skill-badge c-amber">JavaScript</span>
-          <span class="skill-badge c-orange">HTML5</span>
-          <span class="skill-badge c-blue">CSS</span>
-          <span class="skill-badge c-teal">Three.js</span>
-          <span class="skill-badge c-sky">Leaflet / Folium</span>
-          <span class="skill-badge c-sky">Openlayers</span>
-          <span class="skill-badge c-purple">Cesium</span>
+          <span class="skill-badge">Web Mapping</span>
+          <span class="skill-badge">Three.js</span>
+          <span class="skill-badge">React</span>
+          <span class="skill-badge">Next.js</span>
+          <span class="skill-badge">Cesium</span>
+          <span class="skill-badge">HTML5</span>
+          <span class="skill-badge">GEE JS API</span>
+          <span class="skill-badge">WebXR</span>
         </div>
       </div>
-      <div class="skill-card reveal reveal-delay-3">
-        <p class="skill-cat">Backend</p>
-        <p class="skill-desc">Powering geospatial pipelines with solid server-side logic, automation, and cloud-based data workflows.</p>
-        <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+
+      <div class="skill-card reveal reveal-delay-2">
+        <p class="skill-cat">Backend & Automation</p>
         <div class="skill-badges">
-          <span class="skill-badge c-blue">Python (FastAPI/Flask)</span>
-          <span class="skill-badge c-purple">PostgreSQL / Neon</span>
-          <span class="skill-badge c-orange">MySQL</span>
-          <span class="skill-badge c-green">GeoDjango</span>
-          <span class="skill-badge c-teal">GeoServer</span>
-          <span class="skill-badge c-sky">GitHub Actions (CI/CD)</span>
-          <span class="skill-badge c-purple">Docker</span>
-          <span class="skill-badge c-pink">GeoJSON & REST APIs</span>
-          <span class="skill-badge c-amber">Async Task Queues (Celery)</span>
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">FastAPI / Flask</span>
+          <span class="skill-badge">GitHub Actions CI/CD</span>
+          <span class="skill-badge">Docker</span>
+          <span class="skill-badge">GeoDjango</span>
+          <span class="skill-badge">REST APIs</span>
+          <span class="skill-badge">Celery</span>
+          <span class="skill-badge">Neon PostgreSQL</span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -1617,7 +1644,7 @@ const translations = {
     about_lead: "GIS Data Engineer & Remote Sensing Specialist | Spatial Database Engineer",
     about_body: "GIS Data Engineer and Remote Sensing Specialist with 5+ years of experience in geospatial data infrastructure, satellite image processing, and spatial machine learning. M.Sc. Photogrammetry & Geoinformatics (HFT Stuttgart) · M.Sc. Urban Planning (University of Ulsan). Builds end-to-end pipelines from Earth Observation data ingestion and PostGIS database engineering to live WebGIS applications across environmental monitoring, urban infrastructure, and aerial imagery analysis.",
     about_body2: "I focus on writing reproducible, maintainable code and building intuitive visualizations that make complex spatial data accessible to decision-makers.",
-    skills_tag: "What I Work With", skills_title: "Technical Skills",
+    skills_tag: "Skills", skills_title: "Core Toolkit",
     edu_tag: "My Academic Background", edu_title: "Education & Certificates",
     edu_heading: "Education", cert_heading: "Certificates", exp_heading: "Professional Journey", exp_tag: "Experience",
     edu1_title: "Master of Science Photogrammetry & Geoinformatics",
@@ -1699,7 +1726,7 @@ const translations = {
     about_lead: "GIS Data Engineer · Fernerkundungsspezialist · Geodatenbank-Ingenieur",
     about_body: "GIS Data Engineer und Fernerkundungsspezialist mit über 5 Jahren Erfahrung in Geodateninfrastruktur, Satellitenbildverarbeitung und räumlichem maschinellem Lernen. M.Sc. Photogrammetrie & Geoinformatik (HFT Stuttgart) · M.Sc. Stadtplanung (Universität Ulsan). Entwickelt vollständige Pipelines von der Erdbeobachtungsdaten-Erfassung und PostGIS-Datenbankentwicklung bis hin zu live WebGIS-Anwendungen.",
     about_body2: "Fokus auf reproduzierbarem, wartbarem Code und intuitiven Visualisierungen, die komplexe Geodaten für Entscheidungsträger zugänglich machen.",
-    skills_tag: "Womit ich arbeite", skills_title: "Technische Fähigkeiten",
+    skills_tag: "Fähigkeiten", skills_title: "Technisches Fähigkeiten",
     edu_tag: "Mein akademischer Hintergrund", edu_title: "Ausbildung & Zertifikate",
     edu_heading: "Ausbildung", cert_heading: "Zertifikate", exp_heading: "Beruflicher Werdegang", exp_tag: "Erfahrung",
     edu1_title: "Master of Science Photogrammetrie & Geoinformatik",
