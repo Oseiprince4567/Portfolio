@@ -763,7 +763,7 @@ footer#footer {
         </div>
         <div class="hero-stats reveal reveal-delay-3">
           <div class="hero-stat">
-            <div class="hero-stat-num">10+</div>
+            <div class="hero-stat-num">11+</div>
             <div class="hero-stat-label" data-i18n="stat1">Projects</div>
           </div>
           <div class="hero-stat-divider"></div>
@@ -823,6 +823,7 @@ footer#footer {
       <span class="featured-strip-label" data-i18n="featured_label">Featured Work</span>
       <div class="featured-strip-divider"></div>
       <div class="featured-cards">
+        <a href="https://enplannet.com" target="_blank" class="featured-mini"><span class="featured-mini-icon">⚡</span><div class="featured-mini-info"><div class="featured-mini-title">EnPlanNet GridPlan</div><div class="featured-mini-tag">Network Planning · MapLibre · Load Flow</div></div></a>
         <a href="renewagb.html" target="_blank" class="featured-mini"><span class="featured-mini-icon">🌲</span><div class="featured-mini-info"><div class="featured-mini-title">AGB Modelling NRW</div><div class="featured-mini-tag">SAR · GEE · Python</div></div></a>
         <a href="Evdb.html" target="_blank" class="featured-mini"><span class="featured-mini-icon">⚡</span><div class="featured-mini-info"><div class="featured-mini-title">EV Dashboard Hamburg</div><div class="featured-mini-tag">IoT · Streamlit</div></div></a>
         <a href="Concrete.html" target="_blank" class="featured-mini"><span class="featured-mini-icon">🤖</span><div class="featured-mini-info"><div class="featured-mini-title">Crack Detection AI</div><div class="featured-mini-tag">TensorFlow · CNN</div></div></a>
@@ -830,7 +831,7 @@ footer#footer {
         <a href="Stokach.html" target="_blank" class="featured-mini"><span class="featured-mini-icon">🏙️</span><div class="featured-mini-info"><div class="featured-mini-title">3D Energy Dashboard</div><div class="featured-mini-tag">Cesium · Three.js· FME</div></div></a>
         <a href="ikea.html" target="_blank" class="featured-mini"><span class="featured-mini-icon">📍</span><div class="featured-mini-info"><div class="featured-mini-title">IKEA Site Selection</div><div class="featured-mini-tag">GIS · Geomarketing</div></div></a>
       </div>
-      <a href="#projects" class="featured-all">All 10 →</a>
+      <a href="#projects" class="featured-all">All 11</a>
     </div>
   </div>
 </div>
@@ -872,6 +873,29 @@ footer#footer {
       <div class="section-divider"></div>
     </div>
     <div class="projects-grid">
+       
+      
+
+          <!-- 0. EnPlanNet — GridPlan -->
+      <div class="project-card reveal">
+        <div class="project-img-wrap"><div class="project-img-placeholder">⚡</div></div>
+        <div class="project-body">
+          <h3 class="project-title" data-i18n="p11_title">enplannet| Browser-Based Energy Distribution Network Planning &amp; Load Flow Analysis</h3>
+          <div class="car-block">
+            <p class="car-label challenge" data-i18n="p_challenge">Challenge:</p>
+            <p class="car-text" data-i18n="p11_challenge">Electrical distribution planning still relies on expensive desktop software (PowerFactory, PSCAD) with no GIS integration, no collaboration features, and complex setup and licensing costs.</p>
+          </div>
+          <div class="car-block">
+            <p class="car-label action" data-i18n="p_action">Action:</p>
+            <p class="car-text" data-i18n="p11_action">Built a full-stack browser-based tool with an interactive MapLibre GL map editor, dual load flow solvers (radial sweep & pandapower Newton-Raphson), DXF/GeoJSON/Shapefile import with auto CRS detection, topology validation, and link-based project sharing.</p>
+          </div>
+          <div class="car-block">
+            <p class="car-label result" data-i18n="p_result">Result:</p>
+            <p class="car-text" data-i18n="p11_result">Fully functional web application at <a href="https://enplannet.com" target="_blank" style="color:var(--accent);font-weight:600;">enplannet.com</a> capable of real network simulation. Supports multiple export formats and instant user access. Bilingual EN/DE interface, no installation and no licence fees.</p>
+          </div>
+          <div class="project-footer"><span class="skill-badge c-blue">Django</span><span class="skill-badge c-orange">MapLibre GL</span><span class="skill-badge c-purple">pandapower</span><span class="skill-badge c-teal">PostGIS</span><span class="skill-badge c-green">JavaScript</span><span class="skill-badge c-sky">DXF / GeoJSON</span><span class="skill-badge c-amber">Load Flow</span><a href="https://enplannet.com" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
+        </div>
+      </div>
 
       <!-- 1. AGB Modelling -->
       <div class="project-card reveal">
@@ -1550,6 +1574,10 @@ const translations = {
     p9_desc: "Live GEE JS app computing NDCI from Sentinel-2 across 5 BW lakes (2018–2024). Dropdown UI, annual time-series charts, and GeoTIFF export.",
     p10_title: "Geomarketing for IKEA Store Site Selection",
     p10_desc: "Full ArcGIS Pro pipeline: data cleaning, spatial joins, Model Builder, network analysis, and location-allocation. Selected Trier and Ingolstadt as optimal sites.",
+    p11_title: "enplannet| Browser-Based Energy Distribution Network Planning & Load Flow Analysis",
+    p11_challenge: "Electrical distribution planning still relies on expensive desktop software (PowerFactory, PSCAD) with no GIS integration, no collaboration features, and complex setup and licensing costs.",
+    p11_action: "Built a full-stack browser-based tool with an interactive MapLibre GL map editor, dual load flow solvers (radial sweep & pandapower Newton-Raphson), DXF/GeoJSON/Shapefile import with auto CRS detection, topology validation, and link-based project sharing.",
+    p11_result: 'Fully functional web application at <a href="https://enplannet.com" target="_blank" style="color:var(--accent);font-weight:600;">enplannet.com</a> capable of real network simulation. Supports multiple export formats and instant user access. Bilingual EN/DE interface, no installation and no licence fees.',
     contact_tag: "Reach Out", contact_title: "Get In Touch",
     contact_lets_talk: "Let's build something impactful",
     contact_desc: "Open to software, geospatial, climate-tech, product, and data-driven opportunities. Reach out for collaborations, consulting, or neat problem-solving chaos with a polished finish.",
@@ -1643,6 +1671,10 @@ const translations = {
     p10_challenge: "Ziel war es, unterversorgte deutsche Städte für neue IKEA-Standorte auf Basis räumlicher Evidenz zu identifizieren.",
     p10_action: "Vollständigen ArcGIS Pro-Workflow mit Datenbereinigung, Spatial Joins, Model Builder, Distanzreklassifizierung, Netzwerkanalyse und Standortoptimierung aufgebaut.",
     p10_result: "Trier (Koordinaten: 328463E 5513063N) und Ingolstadt (Koordinaten: 11,4488°E 48,7750°N) als optimale Standorte ausgewählt.",
+    p11_title: "enplannet| Browserbasierte Energieverteilnetzplanung & Lastflussanalyse",
+    p11_challenge: "Elektrische Verteilnetzplanung basiert noch immer auf teurer Desktop-Software (PowerFactory, PSCAD) ohne GIS-Integration, ohne Zusammenarbeitsfunktionen und mit komplexer Einrichtung und Lizenzkosten.",
+    p11_action: "Full-Stack-Webtool mit interaktivem MapLibre-GL-Karteneditor, zwei Lastfluss-Solvern (radialer Sweep & pandapower Newton-Raphson), DXF/GeoJSON/Shapefile-Import mit automatischer CRS-Erkennung, Topologievalidierung und Link-basierter Projektfreigabe entwickelt.",
+    p11_result: 'Voll funktionsfähige Webanwendung unter <a href="https://enplannet.com" target="_blank" style="color:var(--accent);font-weight:600;">enplannet.com</a> mit realer Netzsimulation. Unterstützt mehrere Exportformate und sofortigen Nutzerzugang. Zweisprachige EN/DE-Oberfläche, keine Installation und keine Lizenzkosten.',
     proj_tag: "Was ich entwickelt habe", proj_title: "Projekte",
     p_challenge: "Herausforderung:", p_view: "Projekt ansehen", p_action: "Aktion:", p_result: "Ergebnis:",
     p1_title: "Raum-Zeitliche Biomassemodellierung & Waldstörungen NRW",
