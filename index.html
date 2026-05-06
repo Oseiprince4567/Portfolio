@@ -361,6 +361,25 @@ nav#navbar.scrolled {
   border: 4px solid #fff;
 }
 
+/* The SVG orbits sit on top, absolute to the orbital wrapper */
+.orbital-svg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; z-index: 3;
+}
+.orbit-outer-ring {
+  transform-origin: 50% 50%;
+  animation: orbitSpin 12s linear infinite;
+}
+.orbit-inner-ring {
+  transform-origin: 50% 50%;
+  animation: orbitSpin 8s linear infinite reverse;
+}
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 /* ── ABOUT ──────────────────────────────────────────────────── */
 #about { text-align: center; }
 .about-card {
@@ -785,7 +804,18 @@ footer#footer {
               onerror="this.src='';this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0062FF,#00D1D1)';this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:4rem;\'>👤</div>';" />
           </div>
 
-          
+          <!-- Thin rotating gradient arcs (no dots, no dashed rings) -->
+          <svg class="orbital-svg" viewBox="0 0 460 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g class="orbit-outer-ring">
+              <path d="M 230 12 A 218 218 0 0 1 430 310"
+                stroke="#0062FF" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+            </g>
+            <g class="orbit-inner-ring">
+              <path d="M 230 406 A 176 176 0 0 1 54 190"
+                stroke="#00D1D1" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+            </g>
+          </svg>
+
         </div>
       </div>
     </div>
