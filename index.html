@@ -360,35 +360,6 @@ nav#navbar.scrolled {
   object-fit: cover; object-position: center;
   border: 4px solid #fff;
 }
-/* The SVG orbital layer — sits on top, fills the full orbital-wrap */
-.orbital-svg {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  pointer-events: none; z-index: 3;
-}
-/* Outer dashed ring spin */
-.orbit-outer-ring {
-  transform-origin: 50% 50%;
-  animation: orbitSpin 12s linear infinite;
-}
-/* Inner dashed ring counter-spin */
-.orbit-inner-ring {
-  transform-origin: 50% 50%;
-  animation: orbitSpin 8s linear infinite reverse;
-}
-@keyframes orbitSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-/* The glowing dot orbiting */
-.orbit-dot-group {
-  transform-origin: 50% 50%;
-  animation: orbitSpin 5s linear infinite;
-}
-.orbit-dot-group-reverse {
-  transform-origin: 50% 50%;
-  animation: orbitSpin 7s linear infinite reverse;
-}
 
 /* ── ABOUT ──────────────────────────────────────────────────── */
 #about { text-align: center; }
@@ -814,76 +785,7 @@ footer#footer {
               onerror="this.src='';this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0062FF,#00D1D1)';this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:4rem;\'>👤</div>';" />
           </div>
 
-          <!-- Orbital SVG rings + dots -->
-          <svg class="orbital-svg" viewBox="0 0 460 460" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <!-- Outer glow filter for dots -->
-              <filter id="dotGlow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="4" result="blur"/>
-                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-              <filter id="dotGlow2" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="3" result="blur"/>
-                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-              <!-- Gradient for arcs -->
-              <linearGradient id="arcGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#0062FF" stop-opacity="0.8"/>
-                <stop offset="100%" stop-color="#00D1D1" stop-opacity="0.2"/>
-              </linearGradient>
-              <linearGradient id="arcGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#00D1D1" stop-opacity="0.7"/>
-                <stop offset="100%" stop-color="#0062FF" stop-opacity="0.15"/>
-              </linearGradient>
-            </defs>
-
-            <!-- ── OUTER ORBIT: dashed ring + 1 large dot ── -->
-            <g class="orbit-outer-ring">
-              <!-- Dashed circle at r=218 (just inside viewBox edge) -->
-              <circle cx="230" cy="230" r="218"
-                stroke="url(#arcGrad1)"
-                stroke-width="1.5"
-                stroke-dasharray="6 12"
-                stroke-linecap="round"/>
-              <!-- Solid arc segment for drama -->
-              <path d="M 230 12 A 218 218 0 0 1 430 310"
-                stroke="#0062FF" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
-            </g>
-
-            <!-- Glowing dot on outer orbit -->
-            <g class="orbit-dot-group">
-              <!-- dot positioned at top of outer ring: cx=230, cy=230-218=12 -->
-              <circle cx="230" cy="12" r="7" fill="#0062FF" filter="url(#dotGlow)"/>
-              <circle cx="230" cy="12" r="3.5" fill="#fff"/>
-            </g>
-
-            <!-- ── MIDDLE ORBIT: dashed ring + dot ── -->
-            <g class="orbit-inner-ring">
-              <circle cx="230" cy="230" r="176"
-                stroke="url(#arcGrad2)"
-                stroke-width="1.2"
-                stroke-dasharray="4 18"
-                stroke-linecap="round"/>
-              <!-- Solid arc segment opposite side -->
-              <path d="M 230 406 A 176 176 0 0 1 54 190"
-                stroke="#00D1D1" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
-            </g>
-
-            <!-- Glowing dot on middle orbit (bottom of ring) -->
-            <g class="orbit-dot-group-reverse">
-              <!-- dot at bottom of middle ring: cx=230, cy=230+176=406 -->
-              <circle cx="230" cy="406" r="5.5" fill="#00D1D1" filter="url(#dotGlow2)"/>
-              <circle cx="230" cy="406" r="2.5" fill="#fff"/>
-            </g>
-
-            <!-- ── SECOND DOT on outer orbit (offset 180°) ── -->
-            <g style="transform-origin:50% 50%;animation:orbitSpin 5s linear infinite;animation-delay:-2.5s;">
-              <!-- Opposite side of outer orbit: cx=230, cy=230+218=448 -->
-              <circle cx="230" cy="448" r="5" fill="#0062FF" filter="url(#dotGlow2)" opacity="0.7"/>
-              <circle cx="230" cy="448" r="2" fill="#fff"/>
-            </g>
-
-          </svg>
+          
         </div>
       </div>
     </div>
