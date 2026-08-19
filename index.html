@@ -897,6 +897,28 @@ footer#footer {
         </div>
       </div>
 
+
+      <!-- 1. Photogrammetry Project -->
+      <div class="project-card reveal">
+        <div class="project-img-wrap"><img src="images/Background1.png" alt="UAV Photogrammetry for Rural Community Mapping" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="project-body">
+          <h3 class="project-title" data-i18n="p12_title">UAV Photogrammetry for Rural Community Mapping</h3>
+          <div class="car-block">
+            <p class="car-label challenge" data-i18n="p_challenge">Challenge:</p>
+            <p class="car-text" data-i18n="p12_challenge">Drone survey for rural community mapping and generation of accurate elevation and orthophoto products for spatial analysis.</p>
+          </div>
+          <div class="car-block">
+            <p class="car-label action" data-i18n="p_action">Action:</p>
+            <p class="car-text" data-i18n="p12_action">Processed 368 UAV images in Agisoft Metashape, integrated seven GCPs, performed bundle adjustment, and generated a dense point cloud, DEM and orthomosaic.</p>
+          </div>
+          <div class="car-block">
+            <p class="car-label result" data-i18n="p_result">Result:</p>
+            <p class="car-text" data-i18n="p12_result">Produced a 4.92 cm/pixel DEM and 2.46 cm/pixel orthomosaic, then inspected the outputs in QGIS for elevation querying and parcel-area measurement.</p>
+          </div>
+          <div class="project-footer"><span class="skill-badge c-blue">Agisoft Metashape</span><span class="skill-badge c-teal">GCPs</span><span class="skill-badge c-green">Point Cloud</span><span class="skill-badge c-purple">DEM / Orthomosaic</span><span class="skill-badge c-orange">QGIS</span><a href="drone_surveying.html" target="_blank" class="project-link" data-i18n="p_view">View Project</a></div>
+        </div>
+      </div>
+
       <!-- 1. AGB Modelling -->
       <div class="project-card reveal">
         <div class="project-img-wrap"><img src="images/agb1.jpg" alt="AGB Modelling NRW" style="width:100%;height:100%;object-fit:cover;" /></div>
@@ -1578,6 +1600,10 @@ const translations = {
     p11_challenge: "Electrical distribution planning still relies on expensive desktop software (PowerFactory, PSCAD) with no GIS integration, no collaboration features, and complex setup and licensing costs.",
     p11_action: "Built a full-stack browser-based tool with an interactive MapLibre GL map editor, dual load flow solvers (radial sweep & pandapower Newton-Raphson), DXF/GeoJSON/Shapefile import with auto CRS detection, topology validation, and link-based project sharing.",
     p11_result: 'Fully functional web application at <a href="https://enplannet.com" target="_blank" style="color:var(--accent);font-weight:600;">enplannet.com</a> capable of real network simulation. Supports multiple export formats and instant user access. Bilingual EN/DE interface, no installation and no licence fees.',
+    p12_title: "UAV Photogrammetry for Rural Community Mapping",
+    p12_challenge: "Drone survey for rural community mapping and generation of accurate elevation and orthophoto products for spatial analysis.",
+    p12_action: "Processed 368 UAV images in Agisoft Metashape, integrated seven GCPs, performed bundle adjustment, and generated a dense point cloud, DEM and orthomosaic.",
+    p12_result: "Produced a 4.92 cm/pixel DEM and 2.46 cm/pixel orthomosaic, then inspected the outputs in QGIS for elevation querying and parcel-area measurement.",
     contact_tag: "Reach Out", contact_title: "Get In Touch",
     contact_lets_talk: "Let's build something impactful",
     contact_desc: "Open to software, geospatial, climate-tech, product, and data-driven opportunities. Reach out for collaborations, consulting, or neat problem-solving chaos with a polished finish.",
@@ -1675,6 +1701,10 @@ const translations = {
     p11_challenge: "Elektrische Verteilnetzplanung basiert noch immer auf teurer Desktop-Software (PowerFactory, PSCAD) ohne GIS-Integration, ohne Zusammenarbeitsfunktionen und mit komplexer Einrichtung und Lizenzkosten.",
     p11_action: "Full-Stack-Webtool mit interaktivem MapLibre-GL-Karteneditor, zwei Lastfluss-Solvern (radialer Sweep & pandapower Newton-Raphson), DXF/GeoJSON/Shapefile-Import mit automatischer CRS-Erkennung, Topologievalidierung und Link-basierter Projektfreigabe entwickelt.",
     p11_result: 'Voll funktionsfähige Webanwendung unter <a href="https://enplannet.com" target="_blank" style="color:var(--accent);font-weight:600;">enplannet.com</a> mit realer Netzsimulation. Unterstützt mehrere Exportformate und sofortigen Nutzerzugang. Zweisprachige EN/DE-Oberfläche, keine Installation und keine Lizenzkosten.',
+    p12_title: "UAV-Photogrammetrie zur Kartierung einer ländlichen Gemeinde",
+    p12_challenge: "Drohnenvermessung zur Kartierung einer ländlichen Gemeinde und zur Erstellung präziser Höhen- und Orthofotoprodukte für räumliche Analysen.",
+    p12_action: "368 UAV-Bilder in Agisoft Metashape verarbeitet, sieben GCPs integriert, eine Bündelblockausgleichung durchgeführt und eine dichte Punktwolke, ein DEM sowie ein Orthomosaik erzeugt.",
+    p12_result: "Ein DEM mit 4,92 cm/Pixel und ein Orthomosaik mit 2,46 cm/Pixel erzeugt und anschließend in QGIS für Höhenabfragen und die Flächenmessung einer Parzelle geprüft.",
     proj_tag: "Was ich entwickelt habe", proj_title: "Projekte",
     p_challenge: "Herausforderung:", p_view: "Projekt ansehen", p_action: "Aktion:", p_result: "Ergebnis:",
     p1_title: "Raum-Zeitliche Biomassemodellierung & Waldstörungen NRW",
