@@ -50,6 +50,23 @@
   .nav-links a { font-size: .85rem; font-weight: 500; color: var(--text-body); text-decoration: none; transition: color .2s; }
   .nav-links a:hover { color: var(--green); }
 
+  /* LANGUAGE TOGGLE */
+  .lang-toggle {
+    display: flex; align-items: center; gap: 2px;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 99px; padding: 3px; flex-shrink: 0;
+  }
+  .lang-toggle button {
+    display: inline-flex; align-items: center; gap: .3rem;
+    font-family: var(--sans); font-size: .72rem; font-weight: 600;
+    padding: .3rem .7rem; border: none; border-radius: 99px;
+    background: transparent; color: var(--text-muted);
+    cursor: pointer; transition: background .2s, color .2s;
+    line-height: 1; white-space: nowrap;
+  }
+  .lang-toggle button:hover { color: var(--text); }
+  .lang-toggle button.active { background: var(--green); color: #fff; }
+
   /* HERO */
   .port-hero {
     /* HERO BACKGROUND IMAGE
@@ -267,214 +284,512 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-back">← Back to Portfolio</a>
+  <a href="index.html" class="nav-back" data-i18n="nav_back">← Back to Portfolio</a>
   <ul class="nav-links">
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#workflow">Workflow</a></li>
-    <li><a href="#evidence">Processing</a></li>
-    <li><a href="#results">Outputs</a></li>
-    <li><a href="#qa">QA & Reflection</a></li>
+    <li><a href="#overview" data-i18n="nav_overview">Overview</a></li>
+    <li><a href="#workflow" data-i18n="nav_workflow">Workflow</a></li>
+    <li><a href="#evidence" data-i18n="nav_processing">Processing</a></li>
+    <li><a href="#results" data-i18n="nav_outputs">Outputs</a></li>
+    <li><a href="#qa" data-i18n="nav_qa">QA &amp; Reflection</a></li>
   </ul>
+  <div class="lang-toggle">
+    <button type="button" onclick="setLanguage('en')">🇬🇧 EN</button>
+    <button type="button" onclick="setLanguage('de')">🇩🇪 DE</button>
+  </div>
 </nav>
 
 <div class="port-hero">
   <div class="hero-inner">
-    <div class="hero-kicker"><span class="kicker-dot"></span> UAV Photogrammetry · Land Surveying Practice</div>
-    <h1>From UAV Images to<br><span class="accent">Surveying Geospatial Products.</span></h1>
-    <p class="hero-sub">
+    <div class="hero-kicker"><span class="kicker-dot"></span> <span data-i18n="hero_kicker">UAV Photogrammetry · Land Surveying Practice</span></div>
+    <h1 data-i18n="hero_h1">From UAV Images to<br><span class="accent">Surveying Geospatial Products.</span></h1>
+    <p class="hero-sub" data-i18n="hero_sub">
       A practical photogrammetry workflow processing 368 UAV images in Agisoft Metashape, integrating Ground Control Points, optimising camera geometry, reconstructing a 157-million-point cloud, and generating a DEM and high-resolution orthomosaic for validation and measurement in QGIS.
     </p>
     <div class="hero-tags">
       <span class="htag htag-green">Agisoft Metashape</span>
-      <span class="htag htag-green">Ground Control Points</span>
-      <span class="htag htag-green">Dense Point Cloud</span>
-      <span class="htag htag-green">DEM · 4.92 cm/pix</span>
-      <span class="htag htag-green">Orthomosaic · 2.46 cm/pix</span>
-      <span class="htag">QGIS · QA/QC · Measurement</span>
+      <span class="htag htag-green" data-i18n="htag_gcp">Ground Control Points</span>
+      <span class="htag htag-green" data-i18n="htag_dpc">Dense Point Cloud</span>
+      <span class="htag htag-green" data-i18n="htag_dem">DEM · 4.92 cm/pix</span>
+      <span class="htag htag-green" data-i18n="htag_ortho">Orthomosaic · 2.46 cm/pix</span>
+      <span class="htag" data-i18n="htag_qgis">QGIS · QA/QC · Measurement</span>
     </div>
     <div class="hero-btns">
-      <a href="#evidence" class="btn btn-green">View Processing Workflow</a>
-      <a href="#results" class="btn btn-outline">Outputs & Measurements</a>
-      <a href="#qa" class="btn btn-outline">Accuracy Notes</a>
+      <a href="#evidence" class="btn btn-green" data-i18n="hbtn_workflow">View Processing Workflow</a>
+      <a href="#results" class="btn btn-outline" data-i18n="hbtn_outputs">Outputs &amp; Measurements</a>
+      <a href="#qa" class="btn btn-outline" data-i18n="hbtn_accuracy">Accuracy Notes</a>
     </div>
   </div>
 </div>
 
 <div class="stat-strip">
-  <div class="stat-cell fade"><div class="stat-val">368</div><div class="stat-lbl">UAV images · 368/368 successfully aligned</div></div>
-  <div class="stat-cell fade d1"><div class="stat-val">299,594</div><div class="stat-lbl">Tie points from initial image matching and alignment</div></div>
-  <div class="stat-cell fade d2"><div class="stat-val">157.1<sup>M</sup></div><div class="stat-lbl">Dense point-cloud points reconstructed from depth maps</div></div>
-  <div class="stat-cell fade d3"><div class="stat-val">2.46<sup> cm</sup></div><div class="stat-lbl">Final orthomosaic ground pixel size</div></div>
+  <div class="stat-cell fade"><div class="stat-val">368</div><div class="stat-lbl" data-i18n="stat1_lbl">UAV images · 368/368 successfully aligned</div></div>
+  <div class="stat-cell fade d1"><div class="stat-val" data-i18n="stat2_val">299,594</div><div class="stat-lbl" data-i18n="stat2_lbl">Tie points from initial image matching and alignment</div></div>
+  <div class="stat-cell fade d2"><div class="stat-val">157.1<sup>M</sup></div><div class="stat-lbl" data-i18n="stat3_lbl">Dense point-cloud points reconstructed from depth maps</div></div>
+  <div class="stat-cell fade d3"><div class="stat-val" data-i18n="stat4_val">2.46<sup> cm</sup></div><div class="stat-lbl" data-i18n="stat4_lbl">Final orthomosaic ground pixel size</div></div>
 </div>
 
 <section id="overview" class="section section-gray">
-  <div class="sec-eye"><div class="sec-eye-bar"></div><span class="sec-eye-txt">01 / Project Overview</span></div>
-  <h2 class="sec-title">A complete <span class="accent">photogrammetric processing chain</span></h2>
-  <p class="sec-desc">The project was completed as a hands-on training case in UAV photogrammetry for land surveying. The portfolio evidence focuses on the processing, control, quality review and GIS use of a supplied aerial image dataset.</p>
+  <div class="sec-eye"><div class="sec-eye-bar"></div><span class="sec-eye-txt" data-i18n="s1_eye">01 / Project Overview</span></div>
+  <h2 class="sec-title" data-i18n="s1_title">A complete <span class="accent">photogrammetric processing chain</span></h2>
+  <p class="sec-desc" data-i18n="s1_desc">The project was completed as a hands-on training case in UAV photogrammetry for land surveying. The portfolio evidence focuses on the processing, control, quality review and GIS use of a supplied aerial image dataset.</p>
 
   <div class="story-grid">
     <div class="story-card sc-1 fade">
       <div class="story-num">01</div><div class="story-icon">🛩️</div>
-      <div class="story-head">Planning Context</div>
-      <p class="story-body">Mission-planning principles were reviewed in DroneDeploy, including survey boundary, flight altitude, image overlap and GSD.</p>
+      <div class="story-head" data-i18n="story1_head">Planning Context</div>
+      <p class="story-body" data-i18n="story1_body">Mission-planning principles were reviewed in DroneDeploy, including survey boundary, flight altitude, image overlap and GSD.</p>
     </div>
     <div class="story-card sc-2 fade d1">
       <div class="story-num">02</div><div class="story-icon">📷</div>
-      <div class="story-head">Photogrammetric Processing</div>
-      <p class="story-body"><strong>368 aerial images</strong> were aligned in Metashape, followed by GCPs import. Each control point was precisely measured across all overlapping images. The camera was then self-calibrated through bundle adjustment before a dense point cloud was reconstructed, from which the DEM and orthomosaic were finally generated.</p>
+      <div class="story-head" data-i18n="story2_head">Photogrammetric Processing</div>
+      <p class="story-body" data-i18n="story2_body"><strong>368 aerial images</strong> were aligned in Metashape, followed by GCPs import. Each control point was precisely measured across all overlapping images. The camera was then self-calibrated through bundle adjustment before a dense point cloud was reconstructed, from which the DEM and orthomosaic were finally generated.</p>
     </div>
     <div class="story-card sc-3 fade d2">
       <div class="story-num">03</div><div class="story-icon">📐</div>
-      <div class="story-head">Surveying Use</div>
-      <p class="story-body">The final raster products were visualized in QGIS for <strong>spatial inspection, elevation querying and area measurement</strong>, connecting photogrammetric reconstruction with practical GIS-based surveying tasks.</p>
+      <div class="story-head" data-i18n="story3_head">Surveying Use</div>
+      <p class="story-body" data-i18n="story3_body">The final raster products were visualized in QGIS for <strong>spatial inspection, elevation querying and area measurement</strong>, connecting photogrammetric reconstruction with practical GIS-based surveying tasks.</p>
     </div>
   </div>
 </section>
 
 <section id="workflow" class="section section-white">
-  <div class="sec-eye"><div class="sec-eye-bar"></div><span class="sec-eye-txt">02 / Methodology</span></div>
-  <h2 class="sec-title">From image alignment to <span class="accent">GIS-ready outputs</span></h2>
-  <p class="sec-desc">A photogrammetric workflow combining tie-point-based image alignment, GCP-constrained bundle adjustment and camera optimisation was used to establish a georeferenced image block. The optimised block was then used for dense point-cloud reconstruction and generation of a DEM and orthomosaic for subsequent spatial inspection, elevation querying and area measurement in QGIS.</p>
+  <div class="sec-eye"><div class="sec-eye-bar"></div><span class="sec-eye-txt" data-i18n="s2_eye">02 / Methodology</span></div>
+  <h2 class="sec-title" data-i18n="s2_title">From image alignment to <span class="accent">GIS-ready outputs</span></h2>
+  <p class="sec-desc" data-i18n="s2_desc">A photogrammetric workflow combining tie-point-based image alignment, GCP-constrained bundle adjustment and camera optimisation was used to establish a georeferenced image block. The optimised block was then used for dense point-cloud reconstruction and generation of a DEM and orthomosaic for subsequent spatial inspection, elevation querying and area measurement in QGIS.</p>
 
   <div class="steps">
-    <div class="step s1 fade"><div class="step-n">Step 01</div><div class="step-icon">🧭</div><div class="step-t">Mission Planning Principles</div><p class="step-d">Reviewed automated UAV mapping concepts in DroneDeploy: coverage boundary, altitude, forward/side overlap, GSD and repeatable flight-line geometry.</p><div class="step-tags"><span class="stag stag-hl">DroneDeploy</span><span class="stag">Overlap</span><span class="stag">GSD</span></div></div>
-    <div class="step s2 fade d1"><div class="step-n">Step 02</div><div class="step-icon">🔗</div><div class="step-t">Image Alignment</div><p class="step-d">Aligned 368 geotagged images using high-accuracy matching with source-based reference preselection. Feature matching produced 299,594 tie points, from which the relative camera positions and orientations were estimated to form a single coherent photogrammetric block for subsequent GCP adjustment.</p><div class="step-tags"><span class="stag stag-hl">368 Images</span><span class="stag">40k Key Points</span><span class="stag">4k Tie Points</span></div></div>
-    <div class="step s3 fade d2"><div class="step-n">Step 03</div><div class="step-icon">🎯</div><div class="step-t">GCP Import</div><p class="step-d">Imported GCPs and assigned the correct coordinate fields and reference system, and integrated seven Ground Control Points into the photogrammetric block. Each GCP was then manually identified and precisely marked across multiple overlapping images to constrain the subsequent bundle adjustment and improve the block georeferencing.</p><div class="step-tags"><span class="stag stag-hl">7 GCPs</span><span class="stag">EPSG:4326</span><span class="stag">GCP Refinement</span></div></div>
-    <div class="step s4 fade"><div class="step-n">Step 04</div><div class="step-icon">⚙️</div><div class="step-t">Camera Optimisation</div><p class="step-d">Optimised interior and distortion parameters after GCP marking, then reviewed control-point residuals to assess the accuracy of the adjusted block.</p><div class="step-tags"><span class="stag stag-hl">Bundle Adjustment</span><span class="stag">k1-k3</span><span class="stag">p1-p2</span></div></div>
-    <div class="step s5 fade d1"><div class="step-n">Step 05</div><div class="step-icon">☁️</div><div class="step-t">Dense Reconstruction</div><p class="step-d">Generated high-quality depth maps and a dense point cloud containing 157,067,773 points, preserving terrain, buildings and vegetation structure across the mapped area.</p><div class="step-tags"><span class="stag stag-hl">157.1M Points</span><span class="stag">Depth Maps</span><span class="stag">3D Reconstruction</span></div></div>
-    <div class="step s6 fade d2"><div class="step-n">Step 06</div><div class="step-icon">🗺️</div><div class="step-t">DEM, Orthomosaic & GIS QA</div><p class="step-d">Derived a 4.92 cm/pixel DEM and 2.46 cm/pixel orthomosaic, then loaded the outputs into QGIS for contextual inspection, elevation queries and parcel-area measurement.</p><div class="step-tags"><span class="stag stag-hl">DEM</span><span class="stag stag-hl">Orthomosaic</span><span class="stag">QGIS</span></div></div>
+    <div class="step s1 fade"><div class="step-n" data-i18n="step1_n">Step 01</div><div class="step-icon">🧭</div><div class="step-t" data-i18n="step1_t">Mission Planning Principles</div><p class="step-d" data-i18n="step1_d">Reviewed automated UAV mapping concepts in DroneDeploy: coverage boundary, altitude, forward/side overlap, GSD and repeatable flight-line geometry.</p><div class="step-tags"><span class="stag stag-hl">DroneDeploy</span><span class="stag" data-i18n="stag_overlap">Overlap</span><span class="stag">GSD</span></div></div>
+    <div class="step s2 fade d1"><div class="step-n" data-i18n="step2_n">Step 02</div><div class="step-icon">🔗</div><div class="step-t" data-i18n="step2_t">Image Alignment</div><p class="step-d" data-i18n="step2_d">Aligned 368 geotagged images using high-accuracy matching with source-based reference preselection. Feature matching produced 299,594 tie points, from which the relative camera positions and orientations were estimated to form a single coherent photogrammetric block for subsequent GCP adjustment.</p><div class="step-tags"><span class="stag stag-hl" data-i18n="stag_368">368 Images</span><span class="stag" data-i18n="stag_40k">40k Key Points</span><span class="stag" data-i18n="stag_4k">4k Tie Points</span></div></div>
+    <div class="step s3 fade d2"><div class="step-n" data-i18n="step3_n">Step 03</div><div class="step-icon">🎯</div><div class="step-t" data-i18n="step3_t">GCP Import</div><p class="step-d" data-i18n="step3_d">Imported GCPs and assigned the correct coordinate fields and reference system, and integrated seven Ground Control Points into the photogrammetric block. Each GCP was then manually identified and precisely marked across multiple overlapping images to constrain the subsequent bundle adjustment and improve the block georeferencing.</p><div class="step-tags"><span class="stag stag-hl" data-i18n="stag_7gcp">7 GCPs</span><span class="stag">EPSG:4326</span><span class="stag" data-i18n="stag_gcpref">GCP Refinement</span></div></div>
+    <div class="step s4 fade"><div class="step-n" data-i18n="step4_n">Step 04</div><div class="step-icon">⚙️</div><div class="step-t" data-i18n="step4_t">Camera Optimisation</div><p class="step-d" data-i18n="step4_d">Optimised interior and distortion parameters after GCP marking, then reviewed control-point residuals to assess the accuracy of the adjusted block.</p><div class="step-tags"><span class="stag stag-hl" data-i18n="stag_ba">Bundle Adjustment</span><span class="stag">k1-k3</span><span class="stag">p1-p2</span></div></div>
+    <div class="step s5 fade d1"><div class="step-n" data-i18n="step5_n">Step 05</div><div class="step-icon">☁️</div><div class="step-t" data-i18n="step5_t">Dense Reconstruction</div><p class="step-d" data-i18n="step5_d">Generated high-quality depth maps and a dense point cloud containing 157,067,773 points, preserving terrain, buildings and vegetation structure across the mapped area.</p><div class="step-tags"><span class="stag stag-hl" data-i18n="stag_157">157.1M Points</span><span class="stag" data-i18n="stag_depth">Depth Maps</span><span class="stag" data-i18n="stag_3d">3D Reconstruction</span></div></div>
+    <div class="step s6 fade d2"><div class="step-n" data-i18n="step6_n">Step 06</div><div class="step-icon">🗺️</div><div class="step-t" data-i18n="step6_t">DEM, Orthomosaic &amp; GIS QA</div><p class="step-d" data-i18n="step6_d">Derived a 4.92 cm/pixel DEM and 2.46 cm/pixel orthomosaic, then loaded the outputs into QGIS for contextual inspection, elevation queries and parcel-area measurement.</p><div class="step-tags"><span class="stag stag-hl">DEM</span><span class="stag stag-hl">Orthomosaic</span><span class="stag">QGIS</span></div></div>
   </div>
 </section>
 
 <section id="evidence" class="section section-gray">
-  <div class="sec-eye"><div class="sec-eye-bar"></div><span class="sec-eye-txt">03 / Photogrammetric Workflow</span></div>
-  <h2 class="sec-title">Nine stages of the <span class="accent"> workflow</span></h2>
-  <p class="sec-desc">Selected screenshots document the key processing parameters, block adjustment, control integration, reconstruction steps and GIS-based quality checks. Repetitive interface views were omitted so that each visual documents a distinct technical stage of the workflow.</p>
+  <div class="sec-eye"><div class="sec-eye-bar"></div><span class="sec-eye-txt" data-i18n="s3_eye">03 / Photogrammetric Workflow</span></div>
+  <h2 class="sec-title" data-i18n="s3_title">Nine stages of the <span class="accent"> workflow</span></h2>
+  <p class="sec-desc" data-i18n="s3_desc">Selected screenshots document the key processing parameters, block adjustment, control integration, reconstruction steps and GIS-based quality checks. Repetitive interface views were omitted so that each visual documents a distinct technical stage of the workflow.</p>
 
   <div class="evidence-grid">
     <article class="figure-card fade">
       <div class="figure-media contain"><img src="images/Vil2.png" alt="Agisoft Metashape Align Photos settings showing High accuracy, reference preselection, 40,000 key points and 4,000 tie points" loading="lazy"></div>
-      <div class="figure-copy"><div class="figure-kicker">Stage 01 · Alignment Setup</div><h3>Image matching and reference preselection</h3><p>High-accuracy alignment was configured with generic and source-reference preselection. Feature extraction and matching limits were set to 40,000 key points and 4,000 tie points per image to establish the initial image correspondences.</p></div>
+      <div class="figure-copy"><div class="figure-kicker" data-i18n="fig1_k">Stage 01 · Alignment Setup</div><h3 data-i18n="fig1_h">Image matching and reference preselection</h3><p data-i18n="fig1_p">High-accuracy alignment was configured with generic and source-reference preselection. Feature extraction and matching limits were set to 40,000 key points and 4,000 tie points per image to establish the initial image correspondences.</p></div>
     </article>
 
     <article class="figure-card fade d1">
       <div class="figure-media contain"><img src="images/Vil3.png" alt="Aligned UAV camera positions and sparse tie point reconstruction in Agisoft Metashape" loading="lazy"></div>
-      <div class="figure-copy"><div class="figure-kicker">Stage 02 · Block Adjustment</div><h3>368 images aligned into a single photogrammetric block</h3><p>Feature matching generated 299,594 tie points, from which the relative image geometry and camera orientations were established for subsequent GCP-constrained adjustment.</p></div>
+      <div class="figure-copy"><div class="figure-kicker" data-i18n="fig2_k">Stage 02 · Block Adjustment</div><h3 data-i18n="fig2_h">368 images aligned into a single photogrammetric block</h3><p data-i18n="fig2_p">Feature matching generated 299,594 tie points, from which the relative image geometry and camera orientations were established for subsequent GCP-constrained adjustment.</p></div>
     </article>
 
     <article class="figure-card fade">
       <div class="figure-media contain"><img src="images/vil5.png" alt="GCP coordinate import and distribution across the survey block" loading="lazy"></div>
-      <div class="figure-copy"><div class="figure-kicker">Stage 03 · Ground Control Points</div><h3>Importing and distributing GCPs</h3><p>Seven ground control points were imported and spatially distributed across the the block. These control observations provided the spatial reference required for the subsequent bundle adjustment.</p></div>
+      <div class="figure-copy"><div class="figure-kicker" data-i18n="fig3_k">Stage 03 · Ground Control Points</div><h3 data-i18n="fig3_h">Importing and distributing GCPs</h3><p data-i18n="fig3_p">Seven ground control points were imported and spatially distributed across the the block. These control observations provided the spatial reference required for the subsequent bundle adjustment.</p></div>
     </article>
 
     <article class="figure-card fade d1">
       <div class="figure-media contain"><img src="images/combined-image.jpg" alt="Before and after manual refinement of GCP 7 onto the painted target centre" loading="lazy"></div>
-      <div class="figure-copy"><div class="figure-kicker">Stage 04 · GCP Refinement</div><h3>Moving from approximate to image-level control</h3><p> Each GCP was inspected in multiple overlapping photographs and manually positioned at the centre of the corresponding ground target. The before-and-after comparison demonstrates the difference between an initially predicted marker position and the image-level observation used for photogrammetric adjustment.</p></div>
+      <div class="figure-copy"><div class="figure-kicker" data-i18n="fig4_k">Stage 04 · GCP Refinement</div><h3 data-i18n="fig4_h">Moving from approximate to image-level control</h3><p data-i18n="fig4_p"> Each GCP was inspected in multiple overlapping photographs and manually positioned at the centre of the corresponding ground target. The before-and-after comparison demonstrates the difference between an initially predicted marker position and the image-level observation used for photogrammetric adjustment.</p></div>
     </article>
 
     <article class="figure-card fade">
       <div class="figure-media contain"><img src="images/GCP rmse.png" alt="Camera model optimisation and GCP residual review in Agisoft Metashape" loading="lazy"></div>
-      <div class="figure-copy"><div class="figure-kicker">Stage 05 · Bundle Adjustment & QA</div><h3>Optimising camera parameters and checking GCP residuals</h3><p>Camera parameters were re-estimated after GCP marking. Metashape displayed a total control-point residual of approximately 0.005 m for the adjusted solution.</p></div>
+      <div class="figure-copy"><div class="figure-kicker" data-i18n="fig5_k">Stage 05 · Bundle Adjustment &amp; QA</div><h3 data-i18n="fig5_h">Optimising camera parameters and checking GCP residuals</h3><p data-i18n="fig5_p">Camera parameters were re-estimated after GCP marking. Metashape displayed a total control-point residual of approximately 0.005 m for the adjusted solution.</p></div>
     </article>
 
     <article class="figure-card fade d1">
       <div class="figure-media contain"><img src="images/Generated PTC.png" alt="Dense point cloud in Agisoft Metashape containing more than 157 million points" loading="lazy"></div>
-      <div class="figure-copy"><div class="figure-kicker">Stage 06 · Dense Reconstruction</div><h3>157 million points reconstructed from depth maps</h3><p> Depth-map reconstruction generated a dense point cloud containing 157,067,773 points. The resulting 3D dataset represents the reconstructed surface geometry of the survey area, including agricultural fields, roads, buildings and vegetation, and provides the geometric basis for subsequent elevation-model generation.</p></div>
+      <div class="figure-copy"><div class="figure-kicker" data-i18n="fig6_k">Stage 06 · Dense Reconstruction</div><h3 data-i18n="fig6_h">157 million points reconstructed from depth maps</h3><p data-i18n="fig6_p"> Depth-map reconstruction generated a dense point cloud containing 157,067,773 points. The resulting 3D dataset represents the reconstructed surface geometry of the survey area, including agricultural fields, roads, buildings and vegetation, and provides the geometric basis for subsequent elevation-model generation.</p></div>
     </article>
 
     <article class="figure-card fade">
       <div class="figure-media contain"><img src="images/Generated_DEM.png" alt="Digital elevation model generated in Agisoft Metashape" loading="lazy"></div>
-      <div class="figure-copy"><div class="figure-kicker">Stage 07 · Elevation Model</div><h3>DEM generated at 4.92 cm/pixel</h3><p>The reconstructed point cloud was interpolated into a 27,858 × 28,015 pixel DEM with a raster resolution of approximately 4.92 cm/pixel. Elevation values displayed within the processed area range approximately from 490 m to 537 m.</p></div>
+      <div class="figure-copy"><div class="figure-kicker" data-i18n="fig7_k">Stage 07 · Elevation Model</div><h3 data-i18n="fig7_h">DEM generated at 4.92 cm/pixel</h3><p data-i18n="fig7_p">The reconstructed point cloud was interpolated into a 27,858 × 28,015 pixel DEM with a raster resolution of approximately 4.92 cm/pixel. Elevation values displayed within the processed area range approximately from 490 m to 537 m.</p></div>
     </article>
 
     <article class="figure-card fade d1">
       <div class="figure-media contain"><img src="images/Orthomosiac_picture.png" alt="Final orthomosaic generated in Agisoft Metashape at 2.46 centimetres per pixel" loading="lazy"></div>
-      <div class="figure-copy"><div class="figure-kicker">Stage 08 · Orthomosaic Generation</div><h3>2.46 cm/pixel orthomosaic from the DEM surface</h3><p>The final RGB orthomosaic was generated using the elevation model as the reference surface and mosaic blending to combine the individual images into a continuous georeferenced raster. The resulting product contains 27,647 × 27,136 pixels at approximately 2.46 cm/pixel.</p></div>
+      <div class="figure-copy"><div class="figure-kicker" data-i18n="fig8_k">Stage 08 · Orthomosaic Generation</div><h3 data-i18n="fig8_h">2.46 cm/pixel orthomosaic from the DEM surface</h3><p data-i18n="fig8_p">The final RGB orthomosaic was generated using the elevation model as the reference surface and mosaic blending to combine the individual images into a continuous georeferenced raster. The resulting product contains 27,647 × 27,136 pixels at approximately 2.46 cm/pixel.</p></div>
     </article>
 
         <article class="figure-card wide fade">
       <div class="figure-media contain figure-media-split">
         <figure class="split-img">
           <video src="images/qgis_ortho_overlay.mp4" autoplay muted loop playsinline preload="metadata"></video>
-          <figcaption>Orthomosaic overlay over Esri satellite basemap</figcaption>
+          <figcaption data-i18n="figcap1">Orthomosaic overlay over Esri satellite basemap</figcaption>
         </figure>
         <figure class="split-img">
           <video src="images/qgis_dem_ortho_overlay.mp4" autoplay muted loop playsinline preload="metadata"></video>
-          <figcaption>Orthomosaic overlay over DEM</figcaption>
+          <figcaption data-i18n="figcap2">Orthomosaic overlay over DEM</figcaption>
         </figure>
       </div>
-      <div class="figure-copy"><div class="figure-kicker">Stage 09 ·Validation & Measurement</div><h3>Inspecting photogrammetric outputs in QGIS</h3><p>The exported orthomosaic and elevation raster were loaded into QGIS for spatial inspection and measurement. The orthomosaic was compared with contextual reference imagery, elevation values were queried from the raster, and a field parcel delineated from the orthomosaic returned an ellipsoidal area of 2,201.957 m².</p></div>
+      <div class="figure-copy"><div class="figure-kicker" data-i18n="fig9_k">Stage 09 ·Validation &amp; Measurement</div><h3 data-i18n="fig9_h">Inspecting photogrammetric outputs in QGIS</h3><p data-i18n="fig9_p">The exported orthomosaic and elevation raster were loaded into QGIS for spatial inspection and measurement. The orthomosaic was compared with contextual reference imagery, elevation values were queried from the raster, and a field parcel delineated from the orthomosaic returned an ellipsoidal area of 2,201.957 m².</p></div>
     </article>
   </div>
 </section>
 
 <section id="results" class="section section-white">
-  <div class="sec-eye"><div class="sec-eye-bar"></div><span class="sec-eye-txt">04 / Outputs & Measurements</span></div>
-  <h2 class="sec-title">What the workflow <span class="accent">produced</span></h2>
-  <p class="sec-desc">The processing workflow produced a connected set of photogrammetric, 3D, elevation and orthorectified raster products that could be inspected, queried and measured within a GIS environment.</p>
+  <div class="sec-eye"><div class="sec-eye-bar"></div><span class="sec-eye-txt" data-i18n="s4_eye">04 / Outputs &amp; Measurements</span></div>
+  <h2 class="sec-title" data-i18n="s4_title">What the workflow <span class="accent">produced</span></h2>
+  <p class="sec-desc" data-i18n="s4_desc">The processing workflow produced a connected set of photogrammetric, 3D, elevation and orthorectified raster products that could be inspected, queried and measured within a GIS environment.</p>
 
   <div class="results-grid">
     <div class="result-card fade">
-      <div class="result-label">Photogrammetric Block</div><h4>Complete image alignment and GCP-controlled adjustment</h4>
-      <p>All 368 images were aligned into one component. Seven GCPs were manually refined across overlapping images and incorporated into the adjustment before camera optimisation and residual assessment.</p>
-      <div class="metrics"><div><div class="metric-val">368/368</div><div class="metric-lbl">Images Aligned</div></div><div><div class="metric-val">7</div><div class="metric-lbl">GCPs Used</div></div><div><div class="metric-val">≈0.005 m</div><div class="metric-lbl">Displayed GCP Residual</div></div></div>
+      <div class="result-label" data-i18n="res1_label">Photogrammetric Block</div><h4 data-i18n="res1_h4">Complete image alignment and GCP-controlled adjustment</h4>
+      <p data-i18n="res1_p">All 368 images were aligned into one component. Seven GCPs were manually refined across overlapping images and incorporated into the adjustment before camera optimisation and residual assessment.</p>
+      <div class="metrics"><div><div class="metric-val">368/368</div><div class="metric-lbl" data-i18n="m_aligned">Images Aligned</div></div><div><div class="metric-val">7</div><div class="metric-lbl" data-i18n="m_gcps">GCPs Used</div></div><div><div class="metric-val" data-i18n="m_resid_val">≈0.005 m</div><div class="metric-lbl" data-i18n="m_resid">Displayed GCP Residual</div></div></div>
     </div>
     <div class="result-card fade d1">
-      <div class="result-label">3D Reconstruction & Elevation</div><h4>Dense Point Cloud reconstruction and elevation model</h4>
-      <p>High-quality depth-map workflow generated 157,067,773 points. This dataset provided the source geometry for generation of the elevation raster at a 4.92 cm pixel size.</p>
-      <div class="metrics"><div><div class="metric-val">157.1M</div><div class="metric-lbl">Point Cloud</div></div><div><div class="metric-val">4.92 cm</div><div class="metric-lbl">DEM Pixel</div></div><div><div class="metric-val">490-537 m</div><div class="metric-lbl">Displayed Range</div></div></div>
+      <div class="result-label" data-i18n="res2_label">3D Reconstruction &amp; Elevation</div><h4 data-i18n="res2_h4">Dense Point Cloud reconstruction and elevation model</h4>
+      <p data-i18n="res2_p">High-quality depth-map workflow generated 157,067,773 points. This dataset provided the source geometry for generation of the elevation raster at a 4.92 cm pixel size.</p>
+      <div class="metrics"><div><div class="metric-val">157.1M</div><div class="metric-lbl" data-i18n="m_pc">Point Cloud</div></div><div><div class="metric-val" data-i18n="m_dem_val">4.92 cm</div><div class="metric-lbl" data-i18n="m_dem">DEM Pixel</div></div><div><div class="metric-val">490-537 m</div><div class="metric-lbl" data-i18n="m_range">Displayed Range</div></div></div>
     </div>
     <div class="result-card fade d2">
-      <div class="result-label">Orthomosaic & GIS</div><h4>High-resolution orthorectified imagery for spatial inspection and measurement</h4>
-      <p>2.46 cm/pixel RGB orthomosaic was generated from the adjusted photogrammetric block and elevation surface. After export to QGIS, the raster was inspected against contextual imagery and used for parcel delineation, area calculation and spatial interpretation.</p>
-      <div class="metrics"><div><div class="metric-val">2.46 cm</div><div class="metric-lbl">Ortho Pixel</div></div><div><div class="metric-val">2,201.957 m²</div><div class="metric-lbl">Measured Parcel</div></div></div>
+      <div class="result-label" data-i18n="res3_label">Orthomosaic &amp; GIS</div><h4 data-i18n="res3_h4">High-resolution orthorectified imagery for spatial inspection and measurement</h4>
+      <p data-i18n="res3_p">2.46 cm/pixel RGB orthomosaic was generated from the adjusted photogrammetric block and elevation surface. After export to QGIS, the raster was inspected against contextual imagery and used for parcel delineation, area calculation and spatial interpretation.</p>
+      <div class="metrics"><div><div class="metric-val" data-i18n="m_ortho_val">2.46 cm</div><div class="metric-lbl" data-i18n="m_ortho">Ortho Pixel</div></div><div><div class="metric-val" data-i18n="m_parcel_val">2,201.957 m²</div><div class="metric-lbl" data-i18n="m_parcel">Measured Parcel</div></div></div>
     </div>
   </div>
 
 </section>
 
 <section id="qa" class="section section-gray">
-  <div class="sec-eye"><div class="sec-eye-bar"></div><span class="sec-eye-txt">05 / Quality Control & Professional Reflection</span></div>
-  <h2 class="sec-title">Accuracy is more than a <span class="accent">small residual</span></h2>
-  <p class="sec-desc">The workflow demonstrates GCP-constrained photogrammetric processing, while deliberately distinguishing the internal fit of the adjusted block from independently verified positional accuracy.</p>
+  <div class="sec-eye"><div class="sec-eye-bar"></div><span class="sec-eye-txt" data-i18n="s5_eye">05 / Quality Control &amp; Professional Reflection</span></div>
+  <h2 class="sec-title" data-i18n="s5_title">Accuracy is more than a <span class="accent">small residual</span></h2>
+  <p class="sec-desc" data-i18n="s5_desc">The workflow demonstrates GCP-constrained photogrammetric processing, while deliberately distinguishing the internal fit of the adjusted block from independently verified positional accuracy.</p>
 
   <div class="limitations">
     <div class="lim-card fade">
-      <h4>What the 0.005 m value represents</h4>
-      <p>The approximately 0.005 m value displayed in Metashape represents the residual associated with the Ground Control Points used in the adjustment. It indicates a close fit between the photogrammetric solution and the control observations, but it does not constitute an independent assessment of absolute positional accuracy. Because the same control points contribute to the adjustment, their residuals should not be interpreted as equivalent to accuracy obtained from independent validation points.</p>
+      <h4 data-i18n="lim1_h4">What the 0.005 m value represents</h4>
+      <p data-i18n="lim1_p">The approximately 0.005 m value displayed in Metashape represents the residual associated with the Ground Control Points used in the adjustment. It indicates a close fit between the photogrammetric solution and the control observations, but it does not constitute an independent assessment of absolute positional accuracy. Because the same control points contribute to the adjustment, their residuals should not be interpreted as equivalent to accuracy obtained from independent validation points.</p>
     </div>
     <div class="lim-card fade d1">
-      <h4>What a production survey would add</h4>
-      <p> For a production UAV survey, a subset of independently surveyed points would normally be withheld from the bundle adjustment and used as checkpoints. Horizontal and vertical errors could then be calculated against these independent observations and reported using suitable statistics such as RMSE. The control documentation would also record the coordinate acquisition method, reference system, control-point geometry and processing configuration to maintain traceability of the final products.</p>
+      <h4 data-i18n="lim2_h4">What a production survey would add</h4>
+      <p data-i18n="lim2_p"> For a production UAV survey, a subset of independently surveyed points would normally be withheld from the bundle adjustment and used as checkpoints. Horizontal and vertical errors could then be calculated against these independent observations and reported using suitable statistics such as RMSE. The control documentation would also record the coordinate acquisition method, reference system, control-point geometry and processing configuration to maintain traceability of the final products.</p>
     </div>
   </div>
 </section>
 
 <section class="section section-white">
-  <div class="sec-eye"><div class="sec-eye-bar"></div><span class="sec-eye-txt">06 / Technical Stack</span></div>
-  <h2 class="sec-title">Tools, Software & <span class="accent">photogrammetric concepts</span></h2>
-  <p class="sec-desc">This project combines UAV mission-planning principles, photogrammetric block processing, spatial control, 3D reconstruction and GIS-based inspection.</p>
+  <div class="sec-eye"><div class="sec-eye-bar"></div><span class="sec-eye-txt" data-i18n="s6_eye">06 / Technical Stack</span></div>
+  <h2 class="sec-title" data-i18n="s6_title">Tools, Software &amp; <span class="accent">photogrammetric concepts</span></h2>
+  <p class="sec-desc" data-i18n="s6_desc">This project combines UAV mission-planning principles, photogrammetric block processing, spatial control, 3D reconstruction and GIS-based inspection.</p>
   <div class="tech-grid fade">
-    <span class="tp tp-g">🛩️ DroneDeploy · Planning Concepts</span>
-    <span class="tp tp-g">📷 Agisoft Metashape · Photogrammetric Processing</span>
-    <span class="tp tp-s">🗺️ QGIS · GIS-Based Inspection</span>
-    <span class="tp tp-a">🎯 Ground Control Points · Spatial Control</span>
-    <span class="tp tp-v">🔗 Feature Matching · Tie-Points</span>
-    <span class="tp tp-e">☁️ Dense Point Cloud Reconstruction</span>
-    <span class="tp tp-t">⛰️ Digital Elevation Model</span>
-    <span class="tp tp-g">🌍 Orthomosaic</span>
-    <span class="tp tp-s">📐 Area & Elevation Measurement</span>
-    <span class="tp tp-a">✅ QA / Residual Review</span>
-    <span class="tp tp-v">🧭 CRS / Georeferencing</span>
+    <span class="tp tp-g" data-i18n="tp1">🛩️ DroneDeploy · Planning Concepts</span>
+    <span class="tp tp-g" data-i18n="tp2">📷 Agisoft Metashape · Photogrammetric Processing</span>
+    <span class="tp tp-s" data-i18n="tp3">🗺️ QGIS · GIS-Based Inspection</span>
+    <span class="tp tp-a" data-i18n="tp4">🎯 Ground Control Points · Spatial Control</span>
+    <span class="tp tp-v" data-i18n="tp5">🔗 Feature Matching · Tie-Points</span>
+    <span class="tp tp-e" data-i18n="tp6">☁️ Dense Point Cloud Reconstruction</span>
+    <span class="tp tp-t" data-i18n="tp7">⛰️ Digital Elevation Model</span>
+    <span class="tp tp-g" data-i18n="tp8">🌍 Orthomosaic</span>
+    <span class="tp tp-s" data-i18n="tp9">📐 Area &amp; Elevation Measurement</span>
+    <span class="tp tp-a" data-i18n="tp10">✅ QA / Residual Review</span>
+    <span class="tp tp-v" data-i18n="tp11">🧭 CRS / Georeferencing</span>
   </div>
 </section>
 
 <footer>
-  <span class="foot-brand">UAV Photogrammetry for Land Surveying · Photogrammetric Processing & GIS Validation</span>
-  <div class="foot-links"><a href="#overview">Overview</a><a href="#workflow">Workflow</a><a href="#evidence">Processing</a><a href="#qa">QA & Reflection</a></div>
+  <span class="foot-brand" data-i18n="foot_brand">UAV Photogrammetry for Land Surveying · Photogrammetric Processing &amp; GIS Validation</span>
+  <div class="foot-links"><a href="#overview" data-i18n="nav_overview">Overview</a><a href="#workflow" data-i18n="nav_workflow">Workflow</a><a href="#evidence" data-i18n="nav_processing">Processing</a><a href="#qa" data-i18n="nav_qa">QA &amp; Reflection</a></div>
 </footer>
 
 <script>
+/* ---------- TRANSLATIONS ---------- */
+const translations = {
+  en: {
+    nav_back: '\u2190 Back to Portfolio',
+    nav_overview: 'Overview',
+    nav_workflow: 'Workflow',
+    nav_processing: 'Processing',
+    nav_outputs: 'Outputs',
+    nav_qa: 'QA &amp; Reflection',
+
+    hero_kicker: 'UAV Photogrammetry \u00b7 Land Surveying Practice',
+    hero_h1: 'From UAV Images to<br><span class="accent">Surveying Geospatial Products.</span>',
+    hero_sub: 'A practical photogrammetry workflow processing 368 UAV images in Agisoft Metashape, integrating Ground Control Points, optimising camera geometry, reconstructing a 157-million-point cloud, and generating a DEM and high-resolution orthomosaic for validation and measurement in QGIS.',
+    htag_gcp: 'Ground Control Points',
+    htag_dpc: 'Dense Point Cloud',
+    htag_dem: 'DEM \u00b7 4.92 cm/pix',
+    htag_ortho: 'Orthomosaic \u00b7 2.46 cm/pix',
+    htag_qgis: 'QGIS \u00b7 QA/QC \u00b7 Measurement',
+    hbtn_workflow: 'View Processing Workflow',
+    hbtn_outputs: 'Outputs &amp; Measurements',
+    hbtn_accuracy: 'Accuracy Notes',
+
+    stat1_lbl: 'UAV images \u00b7 368/368 successfully aligned',
+    stat2_val: '299,594',
+    stat2_lbl: 'Tie points from initial image matching and alignment',
+    stat3_lbl: 'Dense point-cloud points reconstructed from depth maps',
+    stat4_val: '2.46<sup> cm</sup>',
+    stat4_lbl: 'Final orthomosaic ground pixel size',
+
+    s1_eye: '01 / Project Overview',
+    s1_title: 'A complete <span class="accent">photogrammetric processing chain</span>',
+    s1_desc: 'The project was completed as a hands-on training case in UAV photogrammetry for land surveying. The portfolio evidence focuses on the processing, control, quality review and GIS use of a supplied aerial image dataset.',
+    story1_head: 'Planning Context',
+    story1_body: 'Mission-planning principles were reviewed in DroneDeploy, including survey boundary, flight altitude, image overlap and GSD.',
+    story2_head: 'Photogrammetric Processing',
+    story2_body: '<strong>368 aerial images</strong> were aligned in Metashape, followed by GCPs import. Each control point was precisely measured across all overlapping images. The camera was then self-calibrated through bundle adjustment before a dense point cloud was reconstructed, from which the DEM and orthomosaic were finally generated.',
+    story3_head: 'Surveying Use',
+    story3_body: 'The final raster products were visualized in QGIS for <strong>spatial inspection, elevation querying and area measurement</strong>, connecting photogrammetric reconstruction with practical GIS-based surveying tasks.',
+
+    s2_eye: '02 / Methodology',
+    s2_title: 'From image alignment to <span class="accent">GIS-ready outputs</span>',
+    s2_desc: 'A photogrammetric workflow combining tie-point-based image alignment, GCP-constrained bundle adjustment and camera optimisation was used to establish a georeferenced image block. The optimised block was then used for dense point-cloud reconstruction and generation of a DEM and orthomosaic for subsequent spatial inspection, elevation querying and area measurement in QGIS.',
+    step1_n: 'Step 01', step1_t: 'Mission Planning Principles',
+    step1_d: 'Reviewed automated UAV mapping concepts in DroneDeploy: coverage boundary, altitude, forward/side overlap, GSD and repeatable flight-line geometry.',
+    step2_n: 'Step 02', step2_t: 'Image Alignment',
+    step2_d: 'Aligned 368 geotagged images using high-accuracy matching with source-based reference preselection. Feature matching produced 299,594 tie points, from which the relative camera positions and orientations were estimated to form a single coherent photogrammetric block for subsequent GCP adjustment.',
+    step3_n: 'Step 03', step3_t: 'GCP Import',
+    step3_d: 'Imported GCPs and assigned the correct coordinate fields and reference system, and integrated seven Ground Control Points into the photogrammetric block. Each GCP was then manually identified and precisely marked across multiple overlapping images to constrain the subsequent bundle adjustment and improve the block georeferencing.',
+    step4_n: 'Step 04', step4_t: 'Camera Optimisation',
+    step4_d: 'Optimised interior and distortion parameters after GCP marking, then reviewed control-point residuals to assess the accuracy of the adjusted block.',
+    step5_n: 'Step 05', step5_t: 'Dense Reconstruction',
+    step5_d: 'Generated high-quality depth maps and a dense point cloud containing 157,067,773 points, preserving terrain, buildings and vegetation structure across the mapped area.',
+    step6_n: 'Step 06', step6_t: 'DEM, Orthomosaic &amp; GIS QA',
+    step6_d: 'Derived a 4.92 cm/pixel DEM and 2.46 cm/pixel orthomosaic, then loaded the outputs into QGIS for contextual inspection, elevation queries and parcel-area measurement.',
+    stag_overlap: 'Overlap', stag_368: '368 Images', stag_40k: '40k Key Points',
+    stag_4k: '4k Tie Points', stag_7gcp: '7 GCPs', stag_gcpref: 'GCP Refinement',
+    stag_ba: 'Bundle Adjustment', stag_157: '157.1M Points',
+    stag_depth: 'Depth Maps', stag_3d: '3D Reconstruction',
+
+    s3_eye: '03 / Photogrammetric Workflow',
+    s3_title: 'Nine stages of the <span class="accent"> workflow</span>',
+    s3_desc: 'Selected screenshots document the key processing parameters, block adjustment, control integration, reconstruction steps and GIS-based quality checks. Repetitive interface views were omitted so that each visual documents a distinct technical stage of the workflow.',
+    fig1_k: 'Stage 01 \u00b7 Alignment Setup',
+    fig1_h: 'Image matching and reference preselection',
+    fig1_p: 'High-accuracy alignment was configured with generic and source-reference preselection. Feature extraction and matching limits were set to 40,000 key points and 4,000 tie points per image to establish the initial image correspondences.',
+    fig2_k: 'Stage 02 \u00b7 Block Adjustment',
+    fig2_h: '368 images aligned into a single photogrammetric block',
+    fig2_p: 'Feature matching generated 299,594 tie points, from which the relative image geometry and camera orientations were established for subsequent GCP-constrained adjustment.',
+    fig3_k: 'Stage 03 \u00b7 Ground Control Points',
+    fig3_h: 'Importing and distributing GCPs',
+    fig3_p: 'Seven ground control points were imported and spatially distributed across the block. These control observations provided the spatial reference required for the subsequent bundle adjustment.',
+    fig4_k: 'Stage 04 \u00b7 GCP Refinement',
+    fig4_h: 'Moving from approximate to image-level control',
+    fig4_p: 'Each GCP was inspected in multiple overlapping photographs and manually positioned at the centre of the corresponding ground target. The before-and-after comparison demonstrates the difference between an initially predicted marker position and the image-level observation used for photogrammetric adjustment.',
+    fig5_k: 'Stage 05 \u00b7 Bundle Adjustment &amp; QA',
+    fig5_h: 'Optimising camera parameters and checking GCP residuals',
+    fig5_p: 'Camera parameters were re-estimated after GCP marking. Metashape displayed a total control-point residual of approximately 0.005 m for the adjusted solution.',
+    fig6_k: 'Stage 06 \u00b7 Dense Reconstruction',
+    fig6_h: '157 million points reconstructed from depth maps',
+    fig6_p: 'Depth-map reconstruction generated a dense point cloud containing 157,067,773 points. The resulting 3D dataset represents the reconstructed surface geometry of the survey area, including agricultural fields, roads, buildings and vegetation, and provides the geometric basis for subsequent elevation-model generation.',
+    fig7_k: 'Stage 07 \u00b7 Elevation Model',
+    fig7_h: 'DEM generated at 4.92 cm/pixel',
+    fig7_p: 'The reconstructed point cloud was interpolated into a 27,858 \u00d7 28,015 pixel DEM with a raster resolution of approximately 4.92 cm/pixel. Elevation values displayed within the processed area range approximately from 490 m to 537 m.',
+    fig8_k: 'Stage 08 \u00b7 Orthomosaic Generation',
+    fig8_h: '2.46 cm/pixel orthomosaic from the DEM surface',
+    fig8_p: 'The final RGB orthomosaic was generated using the elevation model as the reference surface and mosaic blending to combine the individual images into a continuous georeferenced raster. The resulting product contains 27,647 \u00d7 27,136 pixels at approximately 2.46 cm/pixel.',
+    fig9_k: 'Stage 09 \u00b7 Validation &amp; Measurement',
+    fig9_h: 'Inspecting photogrammetric outputs in QGIS',
+    fig9_p: 'The exported orthomosaic and elevation raster were loaded into QGIS for spatial inspection and measurement. The orthomosaic was compared with contextual reference imagery, elevation values were queried from the raster, and a field parcel delineated from the orthomosaic returned an ellipsoidal area of 2,201.957 m\u00b2.',
+    figcap1: 'Orthomosaic overlay over Esri satellite basemap',
+    figcap2: 'Orthomosaic overlay over DEM',
+
+    s4_eye: '04 / Outputs &amp; Measurements',
+    s4_title: 'What the workflow <span class="accent">produced</span>',
+    s4_desc: 'The processing workflow produced a connected set of photogrammetric, 3D, elevation and orthorectified raster products that could be inspected, queried and measured within a GIS environment.',
+    res1_label: 'Photogrammetric Block',
+    res1_h4: 'Complete image alignment and GCP-controlled adjustment',
+    res1_p: 'All 368 images were aligned into one component. Seven GCPs were manually refined across overlapping images and incorporated into the adjustment before camera optimisation and residual assessment.',
+    m_aligned: 'Images Aligned', m_gcps: 'GCPs Used',
+    m_resid_val: '\u22480.005 m', m_resid: 'Displayed GCP Residual',
+    res2_label: '3D Reconstruction &amp; Elevation',
+    res2_h4: 'Dense Point Cloud reconstruction and elevation model',
+    res2_p: 'High-quality depth-map workflow generated 157,067,773 points. This dataset provided the source geometry for generation of the elevation raster at a 4.92 cm pixel size.',
+    m_pc: 'Point Cloud', m_dem_val: '4.92 cm', m_dem: 'DEM Pixel', m_range: 'Displayed Range',
+    res3_label: 'Orthomosaic &amp; GIS',
+    res3_h4: 'High-resolution orthorectified imagery for spatial inspection and measurement',
+    res3_p: '2.46 cm/pixel RGB orthomosaic was generated from the adjusted photogrammetric block and elevation surface. After export to QGIS, the raster was inspected against contextual imagery and used for parcel delineation, area calculation and spatial interpretation.',
+    m_ortho_val: '2.46 cm', m_ortho: 'Ortho Pixel',
+    m_parcel_val: '2,201.957 m\u00b2', m_parcel: 'Measured Parcel',
+
+    s5_eye: '05 / Quality Control &amp; Professional Reflection',
+    s5_title: 'Accuracy is more than a <span class="accent">small residual</span>',
+    s5_desc: 'The workflow demonstrates GCP-constrained photogrammetric processing, while deliberately distinguishing the internal fit of the adjusted block from independently verified positional accuracy.',
+    lim1_h4: 'What the 0.005 m value represents',
+    lim1_p: 'The approximately 0.005 m value displayed in Metashape represents the residual associated with the Ground Control Points used in the adjustment. It indicates a close fit between the photogrammetric solution and the control observations, but it does not constitute an independent assessment of absolute positional accuracy. Because the same control points contribute to the adjustment, their residuals should not be interpreted as equivalent to accuracy obtained from independent validation points.',
+    lim2_h4: 'What a production survey would add',
+    lim2_p: 'For a production UAV survey, a subset of independently surveyed points would normally be withheld from the bundle adjustment and used as checkpoints. Horizontal and vertical errors could then be calculated against these independent observations and reported using suitable statistics such as RMSE. The control documentation would also record the coordinate acquisition method, reference system, control-point geometry and processing configuration to maintain traceability of the final products.',
+
+    s6_eye: '06 / Technical Stack',
+    s6_title: 'Tools, Software &amp; <span class="accent">photogrammetric concepts</span>',
+    s6_desc: 'This project combines UAV mission-planning principles, photogrammetric block processing, spatial control, 3D reconstruction and GIS-based inspection.',
+    tp1: '\ud83d\udee9\ufe0f DroneDeploy \u00b7 Planning Concepts',
+    tp2: '\ud83d\udcf7 Agisoft Metashape \u00b7 Photogrammetric Processing',
+    tp3: '\ud83d\uddfa\ufe0f QGIS \u00b7 GIS-Based Inspection',
+    tp4: '\ud83c\udfaf Ground Control Points \u00b7 Spatial Control',
+    tp5: '\ud83d\udd17 Feature Matching \u00b7 Tie-Points',
+    tp6: '\u2601\ufe0f Dense Point Cloud Reconstruction',
+    tp7: '\u26f0\ufe0f Digital Elevation Model',
+    tp8: '\ud83c\udf0d Orthomosaic',
+    tp9: '\ud83d\udcd0 Area &amp; Elevation Measurement',
+    tp10: '\u2705 QA / Residual Review',
+    tp11: '\ud83e\udded CRS / Georeferencing',
+
+    foot_brand: 'UAV Photogrammetry for Land Surveying \u00b7 Photogrammetric Processing &amp; GIS Validation'
+  },
+
+  de: {
+    nav_back: '\u2190 Zur\u00fcck zum Portfolio',
+    nav_overview: '\u00dcberblick',
+    nav_workflow: 'Workflow',
+    nav_processing: 'Prozessierung',
+    nav_outputs: 'Ergebnisse',
+    nav_qa: 'QA &amp; Reflexion',
+
+    hero_kicker: 'UAV-Photogrammetrie \u00b7 Vermessungspraxis',
+    hero_h1: 'Von UAV-Bildern zu<br><span class="accent">vermessungstechnischen Geodatenprodukten.</span>',
+    hero_sub: 'Ein praxisorientierter photogrammetrischer Workflow: Prozessierung von 368 UAV-Bildern in Agisoft Metashape, Integration von Passpunkten, Optimierung der Kamerageometrie, Rekonstruktion einer Punktwolke mit 157 Millionen Punkten sowie Erzeugung eines DGM und eines hochaufl\u00f6senden Orthomosaiks zur Validierung und Messung in QGIS.',
+    htag_gcp: 'Passpunkte',
+    htag_dpc: 'Dichte Punktwolke',
+    htag_dem: 'DGM \u00b7 4,92 cm/Pix',
+    htag_ortho: 'Orthomosaik \u00b7 2,46 cm/Pix',
+    htag_qgis: 'QGIS \u00b7 QA/QC \u00b7 Messung',
+    hbtn_workflow: 'Prozessierungs-Workflow ansehen',
+    hbtn_outputs: 'Ergebnisse &amp; Messungen',
+    hbtn_accuracy: 'Hinweise zur Genauigkeit',
+
+    stat1_lbl: 'UAV-Bilder \u00b7 368/368 erfolgreich orientiert',
+    stat2_val: '299.594',
+    stat2_lbl: 'Verkn\u00fcpfungspunkte aus der initialen Bildzuordnung und Orientierung',
+    stat3_lbl: 'Punkte der dichten Punktwolke, rekonstruiert aus Tiefenkarten',
+    stat4_val: '2,46<sup> cm</sup>',
+    stat4_lbl: 'Bodenpixelgr\u00f6\u00dfe des finalen Orthomosaiks',
+
+    s1_eye: '01 / Projekt\u00fcberblick',
+    s1_title: 'Eine vollst\u00e4ndige <span class="accent">photogrammetrische Prozessierungskette</span>',
+    s1_desc: 'Das Projekt wurde als praxisorientierter Trainingsfall in der UAV-Photogrammetrie f\u00fcr die Landvermessung durchgef\u00fchrt. Der Portfolio-Nachweis konzentriert sich auf die Prozessierung, die Passpunktkontrolle, die Qualit\u00e4tspr\u00fcfung und die GIS-Nutzung eines bereitgestellten Luftbilddatensatzes.',
+    story1_head: 'Planungskontext',
+    story1_body: 'Grunds\u00e4tze der Missionsplanung wurden in DroneDeploy betrachtet, einschlie\u00dflich Aufnahmegebiet, Flugh\u00f6he, Bild\u00fcberlappung und GSD.',
+    story2_head: 'Photogrammetrische Prozessierung',
+    story2_body: '<strong>368 Luftbilder</strong> wurden in Metashape orientiert, gefolgt vom Import der Passpunkte. Jeder Passpunkt wurde in allen \u00fcberlappenden Bildern pr\u00e4zise gemessen. Anschlie\u00dfend wurde die Kamera \u00fcber eine B\u00fcndelblockausgleichung selbstkalibriert, bevor eine dichte Punktwolke rekonstruiert wurde, aus der schlie\u00dflich das DGM und das Orthomosaik erzeugt wurden.',
+    story3_head: 'Vermessungstechnische Nutzung',
+    story3_body: 'Die finalen Rasterprodukte wurden in QGIS visualisiert f\u00fcr <strong>r\u00e4umliche Pr\u00fcfung, H\u00f6henabfrage und Fl\u00e4chenmessung</strong> und verbinden so die photogrammetrische Rekonstruktion mit praktischen GIS-basierten Vermessungsaufgaben.',
+
+    s2_eye: '02 / Methodik',
+    s2_title: 'Von der Bildorientierung zu <span class="accent">GIS-f\u00e4higen Ergebnissen</span>',
+    s2_desc: 'Ein photogrammetrischer Workflow aus verkn\u00fcpfungspunktbasierter Bildorientierung, passpunktgest\u00fctzter B\u00fcndelblockausgleichung und Kameraoptimierung wurde eingesetzt, um einen georeferenzierten Bildblock aufzubauen. Der optimierte Block diente anschlie\u00dfend der Rekonstruktion der dichten Punktwolke sowie der Erzeugung eines DGM und eines Orthomosaiks f\u00fcr die nachfolgende r\u00e4umliche Pr\u00fcfung, H\u00f6henabfrage und Fl\u00e4chenmessung in QGIS.',
+    step1_n: 'Schritt 01', step1_t: 'Grunds\u00e4tze der Missionsplanung',
+    step1_d: 'Betrachtung automatisierter UAV-Kartierungskonzepte in DroneDeploy: Aufnahmegebiet, Flugh\u00f6he, L\u00e4ngs-/Quer\u00fcberlappung, GSD und wiederholbare Fluglinien-Geometrie.',
+    step2_n: 'Schritt 02', step2_t: 'Bildorientierung',
+    step2_d: '368 geotaggte Bilder wurden mit hochgenauer Zuordnung und quellbasierter Referenzvorauswahl orientiert. Die Merkmalszuordnung erzeugte 299.594 Verkn\u00fcpfungspunkte, aus denen die relativen Kamerapositionen und -orientierungen gesch\u00e4tzt wurden, um einen einheitlichen photogrammetrischen Block f\u00fcr die nachfolgende Passpunktausgleichung zu bilden.',
+    step3_n: 'Schritt 03', step3_t: 'Passpunkt-Import',
+    step3_d: 'Import der Passpunkte mit Zuweisung der korrekten Koordinatenfelder und des Referenzsystems sowie Integration von sieben Passpunkten in den photogrammetrischen Block. Jeder Passpunkt wurde anschlie\u00dfend manuell identifiziert und in mehreren \u00fcberlappenden Bildern pr\u00e4zise markiert, um die nachfolgende B\u00fcndelblockausgleichung zu st\u00fctzen und die Georeferenzierung des Blocks zu verbessern.',
+    step4_n: 'Schritt 04', step4_t: 'Kameraoptimierung',
+    step4_d: 'Optimierung der inneren Orientierung und der Verzeichnungsparameter nach der Passpunktmarkierung, anschlie\u00dfend Pr\u00fcfung der Passpunktresiduen zur Beurteilung der Genauigkeit des ausgeglichenen Blocks.',
+    step5_n: 'Schritt 05', step5_t: 'Dichte Rekonstruktion',
+    step5_d: 'Erzeugung hochwertiger Tiefenkarten und einer dichten Punktwolke mit 157.067.773 Punkten, welche die Struktur von Gel\u00e4nde, Geb\u00e4uden und Vegetation im Kartierungsgebiet abbildet.',
+    step6_n: 'Schritt 06', step6_t: 'DGM, Orthomosaik &amp; GIS-QA',
+    step6_d: 'Ableitung eines DGM mit 4,92 cm/Pixel und eines Orthomosaiks mit 2,46 cm/Pixel, anschlie\u00dfend Laden der Ergebnisse in QGIS f\u00fcr kontextbezogene Pr\u00fcfung, H\u00f6henabfragen und Flurst\u00fccksfl\u00e4chenmessung.',
+    stag_overlap: '\u00dcberlappung', stag_368: '368 Bilder', stag_40k: '40k Schl\u00fcsselpunkte',
+    stag_4k: '4k Verkn\u00fcpfungspunkte', stag_7gcp: '7 Passpunkte', stag_gcpref: 'Passpunkt-Verfeinerung',
+    stag_ba: 'B\u00fcndelblockausgleichung', stag_157: '157,1 Mio. Punkte',
+    stag_depth: 'Tiefenkarten', stag_3d: '3D-Rekonstruktion',
+
+    s3_eye: '03 / Photogrammetrischer Workflow',
+    s3_title: 'Neun Stufen des <span class="accent"> Workflows</span>',
+    s3_desc: 'Ausgew\u00e4hlte Screenshots dokumentieren die wesentlichen Prozessierungsparameter, die Blockausgleichung, die Passpunktintegration, die Rekonstruktionsschritte und die GIS-basierten Qualit\u00e4tspr\u00fcfungen. Sich wiederholende Oberfl\u00e4chenansichten wurden weggelassen, sodass jede Abbildung eine eigene technische Stufe des Workflows dokumentiert.',
+    fig1_k: 'Stufe 01 \u00b7 Konfiguration der Orientierung',
+    fig1_h: 'Bildzuordnung und Referenzvorauswahl',
+    fig1_p: 'Die hochgenaue Orientierung wurde mit generischer und quellbasierter Referenzvorauswahl konfiguriert. Die Grenzwerte f\u00fcr Merkmalsextraktion und -zuordnung wurden auf 40.000 Schl\u00fcsselpunkte und 4.000 Verkn\u00fcpfungspunkte pro Bild gesetzt, um die initialen Bildkorrespondenzen herzustellen.',
+    fig2_k: 'Stufe 02 \u00b7 Blockausgleichung',
+    fig2_h: '368 Bilder zu einem einzigen photogrammetrischen Block orientiert',
+    fig2_p: 'Die Merkmalszuordnung erzeugte 299.594 Verkn\u00fcpfungspunkte, aus denen die relative Bildgeometrie und die Kameraorientierungen f\u00fcr die nachfolgende passpunktgest\u00fctzte Ausgleichung bestimmt wurden.',
+    fig3_k: 'Stufe 03 \u00b7 Passpunkte',
+    fig3_h: 'Import und Verteilung der Passpunkte',
+    fig3_p: 'Sieben Passpunkte wurden importiert und r\u00e4umlich \u00fcber den Block verteilt. Diese Kontrollbeobachtungen lieferten den r\u00e4umlichen Bezug, der f\u00fcr die nachfolgende B\u00fcndelblockausgleichung erforderlich ist.',
+    fig4_k: 'Stufe 04 \u00b7 Passpunkt-Verfeinerung',
+    fig4_h: 'Von der N\u00e4herung zur bildbasierten Passpunktkontrolle',
+    fig4_p: 'Jeder Passpunkt wurde in mehreren \u00fcberlappenden Aufnahmen gepr\u00fcft und manuell in der Mitte der zugeh\u00f6rigen Bodenmarke positioniert. Der Vorher-Nachher-Vergleich zeigt den Unterschied zwischen einer zun\u00e4chst pr\u00e4dizierten Markerposition und der bildbasierten Beobachtung, die f\u00fcr die photogrammetrische Ausgleichung verwendet wurde.',
+    fig5_k: 'Stufe 05 \u00b7 B\u00fcndelblockausgleichung &amp; QA',
+    fig5_h: 'Optimierung der Kameraparameter und Pr\u00fcfung der Passpunktresiduen',
+    fig5_p: 'Die Kameraparameter wurden nach der Passpunktmarkierung neu gesch\u00e4tzt. Metashape zeigte f\u00fcr die ausgeglichene L\u00f6sung ein Gesamtresiduum der Passpunkte von etwa 0,005 m an.',
+    fig6_k: 'Stufe 06 \u00b7 Dichte Rekonstruktion',
+    fig6_h: '157 Millionen Punkte aus Tiefenkarten rekonstruiert',
+    fig6_p: 'Die Tiefenkarten-Rekonstruktion erzeugte eine dichte Punktwolke mit 157.067.773 Punkten. Der resultierende 3D-Datensatz repr\u00e4sentiert die rekonstruierte Oberfl\u00e4chengeometrie des Aufnahmegebiets, einschlie\u00dflich landwirtschaftlicher Fl\u00e4chen, Stra\u00dfen, Geb\u00e4ude und Vegetation, und bildet die geometrische Grundlage f\u00fcr die nachfolgende Erzeugung des H\u00f6henmodells.',
+    fig7_k: 'Stufe 07 \u00b7 H\u00f6henmodell',
+    fig7_h: 'DGM mit 4,92 cm/Pixel erzeugt',
+    fig7_p: 'Die rekonstruierte Punktwolke wurde zu einem DGM mit 27.858 \u00d7 28.015 Pixeln und einer Rasteraufl\u00f6sung von etwa 4,92 cm/Pixel interpoliert. Die im prozessierten Gebiet dargestellten H\u00f6henwerte reichen von etwa 490 m bis 537 m.',
+    fig8_k: 'Stufe 08 \u00b7 Erzeugung des Orthomosaiks',
+    fig8_h: 'Orthomosaik mit 2,46 cm/Pixel auf Basis der DGM-Oberfl\u00e4che',
+    fig8_p: 'Das finale RGB-Orthomosaik wurde unter Verwendung des H\u00f6henmodells als Bezugsfl\u00e4che und mit Mosaik-Blending erzeugt, um die Einzelbilder zu einem durchgehenden georeferenzierten Raster zusammenzuf\u00fcgen. Das resultierende Produkt umfasst 27.647 \u00d7 27.136 Pixel bei etwa 2,46 cm/Pixel.',
+    fig9_k: 'Stufe 09 \u00b7 Validierung &amp; Messung',
+    fig9_h: 'Pr\u00fcfung der photogrammetrischen Ergebnisse in QGIS',
+    fig9_p: 'Das exportierte Orthomosaik und das H\u00f6henraster wurden zur r\u00e4umlichen Pr\u00fcfung und Messung in QGIS geladen. Das Orthomosaik wurde mit kontextbezogenen Referenzbildern verglichen, H\u00f6henwerte wurden aus dem Raster abgefragt, und ein aus dem Orthomosaik abgegrenztes Flurst\u00fcck ergab eine ellipsoidische Fl\u00e4che von 2.201,957 m\u00b2.',
+    figcap1: 'Orthomosaik-\u00dcberlagerung auf Esri-Satellitenbasiskarte',
+    figcap2: 'Orthomosaik-\u00dcberlagerung auf DGM',
+
+    s4_eye: '04 / Ergebnisse &amp; Messungen',
+    s4_title: 'Was der Workflow <span class="accent">erzeugt hat</span>',
+    s4_desc: 'Der Prozessierungs-Workflow erzeugte einen zusammenh\u00e4ngenden Satz photogrammetrischer, 3D-, H\u00f6hen- und orthorektifizierter Rasterprodukte, die in einer GIS-Umgebung gepr\u00fcft, abgefragt und gemessen werden konnten.',
+    res1_label: 'Photogrammetrischer Block',
+    res1_h4: 'Vollst\u00e4ndige Bildorientierung und passpunktgest\u00fctzte Ausgleichung',
+    res1_p: 'Alle 368 Bilder wurden zu einer Komponente orientiert. Sieben Passpunkte wurden in \u00fcberlappenden Bildern manuell verfeinert und vor der Kameraoptimierung und der Residuenbewertung in die Ausgleichung einbezogen.',
+    m_aligned: 'Orientierte Bilder', m_gcps: 'Verwendete Passpunkte',
+    m_resid_val: '\u22480,005 m', m_resid: 'Angezeigtes Passpunktresiduum',
+    res2_label: '3D-Rekonstruktion &amp; H\u00f6he',
+    res2_h4: 'Rekonstruktion der dichten Punktwolke und H\u00f6henmodell',
+    res2_p: 'Der hochwertige Tiefenkarten-Workflow erzeugte 157.067.773 Punkte. Dieser Datensatz lieferte die Ausgangsgeometrie f\u00fcr die Erzeugung des H\u00f6henrasters mit einer Pixelgr\u00f6\u00dfe von 4,92 cm.',
+    m_pc: 'Punktwolke', m_dem_val: '4,92 cm', m_dem: 'DGM-Pixel', m_range: 'Angezeigter Bereich',
+    res3_label: 'Orthomosaik &amp; GIS',
+    res3_h4: 'Hochaufl\u00f6sende orthorektifizierte Bilddaten f\u00fcr r\u00e4umliche Pr\u00fcfung und Messung',
+    res3_p: 'Ein RGB-Orthomosaik mit 2,46 cm/Pixel wurde aus dem ausgeglichenen photogrammetrischen Block und der H\u00f6henoberfl\u00e4che erzeugt. Nach dem Export nach QGIS wurde das Raster gegen kontextbezogene Bilddaten gepr\u00fcft und f\u00fcr die Flurst\u00fccksabgrenzung, Fl\u00e4chenberechnung und r\u00e4umliche Interpretation verwendet.',
+    m_ortho_val: '2,46 cm', m_ortho: 'Ortho-Pixel',
+    m_parcel_val: '2.201,957 m\u00b2', m_parcel: 'Gemessenes Flurst\u00fcck',
+
+    s5_eye: '05 / Qualit\u00e4tskontrolle &amp; fachliche Reflexion',
+    s5_title: 'Genauigkeit ist mehr als ein <span class="accent">kleines Residuum</span>',
+    s5_desc: 'Der Workflow zeigt eine passpunktgest\u00fctzte photogrammetrische Prozessierung und unterscheidet dabei bewusst zwischen der inneren Anpassung des ausgeglichenen Blocks und einer unabh\u00e4ngig verifizierten Lagegenauigkeit.',
+    lim1_h4: 'Was der Wert von 0,005 m bedeutet',
+    lim1_p: 'Der in Metashape angezeigte Wert von etwa 0,005 m entspricht dem Residuum der in der Ausgleichung verwendeten Passpunkte. Er zeigt eine enge \u00dcbereinstimmung zwischen der photogrammetrischen L\u00f6sung und den Kontrollbeobachtungen, stellt jedoch keine unabh\u00e4ngige Beurteilung der absoluten Lagegenauigkeit dar. Da dieselben Passpunkte in die Ausgleichung eingehen, d\u00fcrfen ihre Residuen nicht als gleichwertig mit einer aus unabh\u00e4ngigen Kontrollpunkten ermittelten Genauigkeit interpretiert werden.',
+    lim2_h4: 'Was eine Produktionsvermessung zus\u00e4tzlich leisten w\u00fcrde',
+    lim2_p: 'Bei einer produktiven UAV-Vermessung w\u00fcrde \u00fcblicherweise ein Teil der unabh\u00e4ngig eingemessenen Punkte von der B\u00fcndelblockausgleichung ausgenommen und als Kontrollpunkte verwendet. Lage- und H\u00f6henabweichungen k\u00f6nnten dann gegen diese unabh\u00e4ngigen Beobachtungen berechnet und mit geeigneten Kennzahlen wie dem RMSE angegeben werden. Die Passpunktdokumentation w\u00fcrde zudem das Verfahren der Koordinatenbestimmung, das Bezugssystem, die Passpunktgeometrie und die Prozessierungskonfiguration festhalten, um die Nachvollziehbarkeit der Endprodukte zu gew\u00e4hrleisten.',
+
+    s6_eye: '06 / Technischer Stack',
+    s6_title: 'Werkzeuge, Software &amp; <span class="accent">photogrammetrische Konzepte</span>',
+    s6_desc: 'Dieses Projekt verbindet Grunds\u00e4tze der UAV-Missionsplanung, photogrammetrische Blockprozessierung, r\u00e4umliche Passpunktkontrolle, 3D-Rekonstruktion und GIS-basierte Pr\u00fcfung.',
+    tp1: '\ud83d\udee9\ufe0f DroneDeploy \u00b7 Planungskonzepte',
+    tp2: '\ud83d\udcf7 Agisoft Metashape \u00b7 Photogrammetrische Prozessierung',
+    tp3: '\ud83d\uddfa\ufe0f QGIS \u00b7 GIS-basierte Pr\u00fcfung',
+    tp4: '\ud83c\udfaf Passpunkte \u00b7 R\u00e4umliche Kontrolle',
+    tp5: '\ud83d\udd17 Merkmalszuordnung \u00b7 Verkn\u00fcpfungspunkte',
+    tp6: '\u2601\ufe0f Rekonstruktion dichter Punktwolken',
+    tp7: '\u26f0\ufe0f Digitales Gel\u00e4ndemodell',
+    tp8: '\ud83c\udf0d Orthomosaik',
+    tp9: '\ud83d\udcd0 Fl\u00e4chen- &amp; H\u00f6henmessung',
+    tp10: '\u2705 QA / Residuenpr\u00fcfung',
+    tp11: '\ud83e\udded CRS / Georeferenzierung',
+
+    foot_brand: 'UAV-Photogrammetrie f\u00fcr die Landvermessung \u00b7 Photogrammetrische Prozessierung &amp; GIS-Validierung'
+  }
+};
+
+/* ---------- LANGUAGE SWITCH ---------- */
+function setLanguage(lang) {
+  const t = translations[lang];
+  if (!t) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('.lang-toggle button').forEach((btn, i) => {
+    btn.classList.toggle('active', (i === 0 && lang === 'en') || (i === 1 && lang === 'de'));
+  });
+  document.documentElement.lang = lang;
+  try { localStorage.setItem('lang', lang); } catch (e) {}
+}
+
+(function () {
+  let saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  const auto = navigator.language && navigator.language.startsWith('de') ? 'de' : 'en';
+  setLanguage(saved || auto);
+})();
+
+/* ---------- SCROLL REVEAL ---------- */
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
